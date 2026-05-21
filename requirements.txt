@@ -1,0 +1,23 @@
+# API
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+
+# LLM / Agentes
+pydantic-ai>=0.0.14
+openai>=1.30.0
+pydantic>=2.7.0
+
+# RAG / Embeddings
+chromadb>=0.5.0
+langchain-chroma>=0.1.0
+langchain-huggingface>=0.0.3
+sentence-transformers>=3.0.0
+# torch instalado por separado en Dockerfile (CPU-only)
+
+# SPARQL / Ontología
+requests>=2.32.0
+SPARQLWrapper>=2.0.0
+
+# Utilidades
+python-dotenv>=1.0.0

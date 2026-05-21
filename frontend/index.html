@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SA-MultiAgent — Sistema de Inteligencia Operacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── Variables ─────────────────────────────────────────── */
+:root {
+  --bg:          #0a0c0f;
+  --bg2:         #111418;
+  --bg3:         #181c22;
+  --border:      #232830;
+  --border2:     #2e3540;
+  --accent:      #00e5a0;
+  --accent-dim:  #00a06e;
+  --accent-glow: rgba(0,229,160,0.12);
+  --warn:        #f0b429;
+  --warn-dim:    rgba(240,180,41,0.12);
+  --info:        #4ea8de;
+  --info-dim:    rgba(78,168,222,0.12);
+  --danger:      #ff5c5c;
+  --danger-dim:  rgba(255,92,92,0.12);
+  --text:        #c8d0da;
+  --text-dim:    #5a6270;
+  --text-bright: #eef1f5;
+  --mono:        'Share Tech Mono', monospace;
+  --head:        'Barlow Condensed', sans-serif;
+  --body:        'Barlow', sans-serif;
+  --radius:      4px;
+  --scan-speed:  8s;
+}
+
+/* ─── Reset / Base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ─── Scanline overlay ──────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.04) 2px,
+    rgba(0,0,0,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── Layout ────────────────────────────────────────────── */
+#app { height: 100vh; display: flex; flex-direction: column; }
+
+/* ─── Header ────────────────────────────────────────────── */
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  height: 52px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.header-left { display: flex; align-items: center; gap: 16px; }
+.logo {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.logo span { color: var(--text-dim); }
+.status-bar {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  transition: background 0.3s;
+}
+.status-dot.online { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
+
+.header-right { display: flex; align-items: center; gap: 16px; }
+.domain-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  border: 1px solid var(--border2);
+  color: var(--text-dim);
+  display: none;
+}
+.domain-badge.air     { color: #4ea8de; border-color: #4ea8de44; background: rgba(78,168,222,0.07); }
+.domain-badge.land    { color: var(--accent); border-color: var(--accent-dim); background: var(--accent-glow); }
+.domain-badge.maritime{ color: #a78bfa; border-color: #a78bfa44; background: rgba(167,139,250,0.07); }
+
+.operator-info {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  display: none;
+}
+#btn-logout {
+  display: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text-dim);
+  padding: 4px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#btn-logout:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ─── Screens ────────────────────────────────────────────── */
+.screen { display: none; flex: 1; overflow: hidden; }
+.screen.active { display: flex; }
+
+/* ─── LOGIN SCREEN ───────────────────────────────────────── */
+#screen-login {
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 110%, rgba(0,229,160,0.06) 0%, transparent 70%),
+    var(--bg);
+}
+.login-card {
+  width: 380px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  position: relative;
+}
+.login-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.login-title {
+  font-family: var(--head);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+.login-subtitle {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+}
+.field { margin-bottom: 20px; }
+.field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.field input, .field select {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  color: var(--text-bright);
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+.field input:focus, .field select:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+.field select { cursor: pointer; }
+.field select option { background: var(--bg3); }
+
+#btn-login {
+  width: 100%;
+  margin-top: 8px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  color: #000;
+  font-family: var(--head);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#btn-login:hover { background: #00ffb3; box-shadow: 0 0 20px rgba(0,229,160,0.3); }
+#btn-login:disabled { opacity: 0.5; cursor: not-allowed; }
+#login-error {
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--danger);
+  text-align: center;
+  min-height: 16px;
+}
+
+/* ─── CHAT SCREEN ────────────────────────────────────────── */
+#screen-chat { flex-direction: column; }
+
+/* Messages area */
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  scroll-behavior: smooth;
+}
+#messages::-webkit-scrollbar { width: 4px; }
+#messages::-webkit-scrollbar-track { background: transparent; }
+#messages::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* Message rows */
+.msg-row {
+  display: flex;
+  margin-bottom: 20px;
+  animation: msgIn 0.25s ease forwards;
+  opacity: 0;
+  transform: translateY(8px);
+}
+@keyframes msgIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+.msg-row.user { justify-content: flex-end; }
+.msg-row.assistant { justify-content: flex-start; }
+
+/* Bubbles */
+.bubble {
+  max-width: 72%;
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  line-height: 1.65;
+  position: relative;
+}
+.bubble.user {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text-bright);
+  font-size: 13.5px;
+}
+.bubble.assistant {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  color: var(--text);
+  font-size: 13.5px;
+  width: 100%;
+  max-width: 84%;
+}
+.bubble.assistant.degraded { border-left-color: var(--warn); }
+.bubble.assistant.failure  { border-left-color: var(--danger); }
+
+/* Role label */
+.bubble-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.bubble.assistant .bubble-label { color: var(--accent-dim); }
+
+/* Response text (markdown-lite) */
+.response-text { white-space: pre-wrap; word-break: break-word; }
+.response-text strong { color: var(--text-bright); font-weight: 600; }
+.response-text em { color: var(--accent); font-style: normal; }
+.response-text code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--bg3);
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: var(--accent);
+}
+
+/* Banners */
+.banner {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+}
+.banner-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+.banner.degraded { background: var(--warn-dim); border: 1px solid rgba(240,180,41,0.2); color: var(--warn); }
+.banner.clarification { background: var(--info-dim); border: 1px solid rgba(78,168,222,0.2); color: var(--info); }
+.banner.failure { background: var(--danger-dim); border: 1px solid rgba(255,92,92,0.2); color: var(--danger); }
+
+/* Citations */
+.citations-toggle {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  transition: color 0.2s;
+}
+.citations-toggle:hover { color: var(--text); }
+.citations-toggle .chevron {
+  display: inline-block;
+  transition: transform 0.2s;
+  font-size: 8px;
+}
+.citations-toggle.open .chevron { transform: rotate(90deg); }
+
+.citations-panel {
+  display: none;
+  margin-top: 8px;
+  border-left: 1px solid var(--border2);
+  padding-left: 14px;
+}
+.citations-panel.open { display: block; }
+
+.citation-item {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: var(--bg3);
+  border-radius: var(--radius);
+  font-size: 12px;
+}
+.citation-source {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent-dim);
+  margin-bottom: 4px;
+}
+.citation-excerpt { color: var(--text-dim); line-height: 1.5; }
+
+/* Entities */
+.entities-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.entity-chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+.entity-chip .type { color: var(--text-dim); font-size: 9px; margin-right: 4px; opacity: 0.6; }
+.entity-chip .iri { color: var(--accent-dim); }
+
+/* Debug panel */
+.debug-row {
+  display: none;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.3);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.debug-row.visible { display: flex; }
+.debug-item { display: flex; gap: 4px; }
+.debug-key { color: var(--text-dim); }
+.debug-val { color: var(--accent-dim); }
+
+/* Pipeline trace */
+.trace-section {
+  display: none;
+  margin-top: 12px;
+}
+.trace-section.visible { display: block; }
+
+.trace-toggle {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  transition: color 0.2s;
+}
+.trace-toggle:hover { color: var(--warn); }
+.trace-toggle .chevron { display: inline-block; transition: transform 0.2s; font-size: 8px; }
+.trace-toggle.open .chevron { transform: rotate(90deg); }
+
+.trace-panel {
+  display: none;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.trace-panel.open { display: block; }
+
+.trace-tabs {
+  display: flex;
+  background: rgba(0,0,0,0.4);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.trace-tab {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  white-space: nowrap;
+  border-right: 1px solid var(--border);
+  transition: all 0.15s;
+  position: relative;
+}
+.trace-tab:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+.trace-tab.active { color: var(--accent); background: rgba(0,229,160,0.06); }
+.trace-tab.active::after {
+  content: '';
+  position: absolute; bottom: -1px; left: 0; right: 0;
+  height: 1px;
+  background: var(--accent);
+}
+.trace-tab.status-ok    { }
+.trace-tab.status-fail  { color: var(--danger) !important; }
+.trace-tab.status-warn  { color: var(--warn) !important; }
+.trace-tab .tab-status  { margin-left: 5px; font-size: 9px; }
+
+.trace-pane {
+  display: none;
+  padding: 0;
+}
+.trace-pane.active { display: block; }
+
+.trace-sub {
+  border-bottom: 1px solid var(--border);
+}
+.trace-sub:last-child { border-bottom: none; }
+.trace-sub-header {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 12px 4px;
+  background: rgba(0,0,0,0.2);
+}
+.trace-sub-header.in  { color: var(--info); }
+.trace-sub-header.out { color: var(--accent-dim); }
+.trace-sub-header.err { color: var(--danger); }
+
+pre.trace-json {
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.55;
+  color: var(--text);
+  background: transparent;
+  padding: 8px 12px 10px;
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 360px;
+  overflow-y: auto;
+}
+pre.trace-json::-webkit-scrollbar { width: 4px; height: 4px; }
+pre.trace-json::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* JSON syntax highlight */
+.jk { color: #7ec8e3; }   /* key */
+.js { color: #a8c97f; }   /* string value */
+.jn { color: #d4a3e8; }   /* number */
+.jb { color: var(--warn); }  /* boolean */
+.jnull { color: var(--danger); } /* null */
+
+/* Typing indicator */
+.typing-row { margin-bottom: 16px; }
+.typing-bubble {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.typing-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); }
+.typing-dots { display: flex; gap: 4px; }
+.typing-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  animation: pulse 1.4s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40%           { opacity: 1;   transform: scale(1.1); }
+}
+
+/* Welcome message */
+.welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 60px;
+  opacity: 0.5;
+}
+.welcome-icon { font-size: 32px; filter: grayscale(1); }
+.welcome-text {
+  font-family: var(--head);
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.welcome-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  opacity: 0.6;
+  text-align: center;
+  max-width: 320px;
+}
+
+/* ─── Input area ─────────────────────────────────────────── */
+#input-area {
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  padding: 16px 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+#query-input {
+  flex: 1;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  color: var(--text-bright);
+  font-family: var(--body);
+  font-size: 14px;
+  padding: 10px 16px;
+  resize: none;
+  outline: none;
+  max-height: 120px;
+  min-height: 42px;
+  line-height: 1.5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#query-input:focus {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 0 2px var(--accent-glow);
+}
+#query-input::placeholder { color: var(--text-dim); }
+
+#btn-send {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  color: #000;
+}
+#btn-send:hover { background: #00ffb3; box-shadow: 0 0 14px rgba(0,229,160,0.35); }
+#btn-send:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+#btn-send svg { width: 16px; height: 16px; }
+
+/* Input footer */
+.input-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 24px 10px;
+  background: var(--bg2);
+  flex-shrink: 0;
+}
+.input-hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+#toggle-debug {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+#toggle-debug:hover { color: var(--text); border-color: var(--border2); }
+#toggle-debug.active { color: var(--accent-dim); border-color: var(--accent-dim); }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-left">
+      <div class="logo">SA<span>-</span>MultiAgent <span>// C2 Intelligence</span></div>
+      <div class="status-bar">
+        <div class="status-dot" id="status-dot"></div>
+        <span id="status-text">OFFLINE</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="operator-info" id="operator-info"></span>
+      <span class="domain-badge" id="domain-badge"></span>
+      <button id="btn-logout">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <!-- ── LOGIN SCREEN ── -->
+  <div id="screen-login" class="screen active">
+    <div class="login-card">
+      <div class="login-title">Acceso</div>
+      <div class="login-subtitle">SISTEMA DE INTELIGENCIA OPERACIONAL</div>
+
+      <div class="field">
+        <label>ID de Operador</label>
+        <input type="text" id="login-operator" placeholder="operador-01" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Dominio Operacional</label>
+        <select id="login-domain">
+          <option value="" disabled selected>— Seleccionar —</option>
+          <option value="land">Terrestre (AJP-3.2)</option>
+          <option value="air">Aéreo (AJP-3.3)</option>
+          <option value="maritime">Marítimo (AJP-3.1)</option>
+        </select>
+      </div>
+
+      <button id="btn-login" disabled>Iniciar sesión</button>
+      <div id="login-error"></div>
+    </div>
+  </div>
+
+  <!-- ── CHAT SCREEN ── -->
+  <div id="screen-chat" class="screen">
+    <div id="messages">
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon">⬡</div>
+        <div class="welcome-text">Sistema listo</div>
+        <div class="welcome-sub">Consulta sobre la red C2, análisis de impacto o doctrinas militares.</div>
+      </div>
+    </div>
+
+    <div id="input-area">
+      <textarea
+        id="query-input"
+        rows="1"
+        placeholder="Consultar red C2, impacto operacional, doctrinas..."
+      ></textarea>
+      <button id="btn-send" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+    <div class="input-footer">
+      <span class="input-hint">Enter para enviar · Shift+Enter nueva línea</span>
+      <button id="toggle-debug">Debug</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ─── State ──────────────────────────────────────────────────────────────
+const state = {
+  sessionId: null,
+  operatorId: null,
+  domain: null,
+  loading: false,
+  debugMode: false,
+};
+
+// ─── DOM refs ────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const loginScreen    = $('screen-login');
+const chatScreen     = $('screen-chat');
+const messages       = $('messages');
+const welcome        = $('welcome');
+const queryInput     = $('query-input');
+const btnSend        = $('btn-send');
+const btnLogin       = $('btn-login');
+const btnLogout      = $('btn-logout');
+const loginOperator  = $('login-operator');
+const loginDomain    = $('login-domain');
+const loginError     = $('login-error');
+const statusDot      = $('status-dot');
+const statusText     = $('status-text');
+const operatorInfo   = $('operator-info');
+const domainBadge    = $('domain-badge');
+const toggleDebug    = $('toggle-debug');
+
+// ─── API helpers ─────────────────────────────────────────────────────────
+const API = '/api';
+
+async function apiPost(path, body, headers = {}) {
+  const res = await fetch(API + path, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...headers },
+    body: JSON.stringify(body),
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.detail || `HTTP ${res.status}`);
+  return data;
+}
+
+async function apiDelete(path, headers = {}) {
+  await fetch(API + path, { method: 'DELETE', headers });
+}
+
+// ─── Login form validation ───────────────────────────────────────────────
+function validateLogin() {
+  btnLogin.disabled = !(loginOperator.value.trim() && loginDomain.value);
+}
+loginOperator.addEventListener('input', validateLogin);
+loginDomain.addEventListener('change', validateLogin);
+
+loginOperator.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !btnLogin.disabled) btnLogin.click();
+});
+
+// ─── Login ───────────────────────────────────────────────────────────────
+btnLogin.addEventListener('click', async () => {
+  const opId   = loginOperator.value.trim();
+  const domain = loginDomain.value;
+  loginError.textContent = '';
+  btnLogin.disabled = true;
+  btnLogin.textContent = 'Conectando...';
+
+  try {
+    const data = await apiPost('/login', { operator_id: opId, domain });
+    state.sessionId  = data.session_id;
+    state.operatorId = data.operator_id;
+    state.domain     = data.domain;
+
+    // Update header
+    operatorInfo.textContent = opId;
+    operatorInfo.style.display = 'block';
+    domainBadge.textContent = domain.toUpperCase();
+    domainBadge.className = `domain-badge ${domain}`;
+    domainBadge.style.display = 'block';
+    btnLogout.style.display = 'block';
+
+    // Status
+    statusDot.className = 'status-dot online';
+    statusText.textContent = 'ONLINE';
+
+    // Switch screen
+    loginScreen.classList.remove('active');
+    chatScreen.classList.add('active');
+    btnSend.disabled = false;
+    queryInput.focus();
+
+  } catch (err) {
+    loginError.textContent = err.message;
+    btnLogin.disabled = false;
+    btnLogin.textContent = 'Iniciar sesión';
+  }
+});
+
+// ─── Logout ──────────────────────────────────────────────────────────────
+btnLogout.addEventListener('click', async () => {
+  if (state.sessionId) {
+    await apiDelete('/session', { 'X-Session-ID': state.sessionId });
+  }
+  state.sessionId = null;
+  state.operatorId = null;
+  state.domain = null;
+
+  statusDot.className = 'status-dot';
+  statusText.textContent = 'OFFLINE';
+  operatorInfo.style.display = 'none';
+  domainBadge.style.display = 'none';
+  btnLogout.style.display = 'none';
+  loginOperator.value = '';
+  loginDomain.value = '';
+  loginError.textContent = '';
+  btnLogin.disabled = true;
+  btnLogin.textContent = 'Iniciar sesión';
+  messages.innerHTML = '';
+  messages.appendChild(welcome);
+  welcome.style.display = '';
+
+  chatScreen.classList.remove('active');
+  loginScreen.classList.add('active');
+});
+
+// ─── Debug toggle ────────────────────────────────────────────────────────
+toggleDebug.addEventListener('click', () => {
+  state.debugMode = !state.debugMode;
+  toggleDebug.classList.toggle('active', state.debugMode);
+  document.querySelectorAll('.debug-row').forEach(el => {
+    el.classList.toggle('visible', state.debugMode);
+  });
+  document.querySelectorAll('.trace-section').forEach(el => {
+    el.classList.toggle('visible', state.debugMode);
+  });
+});
+
+// ─── Textarea auto-resize ────────────────────────────────────────────────
+queryInput.addEventListener('input', () => {
+  queryInput.style.height = 'auto';
+  queryInput.style.height = Math.min(queryInput.scrollHeight, 120) + 'px';
+});
+
+queryInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    if (!btnSend.disabled) sendQuery();
+  }
+});
+
+btnSend.addEventListener('click', sendQuery);
+
+// ─── Send query ──────────────────────────────────────────────────────────
+async function sendQuery() {
+  const text = queryInput.value.trim();
+  if (!text || state.loading) return;
+
+  // Hide welcome
+  welcome.style.display = 'none';
+
+  // Add user bubble
+  appendUserBubble(text);
+
+  queryInput.value = '';
+  queryInput.style.height = 'auto';
+  state.loading = true;
+  btnSend.disabled = true;
+
+  // Show typing indicator
+  const typingRow = appendTyping();
+
+  try {
+    const data = await apiPost(
+      '/query',
+      { query: text },
+      { 'X-Session-ID': state.sessionId },
+    );
+    typingRow.remove();
+    appendAssistantBubble(data);
+  } catch (err) {
+    typingRow.remove();
+    appendErrorBubble(err.message);
+  }
+
+  state.loading = false;
+  btnSend.disabled = false;
+  queryInput.focus();
+}
+
+// ─── Bubble builders ─────────────────────────────────────────────────────
+function appendUserBubble(text) {
+  const row = document.createElement('div');
+  row.className = 'msg-row user';
+  row.innerHTML = `
+    <div class="bubble user">
+      <div class="bubble-label">Operador</div>
+      <div class="response-text">${escHtml(text)}</div>
+    </div>`;
+  messages.appendChild(row);
+  scrollBottom();
+}
+
+function appendAssistantBubble(data) {
+  const resp = data.response;
+  const isClarification = data.clarification_needed;
+  const isDegraded = resp.degraded;
+  const isFailure  = resp.pattern === 'failure';
+
+  const bubbleClass = isDegraded ? 'assistant degraded' : isFailure ? 'assistant failure' : 'assistant';
+
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant';
+
+  // Main text
+  let html = `
+    <div class="bubble ${bubbleClass}">
+      <div class="bubble-label">Sistema · ${patternLabel(resp.pattern)}</div>
+      <div class="response-text">${renderMarkdownLite(resp.response_text)}</div>`;
+
+  // Clarification banner
+  if (isClarification && data.clarification_question) {
+    html += `
+      <div class="banner clarification">
+        <span class="banner-icon">?</span>
+        <span>${escHtml(data.clarification_question)}</span>
+      </div>`;
+  }
+
+  // Degraded banner
+  if (isDegraded && resp.degradation_reason) {
+    html += `
+      <div class="banner degraded">
+        <span class="banner-icon">⚠</span>
+        <span>${escHtml(resp.degradation_reason)}</span>
+      </div>`;
+  }
+
+  // Citations
+  if (resp.citations && resp.citations.length > 0) {
+    const uid = 'cit-' + Date.now();
+    html += `
+      <button class="citations-toggle" onclick="toggleCitations(this,'${uid}')">
+        <span class="chevron">▶</span> Referencias doctrinales (${resp.citations.length})
+      </button>
+      <div class="citations-panel" id="${uid}">`;
+    resp.citations.forEach(c => {
+      html += `
+        <div class="citation-item">
+          <div class="citation-source">${escHtml(c.source_doc || '')} ${c.page ? '§' + escHtml(c.page) : ''}</div>
+          ${c.excerpt ? `<div class="citation-excerpt">${escHtml(c.excerpt)}</div>` : ''}
+          ${c.iri    ? `<div class="citation-excerpt" style="color:var(--accent-dim);margin-top:4px;font-family:var(--mono);font-size:10px">${escHtml(c.iri)}</div>` : ''}
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // Entities
+  if (resp.entities_referenced && resp.entities_referenced.length > 0) {
+    html += `<div class="entities-row">`;
+    resp.entities_referenced.forEach(e => {
+      html += `
+        <span class="entity-chip" title="${escHtml(e.iri || '')}">
+          ${e.type ? `<span class="type">${escHtml(e.type)}</span>` : ''}
+          <span class="iri">${escHtml(e.label || e.iri || '')}</span>
+        </span>`;
+    });
+    html += `</div>`;
+  }
+
+  // Debug summary row
+  html += `
+    <div class="debug-row${state.debugMode ? ' visible' : ''}">
+      <div class="debug-item"><span class="debug-key">pattern:</span><span class="debug-val">${resp.pattern}</span></div>
+      <div class="debug-item"><span class="debug-key">degraded:</span><span class="debug-val">${resp.degraded}</span></div>
+      ${resp.citations ? `<div class="debug-item"><span class="debug-key">citas:</span><span class="debug-val">${resp.citations.length}</span></div>` : ''}
+      ${resp.entities_referenced ? `<div class="debug-item"><span class="debug-key">entidades:</span><span class="debug-val">${resp.entities_referenced.length}</span></div>` : ''}
+    </div>`;
+
+  // Pipeline trace panel
+  if (data.pipeline_trace && Object.keys(data.pipeline_trace).length > 0) {
+    const traceId = 'trace-' + Date.now();
+    html += buildTraceHtml(traceId, data.pipeline_trace, state.debugMode);
+  }
+
+  html += `</div>`;  // close bubble
+  row.innerHTML = html;
+  messages.appendChild(row);
+  scrollBottom();
+}
+
+function appendErrorBubble(msg) {
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant';
+  row.innerHTML = `
+    <div class="bubble assistant failure">
+      <div class="bubble-label">Sistema · Error de conexión</div>
+      <div class="banner failure">
+        <span class="banner-icon">✕</span>
+        <span>${escHtml(msg)}</span>
+      </div>
+    </div>`;
+  messages.appendChild(row);
+  scrollBottom();
+}
+
+function appendTyping() {
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant typing-row';
+  row.innerHTML = `
+    <div class="typing-bubble">
+      <span class="typing-label">Procesando</span>
+      <div class="typing-dots">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    </div>`;
+  messages.appendChild(row);
+  scrollBottom();
+  return row;
+}
+
+// ─── Helpers ─────────────────────────────────────────────────────────────
+function scrollBottom() {
+  setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 50);
+}
+
+function toggleCitations(btn, panelId) {
+  const panel = document.getElementById(panelId);
+  const open = panel.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderMarkdownLite(text) {
+  // Bold, italic, inline code, newlines
+  return escHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g,     '<em>$1</em>')
+    .replace(/`(.+?)`/g,       '<code>$1</code>')
+    .replace(/\n/g,            '<br>');
+}
+
+function patternLabel(pattern) {
+  const labels = {
+    smalltalk:              'Conversacional',
+    doctrine_only:          'Doctrina',
+    ontology_only:          'Ontología',
+    ontology_with_context:  'Ontología + Doctrina',
+    schema_only:            'Esquema',
+    failure:                'Fallo',
+  };
+  return labels[pattern] || pattern;
+}
+
+// ─── Pipeline trace ───────────────────────────────────────────────────────
+const AGENT_LABELS = {
+  classifier: 'Classifier',
+  planner:    'Planner',
+  executor:   'Executor',
+  synthesizer:'Synthesizer',
+};
+const AGENT_ORDER = ['classifier', 'planner', 'executor', 'synthesizer'];
+
+function agentStatus(agentData) {
+  if (!agentData) return 'missing';
+  if (agentData.error) return 'fail';
+  const out = agentData.output;
+  if (!out) return 'ok';
+  if (out.final_status === 'failed') return 'fail';
+  if (out.final_status === 'partial' || out.degraded) return 'warn';
+  return 'ok';
+}
+
+function statusIcon(s) {
+  if (s === 'fail') return '<span class="tab-status" style="color:var(--danger)">✕</span>';
+  if (s === 'warn') return '<span class="tab-status" style="color:var(--warn)">⚠</span>';
+  if (s === 'missing') return '<span class="tab-status" style="color:var(--text-dim)">–</span>';
+  return '<span class="tab-status" style="color:var(--accent-dim)">✓</span>';
+}
+
+function highlightJson(obj) {
+  const raw = JSON.stringify(obj, null, 2);
+  return raw
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"([^"]+)"(\s*:)/g, '<span class="jk">"$1"</span>$2')
+    .replace(/:\s*"([^"]*)"/g, ': <span class="js">"$1"</span>')
+    .replace(/:\s*(-?\d+\.?\d*)/g, ': <span class="jn">$1</span>')
+    .replace(/:\s*(true|false)/g, ': <span class="jb">$1</span>')
+    .replace(/:\s*(null)/g, ': <span class="jnull">$1</span>');
+}
+
+function buildTraceHtml(traceId, trace, visible) {
+  const agents = AGENT_ORDER.filter(a => trace[a]);
+  if (agents.length === 0) return '';
+
+  const firstAgent = agents[0];
+  let tabs = '';
+  let panes = '';
+
+  agents.forEach((agent, i) => {
+    const data = trace[agent];
+    const st = agentStatus(data);
+    const stClass = st === 'fail' ? 'status-fail' : st === 'warn' ? 'status-warn' : '';
+    const activeTab = i === 0 ? ' active' : '';
+    const activePane = i === 0 ? ' active' : '';
+
+    tabs += `<button class="trace-tab ${stClass}${activeTab}" onclick="switchTraceTab(this,'${traceId}-pane-${agent}')">${AGENT_LABELS[agent] || agent}${statusIcon(st)}</button>`;
+
+    let paneHtml = '';
+    if (data.error) {
+      paneHtml += `<div class="trace-sub"><div class="trace-sub-header err">Error</div><pre class="trace-json">${escHtml(data.error)}</pre></div>`;
+    } else {
+      if (data.input !== undefined) {
+        paneHtml += `<div class="trace-sub"><div class="trace-sub-header in">→ Input</div><pre class="trace-json">${highlightJson(data.input)}</pre></div>`;
+      }
+      if (data.output !== undefined) {
+        paneHtml += `<div class="trace-sub"><div class="trace-sub-header out">← Output</div><pre class="trace-json">${highlightJson(data.output)}</pre></div>`;
+      }
+    }
+
+    panes += `<div class="trace-pane${activePane}" id="${traceId}-pane-${agent}">${paneHtml}</div>`;
+  });
+
+  const visClass = visible ? ' visible' : '';
+  return `
+    <div class="trace-section${visClass}">
+      <button class="trace-toggle" onclick="toggleTrace(this,'${traceId}-panel')">
+        <span class="chevron">▶</span> Pipeline Trace (${agents.length} agentes)
+      </button>
+      <div class="trace-panel" id="${traceId}-panel">
+        <div class="trace-tabs">${tabs}</div>
+        ${panes}
+      </div>
+    </div>`;
+}
+
+function toggleTrace(btn, panelId) {
+  const panel = document.getElementById(panelId);
+  const open = panel.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+
+function switchTraceTab(btn, paneId) {
+  const panel = btn.closest('.trace-panel');
+  panel.querySelectorAll('.trace-tab').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.trace-pane').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(paneId).classList.add('active');
+}
+</script>
+</body>
+</html>

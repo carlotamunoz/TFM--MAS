@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+
+  # ── Fuseki (ontología) ────────────────────────────────────────────────
+  fuseki:
+    image: stain/jena-fuseki:latest
+    container_name: sa_fuseki
+    environment:
+      ADMIN_PASSWORD: admin
+      JVM_ARGS: "-Xmx2g"
+    volumes:
+      - fuseki_data:/fuseki
+      - ./ontologia:/staging/ontologia:ro
+      - ./scripts/entrypoint.sh:/docker-entrypoint-initdb.d/load_ontology.sh:ro
+    ports:
+      - "3030:3030"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3030/$/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - sa_net
+
+  # ── API (FastAPI) ─────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: sa_api
+    env_file: .env
+    environment:
+      FUSEKI_ENDPOINT: http://fuseki:3030/dron/query
+      FUSEKI_GRAPH: "<urn:scenario:static>"
+      CHROMA_DIR: /app/rag/data/chroma
+      CHROMA_COLLECTION: ajp_doctrine_chunks
+      LEXICONS_DIR: /app/rag/data/processed/lexicons
+      LOG_LEVEL: INFO
+    volumes:
+      - ./rag:/app/rag:ro
+    ports:
+      - "8000:8000"
+    depends_on:
+      fuseki:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sa_net
+
+  # ── Frontend (Nginx) ──────────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    container_name: sa_frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      - sa_net
+
+volumes:
+  fuseki_data:
+
+networks:
+  sa_net:
+    driver: bridge

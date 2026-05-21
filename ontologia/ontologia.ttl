@@ -1,0 +1,1743 @@
+@prefix : <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#> .
+
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#DatatypeProperty
+owl:DatatypeProperty rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to
+:belongs_to rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#controls
+:controls rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates
+:generates rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model
+:hosts_model rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#interacts_with
+:interacts_with rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_backed_up
+:is_backed_up rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by
+:is_managed_by rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by
+:is_operated_by rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_in
+:is_operated_in rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by
+:is_owned_by rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_part_of
+:is_part_of rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by
+:is_used_by rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages
+:manages rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to
+:provides_data_to rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization
+:provides_visualization rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores
+:stores rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model
+:uses_model rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#algoritmo
+:algoritmo rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#autonomia_vuelo
+:autonomia_vuelo rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#autoridad_legal
+:autoridad_legal rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#capacidad_almacenamiento
+:capacidad_almacenamiento rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#capacidad_procesamiento
+:capacidad_procesamiento rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#capacidades_organizacion
+:capacidades_organizacion rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#capacitacion
+:capacitacion rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#carga_util
+:carga_util rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#compatibilidad_sistemas
+:compatibilidad_sistemas rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#direccion_ip
+:direccion_ip rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#especializacion
+:especializacion rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#especialización
+:especialización rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#estado_operativo
+:estado_operativo rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#fecha_hora
+:fecha_hora rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#funcion_c2
+:funcion_c2 rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#graficas
+:graficas rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hiperparametros
+:hiperparametros rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#historial
+:historial rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#horas_vuelo_acumuladas
+:horas_vuelo_acumuladas rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#id
+:id rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#interaccion_con
+:interaccion_con rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#licencia
+:licencia rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#metricas
+:metricas rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#miembros
+:miembros rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#mision
+:mision rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#modelo_global
+:modelo_global rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#nodos_controlados
+:nodos_controlados rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#nombre
+:nombre rdf:type owl:DatatypeProperty ,
+                 owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#pertenece_a
+:pertenece_a rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#redundancia
+:redundancia rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#responsable
+:responsable rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#rol_puesto
+:rol_puesto rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#superior_directo
+:superior_directo rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#tamaño_bytes
+:tamaño_bytes rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#tipo
+:tipo rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#tipo_organizacion
+:tipo_organizacion rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#ubicacion
+:ubicacion rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#unidad_militar
+:unidad_militar rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#velocidad_procesamiento
+:velocidad_procesamiento rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2
+:C2 rdf:type owl:Class ;
+    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                      owl:onProperty :is_owned_by ;
+                      owl:someValuesFrom :Operador
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :manages ;
+                      owl:someValuesFrom :Nodo
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :estado_operativo ;
+                      owl:someValuesFrom xsd:string
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :graficas ;
+                      owl:someValuesFrom xsd:string
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :responsable ;
+                      owl:someValuesFrom xsd:string
+                    ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Datos
+:Datos rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :is_used_by ;
+                         owl:someValuesFrom :Organizacion
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :fecha_hora ;
+                         owl:someValuesFrom xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :tamaño_bytes ;
+                         owl:someValuesFrom xsd:integer
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :tipo ;
+                         owl:someValuesFrom xsd:string
+                       ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Dron
+:Dron rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :generates ;
+                        owl:someValuesFrom :Datos
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :is_operated_by ;
+                        owl:someValuesFrom :Nodo
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :is_operated_by ;
+                        owl:someValuesFrom :Piloto
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :provides_data_to ;
+                        owl:someValuesFrom :Servidor
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :uses_model ;
+                        owl:someValuesFrom :Modelo
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :autonomia_vuelo ;
+                        owl:someValuesFrom xsd:decimal
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :carga_util ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :estado_operativo ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :id ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :tipo ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :ubicacion ;
+                        owl:someValuesFrom xsd:string
+                      ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Modelo
+:Modelo rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :provides_visualization ;
+                          owl:someValuesFrom :C2
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :algoritmo ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hiperparametros ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :historial ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :metricas ;
+                          owl:someValuesFrom xsd:string
+                        ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo
+:Nodo rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :interacts_with ;
+                        owl:someValuesFrom :Nodo
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :is_backed_up ;
+                        owl:someValuesFrom :Nodo
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :is_managed_by ;
+                        owl:someValuesFrom :C2
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :is_part_of ;
+                        owl:someValuesFrom :Organizacion
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :capacidad_procesamiento ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :funcion_c2 ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :interaccion_con ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :metricas ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :nombre ;
+                        owl:someValuesFrom xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :pertenece_a ;
+                        owl:someValuesFrom owl:rational
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :redundancia ;
+                        owl:someValuesFrom xsd:string
+                      ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador
+:Operador rdf:type owl:Class ;
+          rdfs:subClassOf :Persona ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :capacitacion ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :especializacion ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :especialización ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :estado_operativo ;
+                            owl:someValuesFrom xsd:string
+                          ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Organizacion
+:Organizacion rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :controls ;
+                                owl:someValuesFrom :Nodo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :interacts_with ;
+                                owl:someValuesFrom :Organizacion
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :capacidades_organizacion ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :interaccion_con ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :miembros ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :mision ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :nodos_controlados ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :nombre ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :tipo_organizacion ;
+                                owl:someValuesFrom xsd:string
+                              ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona
+:Persona rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :especializacion ;
+                           owl:someValuesFrom xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :especialización ;
+                           owl:someValuesFrom xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :nombre ;
+                           owl:someValuesFrom xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :rol_puesto ;
+                           owl:someValuesFrom xsd:string
+                         ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Piloto
+:Piloto rdf:type owl:Class ;
+        rdfs:subClassOf :Persona ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :belongs_to ;
+                          owl:someValuesFrom :Organizacion
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :controls ;
+                          owl:someValuesFrom :Dron
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :compatibilidad_sistemas ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :estado_operativo ;
+                          owl:someValuesFrom xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :horas_vuelo_acumuladas ;
+                          owl:someValuesFrom xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :licencia ;
+                          owl:someValuesFrom xsd:string
+                        ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Propietario
+:Propietario rdf:type owl:Class ;
+             rdfs:subClassOf :Persona ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :autoridad_legal ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :superior_directo ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :unidad_militar ;
+                               owl:someValuesFrom xsd:string
+                             ] .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Servidor
+:Servidor rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :hosts_model ;
+                            owl:someValuesFrom :Modelo
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :is_owned_by ;
+                            owl:someValuesFrom :Propietario
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :stores ;
+                            owl:someValuesFrom :Datos
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :capacidad_almacenamiento ;
+                            owl:someValuesFrom xsd:integer
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :direccion_ip ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :estado_operativo ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :modelo_global ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :ubicacion ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :velocidad_procesamiento ;
+                            owl:someValuesFrom xsd:decimal
+                          ] .
+
+
+###  http://www.w3.org/2002/07/owl#EquivalentProperty
+owl:EquivalentProperty rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Alemania_País
+:Alemania_País rdf:type owl:NamedIndividual ,
+                        :Organizacion ;
+               :controls :Nodo-3 ,
+                         :Nodo-6 ;
+               :interacts_with :Francia_País ;
+               :mision "Defensa" ;
+               :nombre "Alemania" ;
+               :tipo_organizacion "País" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-1
+:Batallón-1 rdf:type owl:NamedIndividual ,
+                     :Propietario ;
+            :superior_directo "Coronel A" ;
+            :unidad_militar "Batallón-1" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-10
+:Batallón-10 rdf:type owl:NamedIndividual ,
+                      :Propietario ;
+             :superior_directo "Capitán J" ;
+             :unidad_militar "Batallón-10" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-4
+:Batallón-4 rdf:type owl:NamedIndividual ,
+                     :Propietario ;
+            :superior_directo "Capitán D" ;
+            :unidad_militar "Batallón-4" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-7
+:Batallón-7 rdf:type owl:NamedIndividual ,
+                     :Propietario ;
+            :superior_directo "Coronel G" ;
+            :unidad_militar "Batallón-7" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Brigada-2
+:Brigada-2 rdf:type owl:NamedIndividual ,
+                    :Propietario ;
+           :superior_directo "General B" ;
+           :unidad_militar "Brigada-2" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Brigada-5
+:Brigada-5 rdf:type owl:NamedIndividual ,
+                    :Propietario ;
+           :superior_directo "Mayor E" ;
+           :unidad_militar "Brigada-5" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Brigada-8
+:Brigada-8 rdf:type owl:NamedIndividual ,
+                    :Propietario ;
+           :superior_directo "General H" ;
+           :unidad_militar "Brigada-8" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-00
+:C2-00 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-00 ;
+       :estado_operativo "Activo" ;
+       :graficas "Graf-1" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-01
+:C2-01 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-01 ;
+       :estado_operativo "Mantenimiento" ;
+       :graficas "Graf-2" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-02
+:C2-02 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-02 ;
+       :estado_operativo "Activo" ;
+       :graficas "Graf-3" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-03
+:C2-03 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-03 ;
+       :estado_operativo "Inactivo" ;
+       :graficas "Graf-4" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-04
+:C2-04 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-04 ;
+       :estado_operativo "Activo" ;
+       :graficas "Graf-5" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-05
+:C2-05 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-05 ;
+       :estado_operativo "Mantenimiento" ;
+       :graficas "Graf-6" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-06
+:C2-06 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-06 ;
+       :estado_operativo "Activo" ;
+       :graficas "Graf-7" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-07
+:C2-07 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-07 ;
+       :estado_operativo "Inactivo" ;
+       :graficas "Graf-8" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-08
+:C2-08 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-08 ;
+       :estado_operativo "Activo" ;
+       :graficas "Graf-9" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-09
+:C2-09 rdf:type owl:NamedIndividual ,
+                :C2 ;
+       :is_owned_by :Persona-09 ;
+       :estado_operativo "Mantenimiento" ;
+       :graficas "Graf-10" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-000
+:DRON-000 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 12.5 ;
+          :carga_util "Cámara térmica" ;
+          :estado_operativo "En vuelo" ;
+          :tipo "MQ9-REAPER" ;
+          :ubicacion "45.4215,-75.6972" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-001
+:DRON-001 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 20.0 ;
+          :carga_util "Sensor LIDAR" ;
+          :estado_operativo "En mantenimiento" ;
+          :tipo "RQ-4 Global Hawk" ;
+          :ubicacion "48.8566,2.3522" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-002
+:DRON-002 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 2.0 ;
+          :carga_util "Cámara HD" ;
+          :estado_operativo "En vuelo" ;
+          :tipo "DJI Phantom" ;
+          :ubicacion "40.7128,-74.0060" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-003
+:DRON-003 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 15.0 ;
+          :carga_util "Sensor térmico" ;
+          :estado_operativo "En espera" ;
+          :tipo "MQ1-Predator" ;
+          :ubicacion "51.5074,-0.1278" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-004
+:DRON-004 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 10.5 ;
+          :carga_util "Cámara IR" ;
+          :estado_operativo "En mantenimiento" ;
+          :tipo "MQ9-REAPER" ;
+          :ubicacion "34.0522,-118.2437" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-005
+:DRON-005 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 8.0 ;
+          :carga_util "Cámara 4K" ;
+          :estado_operativo "En vuelo" ;
+          :tipo "DJI Matrice" ;
+          :ubicacion "37.7749,-122.4194" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-006
+:DRON-006 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 18.5 ;
+          :carga_util "Radar SAR" ;
+          :estado_operativo "En espera" ;
+          :tipo "RQ-4 Global Hawk" ;
+          :ubicacion "48.2082,16.3738" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-007
+:DRON-007 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 14.0 ;
+          :carga_util "Cámara térmica" ;
+          :estado_operativo "En vuelo" ;
+          :tipo "MQ1-Predator" ;
+          :ubicacion "41.9028,12.4964" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-008
+:DRON-008 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 5.5 ;
+          :carga_util "LIDAR" ;
+          :estado_operativo "En mantenimiento" ;
+          :tipo "DJI Inspire" ;
+          :ubicacion "52.5200,13.4050" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-009
+:DRON-009 rdf:type owl:NamedIndividual ,
+                   :Dron ;
+          :autonomia_vuelo 16.0 ;
+          :carga_util "Sensor multiespectral" ;
+          :estado_operativo "En vuelo" ;
+          :tipo "MQ9-REAPER" ;
+          :ubicacion "35.6895,139.6917" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#EUFOR_Fuerza
+:EUFOR_Fuerza rdf:type owl:NamedIndividual ,
+                       :Organizacion ;
+              :controls :Nodo-1 ,
+                        :Nodo-7 ;
+              :interacts_with :OTAN_Alianza ;
+              :mision "Estabilización" ;
+              :nombre "EUFOR" ;
+              :tipo_organizacion "Fuerza" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Francia_País
+:Francia_País rdf:type owl:NamedIndividual ,
+                       :Organizacion ;
+              :controls :Nodo-5 ;
+              :interacts_with :Alemania_País ;
+              :mision "Defensa" ;
+              :nombre "Francia" ;
+              :tipo_organizacion "País" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Interpol_Organización
+:Interpol_Organización rdf:type owl:NamedIndividual ,
+                                :Organizacion ;
+                       :controls :Nodo-3 ,
+                                 :Nodo-6 ;
+                       :interacts_with <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Naciones%20Unidas_Organización> ;
+                       :mision "Seguridad" ;
+                       :nombre "Interpol" ;
+                       :tipo_organizacion "Organización" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Italia_País
+:Italia_País rdf:type owl:NamedIndividual ,
+                      :Organizacion ;
+             :controls :Nodo-0 ,
+                       :Nodo-9 ;
+             :interacts_with :OTAN_Alianza ;
+             :mision "Reconocimiento" ;
+             :nombre "Italia" ;
+             :tipo_organizacion "País" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000000
+:LIC-000000 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "MQ9-REAPER" ;
+            :estado_operativo "Disponible" ;
+            :licencia "LIC-000000" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000001
+:LIC-000001 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "RQ-4 Global Hawk" ;
+            :estado_operativo "En misión" ;
+            :licencia "LIC-000001" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000002
+:LIC-000002 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "MQ1-Predator" ;
+            :estado_operativo "Disponible" ;
+            :licencia "LIC-000002" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000003
+:LIC-000003 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "DJI Phantom" ;
+            :estado_operativo "En descanso" ;
+            :licencia "LIC-000003" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000004
+:LIC-000004 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "MQ9-REAPER" ;
+            :estado_operativo "Disponible" ;
+            :licencia "LIC-000004" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000005
+:LIC-000005 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "DJI Matrice" ;
+            :estado_operativo "En misión" ;
+            :licencia "LIC-000005" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000006
+:LIC-000006 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "RQ-4 Global Hawk" ;
+            :estado_operativo "Disponible" ;
+            :licencia "LIC-000006" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000007
+:LIC-000007 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "DJI Inspire" ;
+            :estado_operativo "En descanso" ;
+            :licencia "LIC-000007" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000008
+:LIC-000008 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "MQ1-Predator" ;
+            :estado_operativo "En misión" ;
+            :licencia "LIC-000008" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000009
+:LIC-000009 rdf:type owl:NamedIndividual ,
+                     :Piloto ;
+            :compatibilidad_sistemas "RQ-4 Global Hawk" ;
+            :estado_operativo "Disponible" ;
+            :licencia "LIC-000009" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-0
+:Nodo-0 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-3 ,
+                        :Nodo-5 ;
+        :is_backed_up :Nodo-2 ;
+        :is_part_of :OTAN_Alianza ;
+        :funcion_c2 "Gestión de drones" ;
+        :metricas "FedAvg" ;
+        :nombre "Nodo-0" ;
+        :ubicacion "45.4215,-75.6972" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-1
+:Nodo-1 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-7 ;
+        :is_backed_up :Nodo-4 ;
+        :is_part_of :EUFOR_Fuerza ;
+        :funcion_c2 "Monitoreo" ;
+        :metricas "FedProx" ;
+        :nombre "Nodo-1" ;
+        :ubicacion "48.8566,2.3522" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-2
+:Nodo-2 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-8 ;
+        :is_backed_up :Nodo-5 ;
+        :is_part_of <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Naciones%20Unidas_Organización> ;
+        :funcion_c2 "Análisis de datos" ;
+        :metricas "FedSGD" ;
+        :nombre "Nodo-2" ;
+        :ubicacion "40.7128,-74.0060" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-3
+:Nodo-3 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-6 ;
+        :is_part_of :Interpol_Organización ;
+        :funcion_c2 "Seguridad" ;
+        :metricas "FedOpt" ;
+        :nombre "Nodo-3" ;
+        :ubicacion "51.5074,-0.1278" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-4
+:Nodo-4 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :is_backed_up :Nodo-8 ;
+        :is_part_of <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Fuerzas%20Aliadas_Coalición> ;
+        :funcion_c2 "Mantenimiento" ;
+        :metricas "FedAvg" ;
+        :nombre "Nodo-4" ;
+        :ubicacion "34.0522,-118.2437" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-5
+:Nodo-5 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :is_backed_up :Nodo-9 ;
+        :is_part_of :Francia_País ;
+        :funcion_c2 "Reconocimiento" ;
+        :metricas "FedProx" ;
+        :nombre "Nodo-5" ;
+        :ubicacion "37.7749,-122.4194" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-6
+:Nodo-6 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-3 ;
+        :is_backed_up :Nodo-4 ;
+        :is_part_of :Alemania_País ;
+        :funcion_c2 "Comunicación" ;
+        :metricas "FedSGD" ;
+        :nombre "Nodo-6" ;
+        :ubicacion "48.2082,16.3738" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-7
+:Nodo-7 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-1 ;
+        :is_backed_up :Nodo-5 ;
+        :is_part_of <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Reino%20Unido_País> ;
+        :funcion_c2 "Ciberseguridad" ;
+        :metricas "FedOpt" ;
+        :nombre "Nodo-7" ;
+        :ubicacion "41.9028,12.4964" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-8
+:Nodo-8 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-2 ;
+        :is_backed_up :Nodo-9 ;
+        :is_part_of <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Reino%20Unido_País> ;
+        :funcion_c2 "Infraestructura" ;
+        :metricas "FedAvg" ;
+        :nombre "Nodo-8" ;
+        :ubicacion "52.5200,13.4050" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-9
+:Nodo-9 rdf:type owl:NamedIndividual ,
+                 :Nodo ;
+        :interacts_with :Nodo-0 ;
+        :is_backed_up :Nodo-1 ;
+        :is_part_of :Italia_País ;
+        :funcion_c2 "Gestión de sistemas" ;
+        :metricas "FedProx" ;
+        :nombre "Nodo-9" ;
+        :ubicacion "35.6895,139.6917" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#OTAN_Alianza
+:OTAN_Alianza rdf:type owl:NamedIndividual ,
+                       :Organizacion ;
+              :controls :Nodo-0 ,
+                        :Nodo-3 ,
+                        :Nodo-5 ;
+              :mision "Defensa mutua" ;
+              :nombre "OTAN" ;
+              :tipo_organizacion "Alianza" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-0
+:Operador-0 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-1" ;
+            :especializacion "Mantenimiento" ;
+            :estado_operativo "Disponible" ;
+            :nombre "Operador-0" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-1
+:Operador-1 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-2" ;
+            :especializacion "Gestión de sistemas" ;
+            :estado_operativo "En misión" ;
+            :nombre "Operador-1" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-2
+:Operador-2 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-3" ;
+            :especializacion "Operación de drones" ;
+            :estado_operativo "Disponible" ;
+            :nombre "Operador-2" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-3
+:Operador-3 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-4" ;
+            :especializacion "Ciberseguridad" ;
+            :estado_operativo "En descanso" ;
+            :nombre "Operador-3" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-4
+:Operador-4 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-1" ;
+            :especializacion "Análisis de datos" ;
+            :estado_operativo "Disponible" ;
+            :nombre "Operador-4" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-5
+:Operador-5 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-2" ;
+            :especializacion "Infraestructura" ;
+            :estado_operativo "En misión" ;
+            :nombre "Operador-5" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-6
+:Operador-6 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-3" ;
+            :especializacion "Reconocimiento" ;
+            :estado_operativo "Disponible" ;
+            :nombre "Operador-6" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-7
+:Operador-7 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-4" ;
+            :especializacion "Seguridad" ;
+            :estado_operativo "En descanso" ;
+            :nombre "Operador-7" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-8
+:Operador-8 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-2" ;
+            :especializacion "Gestión de nodos" ;
+            :estado_operativo "Disponible" ;
+            :nombre "Operador-8" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Operador-9
+:Operador-9 rdf:type owl:NamedIndividual ,
+                     :Operador ;
+            :capacitacion "Nivel-5" ;
+            :especializacion "Operaciones críticas" ;
+            :estado_operativo "En misión" ;
+            :nombre "Operador-9" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-00
+:Persona-00 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Inteligencia" ;
+            :rol_puesto "Analista" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-01
+:Persona-01 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Logística" ;
+            :rol_puesto "Técnico" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-02
+:Persona-02 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Mantenimiento" ;
+            :rol_puesto "Analista" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-03
+:Persona-03 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Seguridad" ;
+            :rol_puesto "Operador" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-04
+:Persona-04 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Comunicación" ;
+            :rol_puesto "Técnico" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-05
+:Persona-05 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Ciberseguridad" ;
+            :rol_puesto "Analista" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-06
+:Persona-06 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Infraestructura" ;
+            :rol_puesto "Técnico" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-07
+:Persona-07 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Gestión de datos" ;
+            :rol_puesto "Operador" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-08
+:Persona-08 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Reconocimiento" ;
+            :rol_puesto "Analista" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Persona-09
+:Persona-09 rdf:type owl:NamedIndividual ,
+                     :Persona ;
+            :especializacion "Sistemas" ;
+            :rol_puesto "Técnico" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Regimiento-3
+:Regimiento-3 rdf:type owl:NamedIndividual ,
+                       :Propietario ;
+              :superior_directo "Teniente C" ;
+              :unidad_militar "Regimiento-3" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Regimiento-6
+:Regimiento-6 rdf:type owl:NamedIndividual ,
+                       :Propietario ;
+              :superior_directo "Teniente F" ;
+              :unidad_militar "Regimiento-6" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Regimiento-9
+:Regimiento-9 rdf:type owl:NamedIndividual ,
+                       :Propietario ;
+              :superior_directo "Mayor I" ;
+              :unidad_militar "Regimiento-9" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.0
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.0> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 1024 ;
+                                                                                      :direccion_ip "192.168.1.0" ;
+                                                                                      :estado_operativo "Activo" ;
+                                                                                      :modelo_global "fasterrcnn_resnet50_fpn" ;
+                                                                                      :velocidad_procesamiento 2.5 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.1
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.1> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 2048 ;
+                                                                                      :direccion_ip "192.168.1.1" ;
+                                                                                      :estado_operativo "Mantenimiento" ;
+                                                                                      :modelo_global "fasterrcnn_mobilenet_v3_large_fpn" ;
+                                                                                      :velocidad_procesamiento 3.0 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.2
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.2> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 512 ;
+                                                                                      :direccion_ip "192.168.1.2" ;
+                                                                                      :estado_operativo "Activo" ;
+                                                                                      :modelo_global "fasterrcnn_mobilenet_v3_large_fpn" ;
+                                                                                      :velocidad_procesamiento 1.8 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.3
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.3> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 1024 ;
+                                                                                      :direccion_ip "192.168.1.3" ;
+                                                                                      :estado_operativo "Inactivo" ;
+                                                                                      :modelo_global "fasterrcnn_resnet50_fpn_v2" ;
+                                                                                      :velocidad_procesamiento 2.0 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.4
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.4> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 4096 ;
+                                                                                      :direccion_ip "192.168.1.4" ;
+                                                                                      :estado_operativo "Activo" ;
+                                                                                      :modelo_global "fasterrcnn_mobilenet_v3_large_320_fpn" ;
+                                                                                      :velocidad_procesamiento 3.5 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.5
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.5> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 1024 ;
+                                                                                      :direccion_ip "192.168.1.5" ;
+                                                                                      :estado_operativo "Mantenimiento" ;
+                                                                                      :modelo_global "retinanet_resnet50_fpn" ;
+                                                                                      :velocidad_procesamiento 2.5 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.6
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.6> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 2048 ;
+                                                                                      :direccion_ip "192.168.1.6" ;
+                                                                                      :estado_operativo "Activo" ;
+                                                                                      :modelo_global "retinanet_resnet50_fpn_v2" ;
+                                                                                      :velocidad_procesamiento 4.0 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.7
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.7> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 512 ;
+                                                                                      :direccion_ip "192.168.1.7" ;
+                                                                                      :estado_operativo "Inactivo" ;
+                                                                                      :modelo_global "asterrcnn_resnet50_fpn_v2" ;
+                                                                                      :velocidad_procesamiento 1.2 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.8
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.8> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 8192 ;
+                                                                                      :direccion_ip "192.168.1.8" ;
+                                                                                      :estado_operativo "Activo" ;
+                                                                                      :modelo_global "retinanet_resnet50_fpn" ;
+                                                                                      :velocidad_procesamiento 5.0 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.9
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.9> rdf:type owl:NamedIndividual ,
+                                                                                               :Servidor ;
+                                                                                      :capacidad_almacenamiento 1024 ;
+                                                                                      :direccion_ip "192.168.1.9" ;
+                                                                                      :estado_operativo "Mantenimiento" ;
+                                                                                      :modelo_global "retinanet_resnet50_fpn" ;
+                                                                                      :velocidad_procesamiento 2.3 .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Fuerzas%20Aliadas_Coalición
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Fuerzas%20Aliadas_Coalición> rdf:type owl:NamedIndividual ,
+                                                                                                               :Organizacion ;
+                                                                                                      :controls :Nodo-4 ;
+                                                                                                      :interacts_with :OTAN_Alianza ;
+                                                                                                      :mision "Reconocimiento" ;
+                                                                                                      :nombre "Fuerzas Aliadas" ;
+                                                                                                      :tipo_organizacion "Coalición" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Naciones%20Unidas_Organización
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Naciones%20Unidas_Organización> rdf:type owl:NamedIndividual ,
+                                                                                                                  :Organizacion ;
+                                                                                                         :controls :Nodo-2 ,
+                                                                                                                   :Nodo-8 ;
+                                                                                                         :interacts_with :OTAN_Alianza ;
+                                                                                                         :mision "Paz mundial" ;
+                                                                                                         :nombre "Naciones Unidas" ;
+                                                                                                         :tipo_organizacion "Organización" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-1
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-1> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 4, lr_momentum = 0.9, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-1" ;
+                                                                                                    :metricas "Prec=95%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-10
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-10> rdf:type owl:NamedIndividual ,
+                                                                                                              :Modelo ;
+                                                                                                     :algoritmo "Redes Neuronales" ;
+                                                                                                     :hiperparametros "num_workers = 2, lr_momentum = 0.8, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                     :historial "Hist-10" ;
+                                                                                                     :metricas "F1=89%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-2
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-2> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 7, lr_momentum = 0.7, lr_decay = 0.002, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-2" ;
+                                                                                                    :metricas "Rec=90%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-3
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-3> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 8, lr_momentum = 0.5, lr_decay = 0.008, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-3" ;
+                                                                                                    :metricas "F1=88%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-4
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-4> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 2, lr_momentum = 0.7, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-4" ;
+                                                                                                    :metricas "Prec=85%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-5
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-5> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 9, lr_momentum = 0.9, lr_decay = 0.010, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-5" ;
+                                                                                                    :metricas "Rec=80%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-6
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-6> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 2, lr_momentum = 0.8, lr_decay = 0.008, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-6" ;
+                                                                                                    :metricas "Prec=87%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-7
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-7> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 5, lr_momentum = 0.4, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-7" ;
+                                                                                                    :metricas "F1=92%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-8
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-8> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 4, lr_momentum = 0.9, lr_decay = 0.007, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-8" ;
+                                                                                                    :metricas "Prec=93%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-9
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-9> rdf:type owl:NamedIndividual ,
+                                                                                                             :Modelo ;
+                                                                                                    :algoritmo "Redes Neuronales" ;
+                                                                                                    :hiperparametros "num_workers = 8, lr_momentum = 0.5, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01" ;
+                                                                                                    :historial "Hist-9" ;
+                                                                                                    :metricas "Rec=85%" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Reino%20Unido_País
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Reino%20Unido_País> rdf:type owl:NamedIndividual ,
+                                                                                                      :Organizacion ;
+                                                                                             :controls :Nodo-1 ,
+                                                                                                       :Nodo-2 ,
+                                                                                                       :Nodo-7 ,
+                                                                                                       :Nodo-8 ;
+                                                                                             :interacts_with :OTAN_Alianza ;
+                                                                                             :mision "Defensa" ;
+                                                                                             :nombre "Reino Unido" ;
+                                                                                             :tipo_organizacion "País" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T15:00:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T15:00:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-09T15:00:00" ;
+                                                                                                    :tamaño_bytes 512000 ;
+                                                                                                    :tipo "audio" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T20:45:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T20:45:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-09T20:45:00" ;
+                                                                                                    :tamaño_bytes 256000 ;
+                                                                                                    :tipo "audio" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T10:30:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T10:30:00> rdf:type owl:NamedIndividual ,
+                                                                                                              :Datos ;
+                                                                                                     :fecha_hora "2025-01-09T10:30:00" ;
+                                                                                                     :tamaño_bytes 2048000 ;
+                                                                                                     :tipo "imagen" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T16:45:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T16:45:00> rdf:type owl:NamedIndividual ,
+                                                                                                              :Datos ;
+                                                                                                     :fecha_hora "2025-01-09T16:45:00" ;
+                                                                                                     :tamaño_bytes 3072000 ;
+                                                                                                     :tipo "imagen" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T22:30:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T22:30:00> rdf:type owl:NamedIndividual ,
+                                                                                                              :Datos ;
+                                                                                                     :fecha_hora "2025-01-09T22:30:00" ;
+                                                                                                     :tamaño_bytes 4096000 ;
+                                                                                                     :tipo "imagen" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T14:15:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T14:15:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-09T14:15:00" ;
+                                                                                                    :tamaño_bytes 102400 ;
+                                                                                                    :tipo "texto" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T19:15:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T19:15:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-09T19:15:00" ;
+                                                                                                    :tamaño_bytes 204800 ;
+                                                                                                    :tipo "texto" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T12:45:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T12:45:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-09T12:45:00" ;
+                                                                                                    :tamaño_bytes 4096000 ;
+                                                                                                    :tipo "video" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T18:30:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T18:30:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-09T18:30:00" ;
+                                                                                                    :tamaño_bytes 8192000 ;
+                                                                                                    :tipo "video" .
+
+
+###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-10T00:15:00
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-10T00:15:00> rdf:type owl:NamedIndividual ,
+                                                                                                             :Datos ;
+                                                                                                    :fecha_hora "2025-01-10T00:15:00" ;
+                                                                                                    :tamaño_bytes 16384000 ;
+                                                                                                    :tipo "video" .
+
+
+
+
+
+#################################################################
+#    Relaciones de conexion (añadidas para completar el grafo)
+#################################################################
+
+### Drones → Pilotos, Datos, Servidores, Modelos
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-000> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000000> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-000> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T10:30:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-000> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.0> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-000> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-001> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000001> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-001> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T12:45:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-001> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-001> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-002> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000002> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-002> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T14:15:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-002> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-002> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-003> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000003> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-003> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T15:00:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-003> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-003> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-004> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000004> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-004> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T16:45:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-004> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-004> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-005> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000005> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-005> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T18:30:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-005> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-005> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-006> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000006> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-006> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T19:15:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-006> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-006> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-007> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000007> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-007> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T20:45:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-007> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-007> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-008> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000008> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-008> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T22:30:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-008> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-008> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-9> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-009> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_operated_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000009> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-009> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#generates>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-10T00:15:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-009> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_data_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.9> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#DRON-009> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>     <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-10> .
+
+### Nodos → C2 (is_managed_by) y Modelos (uses_model)
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-0> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-0> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-1> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-01> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-1> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-2> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-02> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-2> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-3> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-03> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-3> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-4> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-04> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-4> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-5> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-05> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-5> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-6> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-06> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-6> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-7> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-07> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-7> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-8> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-08> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-8> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-9> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-9> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_managed_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-09> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-9> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#uses_model>    <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-10> .
+
+### C2 → Nodos (manages)
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-0> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-01> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-02> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-03> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-04> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-05> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-06> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-07> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-08> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-09> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#manages> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-9> .
+
+### Servidores → Modelos, Datos, Propietarios
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.0> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.0> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T10:30:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.0> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.1> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.1> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T12:45:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.1> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Brigada-2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.2> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.2> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T14:15:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.2> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Regimiento-3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.3> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.3> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T15:00:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.3> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.4> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.4> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T16:45:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.4> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Brigada-5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.5> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.5> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T18:30:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.5> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Regimiento-6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.6> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.6> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T19:15:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.6> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.7> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.7> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T20:45:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.7> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Brigada-8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.8> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-9> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.8> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T22:30:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.8> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Regimiento-9> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.9> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#hosts_model> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-10> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.9> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#stores>      <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-10T00:15:00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#192.168.1.9> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_owned_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Batallón-10> .
+
+### Modelos → C2 (provides_visualization)
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-1> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-00> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-2> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-01> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-3> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-02> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-4> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-03> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-5> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-04> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-6> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-05> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-7> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-06> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-8> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-07> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-9> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-08> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Redes%20Neuronales_Hist-10> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#provides_visualization> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#C2-09> .
+
+### Datos → Nodos (is_used_by)
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T10:30:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-0> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T12:45:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-1> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T14:15:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-2> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T15:00:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-3> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T16:45:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-4> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-09T18:30:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-5> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#texto_2025-01-09T19:15:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-6> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#audio_2025-01-09T20:45:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-7> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#imagen_2025-01-09T22:30:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-8> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#video_2025-01-10T00:15:00> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#is_used_by> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Nodo-9> .
+
+### Pilotos → Organizaciones (belongs_to)
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000000> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#OTAN_Alianza> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000001> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#EUFOR_Fuerza> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000002> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Francia_País> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000003> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Alemania_País> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000004> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Italia_País> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000005> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Interpol_Organización> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000006> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Fuerzas%20Aliadas_Coalición> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000007> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Naciones%20Unidas_Organización> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000008> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#Reino%20Unido_País> .
+<http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#LIC-000009> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#belongs_to> <http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#OTAN_Alianza> .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

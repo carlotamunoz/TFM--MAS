@@ -1,0 +1,11 @@
+"id","estado_operativo","tipo","ubicacion","carga_util","autonomia_vuelo"
+"DRON-000","En vuelo","MQ9-REAPER","45.4215,-75.6972","Cámara térmica",12.5
+"DRON-001","En mantenimiento","RQ-4 Global Hawk","48.8566,2.3522","Sensor LIDAR",20.0
+"DRON-002","En vuelo","DJI Phantom","40.7128,-74.0060","Cámara HD",2.0
+"DRON-003","En espera","MQ1-Predator","51.5074,-0.1278","Sensor térmico",15.0
+"DRON-004","En mantenimiento","MQ9-REAPER","34.0522,-118.2437","Cámara IR",10.5
+"DRON-005","En vuelo","DJI Matrice","37.7749,-122.4194","Cámara 4K",8.0
+"DRON-006","En espera","RQ-4 Global Hawk","48.2082,16.3738","Radar SAR",18.5
+"DRON-007","En vuelo","MQ1-Predator","41.9028,12.4964","Cámara térmica",14.0
+"DRON-008","En mantenimiento","DJI Inspire","52.5200,13.4050","LIDAR",5.5
+"DRON-009","En vuelo","MQ9-REAPER","35.6895,139.6917","Sensor multiespectral",16.0

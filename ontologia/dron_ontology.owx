@@ -1,0 +1,1503 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4"
+         xmlns="http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#">
+
+<owl:Ontology rdf:about="http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4"/>
+
+<owl:ObjectProperty rdf:about="#belongs_to"/>
+
+<owl:ObjectProperty rdf:about="#controls"/>
+
+<owl:ObjectProperty rdf:about="#generates"/>
+
+<owl:ObjectProperty rdf:about="#hosts_model"/>
+
+<owl:ObjectProperty rdf:about="#interacts_with"/>
+
+<owl:ObjectProperty rdf:about="#is_backed_up"/>
+
+<owl:ObjectProperty rdf:about="#is_managed_by"/>
+
+<owl:ObjectProperty rdf:about="#is_operated_by"/>
+
+<owl:ObjectProperty rdf:about="#is_operated_in"/>
+
+<owl:ObjectProperty rdf:about="#is_owned_by"/>
+
+<owl:ObjectProperty rdf:about="#is_part_of"/>
+
+<owl:ObjectProperty rdf:about="#is_used_by"/>
+
+<owl:ObjectProperty rdf:about="#manages"/>
+
+<owl:ObjectProperty rdf:about="#provides_data_to"/>
+
+<owl:ObjectProperty rdf:about="#provides_visualization"/>
+
+<owl:ObjectProperty rdf:about="#stores"/>
+
+<owl:ObjectProperty rdf:about="#uses_model"/>
+
+<owl:DatatypeProperty rdf:about="#algoritmo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#autonomia_vuelo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#autoridad_legal"/>
+
+<owl:DatatypeProperty rdf:about="#capacidad_almacenamiento">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#capacidad_procesamiento">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#capacidades_organizacion"/>
+
+<owl:DatatypeProperty rdf:about="#capacitacion"/>
+
+<owl:DatatypeProperty rdf:about="#carga_util"/>
+
+<owl:DatatypeProperty rdf:about="#compatibilidad_sistemas">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#direccion_ip"/>
+
+<owl:DatatypeProperty rdf:about="#especializacion"/>
+
+<owl:DatatypeProperty rdf:about="#especialización"/>
+
+<owl:DatatypeProperty rdf:about="#estado_operativo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#fecha_hora">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#funcion_c2"/>
+
+<owl:DatatypeProperty rdf:about="#graficas">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hiperparametros"/>
+
+<owl:DatatypeProperty rdf:about="#historial">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#horas_vuelo_acumuladas"/>
+
+<owl:DatatypeProperty rdf:about="#id"/>
+
+<owl:DatatypeProperty rdf:about="#interaccion_con"/>
+
+<owl:DatatypeProperty rdf:about="#licencia">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#metricas"/>
+
+<owl:DatatypeProperty rdf:about="#miembros">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#mision"/>
+
+<owl:DatatypeProperty rdf:about="#modelo_global">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#nodos_controlados"/>
+
+<owl:DatatypeProperty rdf:about="#nombre">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#pertenece_a"/>
+
+<owl:DatatypeProperty rdf:about="#redundancia"/>
+
+<owl:DatatypeProperty rdf:about="#responsable">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rol_puesto">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#superior_directo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#tamaño_bytes">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#tipo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#tipo_organizacion"/>
+
+<owl:DatatypeProperty rdf:about="#ubicacion">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#unidad_militar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#velocidad_procesamiento">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#C2">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_owned_by"/>
+      <owl:someValuesFrom rdf:resource="#Operador"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#manages"/>
+      <owl:someValuesFrom rdf:resource="#Nodo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#estado_operativo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#graficas"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#responsable"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Datos">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_used_by"/>
+      <owl:someValuesFrom rdf:resource="#Organizacion"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#fecha_hora"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tamaño_bytes"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tipo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Dron">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#generates"/>
+      <owl:someValuesFrom rdf:resource="#Datos"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_operated_by"/>
+      <owl:someValuesFrom rdf:resource="#Nodo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_operated_by"/>
+      <owl:someValuesFrom rdf:resource="#Piloto"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#provides_data_to"/>
+      <owl:someValuesFrom rdf:resource="#Servidor"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#uses_model"/>
+      <owl:someValuesFrom rdf:resource="#Modelo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#autonomia_vuelo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#carga_util"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#estado_operativo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#id"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tipo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#ubicacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Modelo">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#provides_visualization"/>
+      <owl:someValuesFrom rdf:resource="#C2"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#algoritmo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hiperparametros"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#historial"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#metricas"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Nodo">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#interacts_with"/>
+      <owl:someValuesFrom rdf:resource="#Nodo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_backed_up"/>
+      <owl:someValuesFrom rdf:resource="#Nodo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_managed_by"/>
+      <owl:someValuesFrom rdf:resource="#C2"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_part_of"/>
+      <owl:someValuesFrom rdf:resource="#Organizacion"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#capacidad_procesamiento"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#funcion_c2"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#interaccion_con"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#metricas"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#nombre"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#pertenece_a"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#redundancia"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Operador">
+  <rdfs:subClassOf rdf:resource="#Persona"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#capacitacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#especializacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#especialización"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#estado_operativo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Organizacion">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#controls"/>
+      <owl:someValuesFrom rdf:resource="#Nodo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#interacts_with"/>
+      <owl:someValuesFrom rdf:resource="#Organizacion"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#capacidades_organizacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#interaccion_con"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#miembros"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#mision"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#nodos_controlados"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#nombre"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tipo_organizacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Persona">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#especializacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#especialización"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#nombre"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#rol_puesto"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Piloto">
+  <rdfs:subClassOf rdf:resource="#Persona"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#belongs_to"/>
+      <owl:someValuesFrom rdf:resource="#Organizacion"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#controls"/>
+      <owl:someValuesFrom rdf:resource="#Dron"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#compatibilidad_sistemas"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#estado_operativo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#horas_vuelo_acumuladas"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#licencia"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Propietario">
+  <rdfs:subClassOf rdf:resource="#Persona"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#autoridad_legal"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#superior_directo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#unidad_militar"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Servidor">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hosts_model"/>
+      <owl:someValuesFrom rdf:resource="#Modelo"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is_owned_by"/>
+      <owl:someValuesFrom rdf:resource="#Propietario"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#stores"/>
+      <owl:someValuesFrom rdf:resource="#Datos"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#capacidad_almacenamiento"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#direccion_ip"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#estado_operativo"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#modelo_global"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#ubicacion"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#velocidad_procesamiento"/>
+      <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#DRON-000">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En vuelo</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ9-REAPER</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">45.4215,-75.6972</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cámara térmica</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12.5</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-001">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En mantenimiento</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RQ-4 Global Hawk</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">48.8566,2.3522</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sensor LIDAR</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-002">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En vuelo</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DJI Phantom</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40.7128,-74.0060</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cámara HD</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-003">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En espera</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ1-Predator</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">51.5074,-0.1278</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sensor térmico</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-004">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En mantenimiento</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ9-REAPER</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">34.0522,-118.2437</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cámara IR</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.5</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-005">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En vuelo</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DJI Matrice</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">37.7749,-122.4194</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cámara 4K</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.0</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-006">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En espera</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RQ-4 Global Hawk</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">48.2082,16.3738</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Radar SAR</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18.5</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-007">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En vuelo</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ1-Predator</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">41.9028,12.4964</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cámara térmica</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14.0</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-008">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En mantenimiento</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DJI Inspire</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">52.5200,13.4050</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIDAR</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#DRON-009">
+  <rdf:type rdf:resource="#Dron"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En vuelo</estado_operativo>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ9-REAPER</tipo>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">35.6895,139.6917</ubicacion>
+  <carga_util rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sensor multiespectral</carga_util>
+  <autonomia_vuelo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16.0</autonomia_vuelo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#imagen_2025-01-09T10:30:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">imagen</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T10:30:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#video_2025-01-09T12:45:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T12:45:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#texto_2025-01-09T14:15:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">texto</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T14:15:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102400</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#audio_2025-01-09T15:00:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">audio</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T15:00:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#imagen_2025-01-09T16:45:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">imagen</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T16:45:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3072000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#video_2025-01-09T18:30:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T18:30:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8192000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#texto_2025-01-09T19:15:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">texto</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T19:15:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204800</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#audio_2025-01-09T20:45:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">audio</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T20:45:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">256000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#imagen_2025-01-09T22:30:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">imagen</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-09T22:30:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#video_2025-01-10T00:15:00">
+  <rdf:type rdf:resource="#Datos"/>
+  <tipo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">video</tipo>
+  <fecha_hora rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2025-01-10T00:15:00</fecha_hora>
+  <tamaño_bytes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16384000</tamaño_bytes>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-00">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inteligencia</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-01">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Técnico</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Logística</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-02">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-03">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Seguridad</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-04">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Técnico</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comunicación</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-05">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ciberseguridad</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-06">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Técnico</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Infraestructura</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-07">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestión de datos</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-08">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Analista</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reconocimiento</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Persona-09">
+  <rdf:type rdf:resource="#Persona"/>
+  <rol_puesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Técnico</rol_puesto>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sistemas</especializacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Batallón-1">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Batallón-1</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coronel A</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Brigada-2">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brigada-2</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General B</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Regimiento-3">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Regimiento-3</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Teniente C</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Batallón-4">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Batallón-4</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capitán D</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Brigada-5">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brigada-5</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mayor E</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Regimiento-6">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Regimiento-6</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Teniente F</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Batallón-7">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Batallón-7</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coronel G</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Brigada-8">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brigada-8</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General H</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Regimiento-9">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Regimiento-9</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mayor I</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Batallón-10">
+  <rdf:type rdf:resource="#Propietario"/>
+  <unidad_militar rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Batallón-10</unidad_militar>
+  <superior_directo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capitán J</superior_directo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-00">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-00"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-1</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-01">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-01"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-2</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-02">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-02"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-3</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-03">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-03"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inactivo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-4</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-04">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-04"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-5</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-05">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-05"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-6</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-06">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-06"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-7</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-07">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-07"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inactivo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-8</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-08">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-08"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-9</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#C2-09">
+  <rdf:type rdf:resource="#C2"/>
+  <is_owned_by rdf:resource="#Persona-09"/>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</estado_operativo>
+  <graficas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graf-10</graficas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000000">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000000</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ9-REAPER</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000001">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000001</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RQ-4 Global Hawk</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En misión</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000002">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000002</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ1-Predator</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000003">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000003</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DJI Phantom</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En descanso</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000004">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000004</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ9-REAPER</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000005">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000005</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DJI Matrice</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En misión</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000006">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000006</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RQ-4 Global Hawk</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000007">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000007</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DJI Inspire</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En descanso</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000008">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000008</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MQ1-Predator</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En misión</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#LIC-000009">
+  <rdf:type rdf:resource="#Piloto"/>
+  <licencia rdf:datatype="http://www.w3.org/2001/XMLSchema#string">LIC-000009</licencia>
+  <compatibilidad_sistemas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RQ-4 Global Hawk</compatibilidad_sistemas>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-1">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 4, lr_momentum = 0.9, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prec=95%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-1</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-2">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 7, lr_momentum = 0.7, lr_decay = 0.002, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rec=90%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-2</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-3">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 8, lr_momentum = 0.5, lr_decay = 0.008, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F1=88%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-3</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-4">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 2, lr_momentum = 0.7, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prec=85%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-4</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-5">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 9, lr_momentum = 0.9, lr_decay = 0.010, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rec=80%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-5</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-6">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 2, lr_momentum = 0.8, lr_decay = 0.008, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prec=87%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-6</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-7">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 5, lr_momentum = 0.4, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F1=92%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-7</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-8">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 4, lr_momentum = 0.9, lr_decay = 0.007, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prec=93%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-8</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-9">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 8, lr_momentum = 0.5, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rec=85%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-9</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Redes Neuronales_Hist-10">
+  <rdf:type rdf:resource="#Modelo"/>
+  <algoritmo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Redes Neuronales</algoritmo>
+  <hiperparametros rdf:datatype="http://www.w3.org/2001/XMLSchema#string">num_workers = 2, lr_momentum = 0.8, lr_decay = 0.005, lr_factor = 0.1, lr_patience = 10, lr_threshold = 1e-4, lr_min = 1e-10LR=0.01</hiperparametros>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">F1=89%</metricas>
+  <historial rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hist-10</historial>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-0">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-2"/>
+  <is_part_of rdf:resource="#OTAN_Alianza"/>
+  <interacts_with rdf:resource="#Nodo-3"/>
+  <interacts_with rdf:resource="#Nodo-5"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-0</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">45.4215,-75.6972</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestión de drones</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedAvg</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-1">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-4"/>
+  <is_part_of rdf:resource="#EUFOR_Fuerza"/>
+  <interacts_with rdf:resource="#Nodo-7"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-1</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">48.8566,2.3522</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Monitoreo</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedProx</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-2">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-5"/>
+  <is_part_of rdf:resource="#Naciones Unidas_Organización"/>
+  <interacts_with rdf:resource="#Nodo-8"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-2</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40.7128,-74.0060</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Análisis de datos</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedSGD</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-3">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_part_of rdf:resource="#Interpol_Organización"/>
+  <interacts_with rdf:resource="#Nodo-6"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-3</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">51.5074,-0.1278</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Seguridad</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedOpt</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-4">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-8"/>
+  <is_part_of rdf:resource="#Fuerzas Aliadas_Coalición"/>
+  <interacts_with rdf:resource="#Nodo-4"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-4</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">34.0522,-118.2437</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedAvg</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-5">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-9"/>
+  <is_part_of rdf:resource="#Francia_País"/>
+  <interacts_with rdf:resource="#Nodo-5"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-5</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">37.7749,-122.4194</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reconocimiento</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedProx</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-6">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-4"/>
+  <is_part_of rdf:resource="#Alemania_País"/>
+  <interacts_with rdf:resource="#Nodo-3"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-6</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">48.2082,16.3738</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comunicación</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedSGD</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-7">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-5"/>
+  <is_part_of rdf:resource="#Reino Unido_País"/>
+  <interacts_with rdf:resource="#Nodo-1"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-7</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">41.9028,12.4964</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ciberseguridad</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedOpt</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-8">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-9"/>
+  <is_part_of rdf:resource="#Reino Unido_País"/>
+  <interacts_with rdf:resource="#Nodo-2"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-8</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">52.5200,13.4050</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Infraestructura</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedAvg</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Nodo-9">
+  <rdf:type rdf:resource="#Nodo"/>
+  <is_backed_up rdf:resource="#Nodo-1"/>
+  <is_part_of rdf:resource="#Italia_País"/>
+  <interacts_with rdf:resource="#Nodo-0"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nodo-9</nombre>
+  <ubicacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">35.6895,139.6917</ubicacion>
+  <funcion_c2 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestión de sistemas</funcion_c2>
+  <metricas rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FedProx</metricas>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#OTAN_Alianza">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-0"/>
+  <controls rdf:resource="#Nodo-3"/>
+  <controls rdf:resource="#Nodo-5"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OTAN</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alianza</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defensa mutua</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#EUFOR_Fuerza">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-1"/>
+  <controls rdf:resource="#Nodo-7"/>
+  <interacts_with rdf:resource="#OTAN_Alianza"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">EUFOR</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fuerza</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estabilización</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Naciones Unidas_Organización">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-2"/>
+  <controls rdf:resource="#Nodo-8"/>
+  <interacts_with rdf:resource="#OTAN_Alianza"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Naciones Unidas</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Organización</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Paz mundial</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Interpol_Organización">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-3"/>
+  <controls rdf:resource="#Nodo-6"/>
+  <interacts_with rdf:resource="#Naciones Unidas_Organización"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Interpol</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Organización</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Seguridad</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Fuerzas Aliadas_Coalición">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-4"/>
+  <interacts_with rdf:resource="#OTAN_Alianza"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fuerzas Aliadas</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coalición</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reconocimiento</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Francia_País">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-5"/>
+  <interacts_with rdf:resource="#Alemania_País"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Francia</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">País</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defensa</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Alemania_País">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-3"/>
+  <controls rdf:resource="#Nodo-6"/>
+  <interacts_with rdf:resource="#Francia_País"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alemania</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">País</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defensa</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Reino Unido_País">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-1"/>
+  <controls rdf:resource="#Nodo-2"/>
+  <controls rdf:resource="#Nodo-7"/>
+  <controls rdf:resource="#Nodo-8"/>
+  <interacts_with rdf:resource="#OTAN_Alianza"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reino Unido</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">País</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Defensa</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Italia_País">
+  <rdf:type rdf:resource="#Organizacion"/>
+  <controls rdf:resource="#Nodo-0"/>
+  <controls rdf:resource="#Nodo-9"/>
+  <interacts_with rdf:resource="#OTAN_Alianza"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italia</nombre>
+  <tipo_organizacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">País</tipo_organizacion>
+  <mision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reconocimiento</mision>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-0">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-0</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-1</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-1">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-1</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En misión</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestión de sistemas</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-2</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-2">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-2</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operación de drones</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-3</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-3">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-3</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En descanso</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ciberseguridad</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-4</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-4">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-4</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Análisis de datos</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-1</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-5">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-5</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En misión</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Infraestructura</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-2</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-6">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-6</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reconocimiento</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-3</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-7">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-7</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En descanso</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Seguridad</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-4</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-8">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-8</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Disponible</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gestión de nodos</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-2</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Operador-9">
+  <rdf:type rdf:resource="#Operador"/>
+  <nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operador-9</nombre>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En misión</estado_operativo>
+  <especializacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Operaciones críticas</especializacion>
+  <capacitacion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nivel-5</capacitacion>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.0">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.0</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.5</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fasterrcnn_resnet50_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.1">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.1</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fasterrcnn_mobilenet_v3_large_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.2">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.2</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.8</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fasterrcnn_mobilenet_v3_large_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.3">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.3</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inactivo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fasterrcnn_resnet50_fpn_v2</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.4">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.4</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fasterrcnn_mobilenet_v3_large_320_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.5">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.5</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.5</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retinanet_resnet50_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.6">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.6</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2048</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retinanet_resnet50_fpn_v2</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.7">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.7</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Inactivo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">512</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">asterrcnn_resnet50_fpn_v2</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.8">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.8</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Activo</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8192</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retinanet_resnet50_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#192.168.1.9">
+  <rdf:type rdf:resource="#Servidor"/>
+  <direccion_ip rdf:datatype="http://www.w3.org/2001/XMLSchema#string">192.168.1.9</direccion_ip>
+  <estado_operativo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mantenimiento</estado_operativo>
+  <capacidad_almacenamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1024</capacidad_almacenamiento>
+  <velocidad_procesamiento rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.3</velocidad_procesamiento>
+  <modelo_global rdf:datatype="http://www.w3.org/2001/XMLSchema#string">retinanet_resnet50_fpn</modelo_global>
+</owl:NamedIndividual>
+
+<owl:EquivalentProperty>
+  <owl:DatatypeProperty rdf:about="#especialización"/>
+  <owl:DatatypeProperty rdf:about="#especializacion"/>
+</owl:EquivalentProperty>
+
+</rdf:RDF>
+

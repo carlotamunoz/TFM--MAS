@@ -1,0 +1,1 @@
+"""Local MAS agents package."""

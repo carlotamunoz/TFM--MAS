@@ -1,0 +1,51 @@
+{
+  "LEX-1": [
+    "Part 1 – Acronyms and abbreviations",
+    "Part 2 – Terms and definitions"
+  ],
+  "LEX-2": [
+    "List of figures"
+  ],
+  "ACC": [
+    "air component commander"
+  ],
+  "C2": [
+    "command and control"
+  ],
+  "CBRN": [
+    "chemical, biological, radiological and nuclear"
+  ],
+  "JIPOE": [
+    "joint intelligence preparation of the operating environment"
+  ],
+  "ISR": [
+    "intelligence, surveillance and reconnaissance"
+  ],
+  "MARCOM": [
+    "Allied Maritime Command"
+  ],
+  "MCC": [
+    "maritime component commander"
+  ],
+  "NATO": [
+    "North Atlantic Treaty Organization"
+  ],
+  "OPGEN": [
+    "operational general message"
+  ],
+  "OPLAN": [
+    "operation plan"
+  ],
+  "OPTASK": [
+    "operational tasking message"
+  ],
+  "OTC": [
+    "officer in tactical command"
+  ],
+  "SACEUR": [
+    "Supreme Allied Commander Europe"
+  ],
+  "SPOD": [
+    "seaport of debarkation"
+  ]
+}

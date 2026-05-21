@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4">
+    <Prefix name="" IRI="http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#C2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Datos"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dron"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Modelo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nodo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Operador"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Organizacion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Persona"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Piloto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Propietario"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Servidor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#belongs_to"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#controls"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#generates"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hosts_model"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#interacts_with"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_backed_up"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_managed_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_operated_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_operated_in"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_owned_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_part_of"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_used_by"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#manages"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#provides_data_to"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#provides_visualization"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#stores"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#uses_model"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#algoritmo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#autonomia_vuelo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#autoridad_legal"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#capacidad_almacenamiento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#capacidad_procesamiento"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#capacidades_organizacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#capacitacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#carga_util"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#compatibilidad_sistemas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#direccion_ip"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#especializacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#especialización"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#estado_operativo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#fecha_hora"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#funcion_c2"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#graficas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hiperparametros"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#historial"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#horas_vuelo_acumuladas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#id"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#interaccion_con"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#licencia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#metricas"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#miembros"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#mision"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#modelo_global"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nodos_controlados"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nombre"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#pertenece_a"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#redundancia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#responsable"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rol_puesto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#superior_directo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tamaño_bytes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tipo_organizacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ubicacion"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#unidad_militar"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#velocidad_procesamiento"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#C2"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_owned_by"/>
+            <Class IRI="#Operador"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C2"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#manages"/>
+            <Class IRI="#Nodo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C2"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#estado_operativo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C2"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#graficas"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C2"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#responsable"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Datos"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_used_by"/>
+            <Class IRI="#Organizacion"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Datos"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#fecha_hora"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Datos"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#tamaño_bytes"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Datos"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#tipo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#generates"/>
+            <Class IRI="#Datos"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_operated_by"/>
+            <Class IRI="#Nodo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_operated_by"/>
+            <Class IRI="#Piloto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#provides_data_to"/>
+            <Class IRI="#Servidor"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#uses_model"/>
+            <Class IRI="#Modelo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <SubClassOf>
+            <Class IRI="#Dron"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#autonomia_vuelo"/>
+                <Datatype abbreviatedIRI="xsd:decimal"/>
+            </DataSomeValuesFrom>
+        </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#carga_util"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#estado_operativo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#id"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dron"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#tipo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+       <SubClassOf>
+            <Class IRI="#Dron"/>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#ubicacion"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modelo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#provides_visualization"/>
+            <Class IRI="#C2"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modelo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#algoritmo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modelo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hiperparametros"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modelo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#historial"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modelo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#metricas"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#interacts_with"/>
+            <Class IRI="#Nodo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_backed_up"/>
+            <Class IRI="#Nodo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_managed_by"/>
+            <Class IRI="#C2"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_part_of"/>
+            <Class IRI="#Organizacion"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#capacidad_procesamiento"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#funcion_c2"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#interaccion_con"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#metricas"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#nombre"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#pertenece_a"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nodo"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#redundancia"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Operador"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Operador"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#capacitacion"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Operador"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#especializacion"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Operador"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#especialización"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Operador"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#estado_operativo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#controls"/>
+            <Class IRI="#Nodo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#interacts_with"/>
+            <Class IRI="#Organizacion"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#capacidades_organizacion"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#interaccion_con"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#miembros"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#mision"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#nodos_controlados"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#nombre"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organizacion"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#tipo_organizacion"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Persona"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#especializacion"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Persona"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#especialización"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Persona"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#nombre"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Persona"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#rol_puesto"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#belongs_to"/>
+            <Class IRI="#Organizacion"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#controls"/>
+            <Class IRI="#Dron"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#compatibilidad_sistemas"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#estado_operativo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#horas_vuelo_acumuladas"/>
+            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Piloto"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#licencia"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Propietario"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Propietario"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#autoridad_legal"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Propietario"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#superior_directo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Propietario"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#unidad_militar"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hosts_model"/>
+            <Class IRI="#Modelo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#is_owned_by"/>
+            <Class IRI="#Propietario"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#stores"/>
+            <Class IRI="#Datos"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#capacidad_almacenamiento"/>
+            <Datatype abbreviatedIRI="xsd:integer"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#direccion_ip"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#estado_operativo"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#modelo_global"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#ubicacion"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Servidor"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#velocidad_procesamiento"/>
+            <Datatype abbreviatedIRI="xsd:decimal"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#algoritmo"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#autonomia_vuelo"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#capacidad_almacenamiento"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#capacidad_procesamiento"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#compatibilidad_sistemas"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#estado_operativo"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#fecha_hora"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#graficas"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#historial"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#licencia"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#miembros"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#modelo_global"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#nombre"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#responsable"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#rol_puesto"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#superior_directo"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#tamaño_bytes"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#tipo"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#ubicacion"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#unidad_militar"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#velocidad_procesamiento"/>
+    </FunctionalDataProperty>
+    <EquivalentDataProperties>
+        <DataProperty IRI="#especialización"/>
+        <DataProperty IRI="#especializacion"/>
+    </EquivalentDataProperties>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

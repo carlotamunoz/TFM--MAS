@@ -1,0 +1,549 @@
+{
+  "B-1": [
+    "The NATO Command Structure joint force air component"
+  ],
+  "C-1": [
+    "Airborne early warning and control",
+    "The (deployable) air control centre/recognized air picture"
+  ],
+  "C-2": [
+    "Ballistic missile defence operations centre",
+    "Officer commanding",
+    "Squadron operations centre",
+    "Wing operations centre"
+  ],
+  "C-3": [
+    "Forward air controller airborne",
+    "Surface-based air and missile defence operations centre",
+    "Tactical air control parties"
+  ],
+  "MLE": [
+    "maritime liaison element",
+    "maximum level of effort"
+  ],
+  "ACCE": [
+    "air component coordination element"
+  ],
+  "GLE": [
+    "ground liaison element"
+  ],
+  "NCS": [
+    "JFAC",
+    "NATO Command Structure"
+  ],
+  "NATO": [
+    "Command Structure joint force air component",
+    "North Atlantic Treaty Organization",
+    "force structure joint force air component headquarters",
+    "military authority and who receives forces or other support from one or more"
+  ],
+  "SOLE": [
+    "special operations liaison element"
+  ],
+  "MCE": [
+    "maritime coordination element"
+  ],
+  "JFLCC": [
+    "joint force land component command"
+  ],
+  "BCE": [
+    "battlefield coordination element"
+  ],
+  "JFMCC": [
+    "joint force maritime component command"
+  ],
+  "MAOC": [
+    "maritime air operations centre"
+  ],
+  "AOCC-L": [
+    "air operations coordination centre - land"
+  ],
+  "ALE": [
+    "air liaison element"
+  ],
+  "AOCC-M": [
+    "air operations coordination centre - maritime"
+  ],
+  "JFSOCC": [
+    "joint force special operations component commander"
+  ],
+  "AIRCOM": [
+    "Allied Air Command"
+  ],
+  "BACO": [
+    "baseline activities and current operations"
+  ],
+  "LANDCOM": [
+    "Allied Land Command",
+    "land command"
+  ],
+  "MARCOM": [
+    "Allied Maritime Command",
+    "maritime command"
+  ],
+  "JFCBS": [
+    "Allied Joint Force Command Brunssum",
+    "Joint Force Command Brunssum"
+  ],
+  "JTFHQ": [
+    "joint task force headquarters"
+  ],
+  "JFCNP": [
+    "Allied Joint Force Command Napels",
+    "Joint Force Command Napels"
+  ],
+  "MCC": [
+    "maritime component command"
+  ],
+  "JFCNF": [
+    "Allied Joint Force Command Norfolk",
+    "Joint Force Command Norfolk"
+  ],
+  "LCC": [
+    "land component command"
+  ],
+  "JFAC": [
+    "joint force air component"
+  ],
+  "SSR": [
+    "space support request"
+  ],
+  "ACO": [
+    "Allied Command Operations",
+    "airspace control order"
+  ],
+  "NSHQ": [
+    "NATO special operations headquarters"
+  ],
+  "DCOS": [
+    "deputy chief of staff"
+  ],
+  "JSEC": [
+    "joint support and enabling command"
+  ],
+  "AEW": [
+    "airborne early warning"
+  ],
+  "AGS": [
+    "Alliance ground surveillance"
+  ],
+  "DACCC": [
+    "Deployable Air Command and Control Centre",
+    "Deployable Air Command and Control Centre Poggio Renatico"
+  ],
+  "AAR": [
+    "air-to-air refuelling"
+  ],
+  "AAW": [
+    "anti-air warfare"
+  ],
+  "ACA": [
+    "airspace control authority"
+  ],
+  "ACM": [
+    "airspace control means"
+  ],
+  "ACP": [
+    "airspace control plan"
+  ],
+  "AD": [
+    "air defence"
+  ],
+  "AI": [
+    "air interdiction"
+  ],
+  "AJP": [
+    "Allied joint publication"
+  ],
+  "ALCC": [
+    "airlift coordination centre"
+  ],
+  "AMD": [
+    "air and missile defence"
+  ],
+  "AMDC": [
+    "air and missile defence commander"
+  ],
+  "AOAB": [
+    "air operations assessment branch"
+  ],
+  "AOCC": [
+    "air operations coordination centre"
+  ],
+  "AOD": [
+    "air operations directive"
+  ],
+  "AOLRT": [
+    "air operational liaison and reconnaissance team"
+  ],
+  "AOO": [
+    "area of operations"
+  ],
+  "AOP": [
+    "air operations plan"
+  ],
+  "AOPG": [
+    "air operations planning group"
+  ],
+  "AOR": [
+    "area of responsibility"
+  ],
+  "ASOC": [
+    "air support operations centre"
+  ],
+  "ASUW": [
+    "antisurface warfare"
+  ],
+  "ASW": [
+    "antisubmarine warfare"
+  ],
+  "AT": [
+    "air transport"
+  ],
+  "ATC": [
+    "air traffic control"
+  ],
+  "ATO": [
+    "air tasking order"
+  ],
+  "ATP": [
+    "Allied tactical publication"
+  ],
+  "BLOS": [
+    "beyond line-of-sight"
+  ],
+  "BMD": [
+    "ballistic missile defence"
+  ],
+  "BMDOC": [
+    "ballistic missile defence operations centre"
+  ],
+  "C-AC2": [
+    "core air command and control"
+  ],
+  "C2": [
+    "command and control"
+  ],
+  "C4IS": [
+    "command, control, communications, computers and information"
+  ],
+  "CAOC": [
+    "combined air operation centre"
+  ],
+  "CAS": [
+    "close air support"
+  ],
+  "CC": [
+    "component command"
+  ],
+  "CFACC": [
+    "Combined Force Air Component Commander"
+  ],
+  "CFLCC": [
+    "Combined Force Land Component Commander"
+  ],
+  "CG": [
+    "command group"
+  ],
+  "CIS": [
+    "communication and information systems"
+  ],
+  "COA": [
+    "course of action"
+  ],
+  "COD": [
+    "combat operations division"
+  ],
+  "COM": [
+    "AIRCOM"
+  ],
+  "CONOPS": [
+    "concept of operations"
+  ],
+  "CPD": [
+    "combat plans division"
+  ],
+  "CRC": [
+    "control and reporting centre"
+  ],
+  "CS": [
+    "combined staff"
+  ],
+  "CSSD": [
+    "combat service support division"
+  ],
+  "D-AOC": [
+    "deployable air operations centre"
+  ],
+  "DCA": [
+    "defensive counter-air"
+  ],
+  "DPS": [
+    "data, products, services"
+  ],
+  "EA": [
+    "electromagnetic attack"
+  ],
+  "ED": [
+    "electromagnetic defence"
+  ],
+  "EME": [
+    "electromagnetic environment"
+  ],
+  "EMS": [
+    "electromagnetic spectrum"
+  ],
+  "ES": [
+    "electromagnetic surveillance"
+  ],
+  "EW": [
+    "electromagnetic warfare"
+  ],
+  "FP": [
+    "force protection"
+  ],
+  "FPCC": [
+    "force protection coordination cell"
+  ],
+  "GAT": [
+    "guidance, apportionment and targeting"
+  ],
+  "HQ": [
+    "headquarters"
+  ],
+  "IACB": [
+    "information activities coordination board"
+  ],
+  "ISR": [
+    "intelligence, surveillance and reconnaissance"
+  ],
+  "ISRD": [
+    "intelligence, surveillance and reconnaissance division"
+  ],
+  "JACC": [
+    "joint airspace coordination centre"
+  ],
+  "JCB": [
+    "joint coordination board"
+  ],
+  "JCMB": [
+    "joint collection management board"
+  ],
+  "JCMWG": [
+    "joint collection management working group"
+  ],
+  "JCO": [
+    "joint coordination order"
+  ],
+  "JEST": [
+    "joint effects synchronization team"
+  ],
+  "JFC": [
+    "Joint Force Command"
+  ],
+  "JIPOE": [
+    "joint intelligence preparation of the operating environment"
+  ],
+  "JISR": [
+    "joint intelligence, surveillance and reconnaissance"
+  ],
+  "JOA": [
+    "joint operations area"
+  ],
+  "JPDAL": [
+    "joint prioritized defended asset list"
+  ],
+  "JPRC": [
+    "joint personnel recovery centre"
+  ],
+  "JPTL": [
+    "joint prioritized target list"
+  ],
+  "JTAC": [
+    "joint terminal attack controller"
+  ],
+  "JTCB": [
+    "joint targeting coordination board"
+  ],
+  "JTL": [
+    "joint target list"
+  ],
+  "JTWG": [
+    "joint targeting working group"
+  ],
+  "LEGAD": [
+    "legal advisor"
+  ],
+  "LO": [
+    "liaison officer"
+  ],
+  "LOAC": [
+    "law of armed conflict"
+  ],
+  "MAOP": [
+    "master air operations plan"
+  ],
+  "MTOW": [
+    "maximum take-off weight"
+  ],
+  "NAC": [
+    "North Atlantic Council"
+  ],
+  "NFS": [
+    "JFAC HQ",
+    "NATO force structure"
+  ],
+  "NGO": [
+    "non-governmental organization"
+  ],
+  "NK": [
+    "non-kinetic"
+  ],
+  "NKATT": [
+    "non-kinetic analysis and targeting team"
+  ],
+  "NKO": [
+    "non-kinetic operations"
+  ],
+  "NKOT": [
+    "non-kinetic operations team"
+  ],
+  "NKPT": [
+    "non-kinetic plans team"
+  ],
+  "NKST": [
+    "non-kinetic strategy team"
+  ],
+  "NSL": [
+    "no-strike list"
+  ],
+  "OC": [
+    "officer commanding"
+  ],
+  "OCA": [
+    "offensive counter-air"
+  ],
+  "OPCON": [
+    "operational control"
+  ],
+  "OPLAN": [
+    "operation plan"
+  ],
+  "OPTASK": [
+    "LINK"
+  ],
+  "OSS": [
+    "operational space support"
+  ],
+  "PNT": [
+    "positioning, navigation and timing"
+  ],
+  "PR": [
+    "personnel recovery"
+  ],
+  "PRCC": [
+    "personnel recovery coordination cell"
+  ],
+  "PTL": [
+    "prioritized target list"
+  ],
+  "RAP": [
+    "recognised air picture"
+  ],
+  "ROE": [
+    "rules of engagement"
+  ],
+  "RPC": [
+    "recognized air picture production centre"
+  ],
+  "SACEUR": [
+    "Supreme Allied Commander Europe"
+  ],
+  "SATCOM": [
+    "satellite communications"
+  ],
+  "SBAMD": [
+    "surface-based air and missile defence"
+  ],
+  "SBAMDOC": [
+    "surface-based air and missile defence operations centre"
+  ],
+  "SD": [
+    "strategy division"
+  ],
+  "SDA": [
+    "space domain awareness"
+  ],
+  "SDB": [
+    "strategy development branch"
+  ],
+  "SDC": [
+    "space domain coordination"
+  ],
+  "SEAD": [
+    "suppression of enemy air defences"
+  ],
+  "SEW": [
+    "shared early warning"
+  ],
+  "SFP": [
+    "sensor fusion post"
+  ],
+  "SICC": [
+    "strategy integration and coordination cell"
+  ],
+  "SIGINT": [
+    "signals intelligence"
+  ],
+  "SLE": [
+    "space liaison element"
+  ],
+  "SME": [
+    "subject matter expert"
+  ],
+  "SOF": [
+    "special operations forces"
+  ],
+  "SOP": [
+    "standing operating procedures"
+  ],
+  "SPINS": [
+    "special instructions"
+  ],
+  "SSA": [
+    "space situational awareness"
+  ],
+  "STT": [
+    "strategy to task"
+  ],
+  "TAC": [
+    "terminal attack control"
+  ],
+  "TACP": [
+    "tactical air control party"
+  ],
+  "TBMD": [
+    "theatre ballistic missile defence"
+  ],
+  "TCC": [
+    "theatre component command"
+  ],
+  "TCCC": [
+    "Theatre Component Command Commander"
+  ],
+  "TST": [
+    "time-sensitive targets"
+  ],
+  "TTP": [
+    "tactics, techniques and procedures"
+  ],
+  "UA": [
+    "unmanned aircraft"
+  ],
+  "UAS": [
+    "unmanned aircraft system"
+  ],
+  "WOC": [
+    "wing operations centre"
+  ]
+}

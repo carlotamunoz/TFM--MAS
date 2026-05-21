@@ -1,0 +1,67 @@
+# --- Secrets & environment ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+pip-wheel-metadata/
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# --- ChromaDB vector store (generated, rebuildable) ---
+rag/data/chroma/
+
+# --- IDE & OS ---
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- Logs & temp ---
+*.log
+*.tmp
+*.bak
+*.swp
+
+# --- Docker ---
+.dockerignore
+
+# --- Test & coverage ---
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# --- MyPy / Ruff / type checkers ---
+.mypy_cache/
+.ruff_cache/
+
+# --- Sentence-transformers model cache (large, re-downloaded automatically) ---
+models/
+*.bin
+*.safetensors
+
+# --- Fuseki data (generated at runtime) ---
+fuseki-data/
+run/
