@@ -6,9 +6,11 @@ services:
   fuseki:
     image: stain/jena-fuseki:latest
     container_name: sa_fuseki
+    user: root
     environment:
       ADMIN_PASSWORD: admin
       JVM_ARGS: "-Xmx2g"
+      FUSEKI_DATASET: dron
     volumes:
       - fuseki_data:/fuseki
       - ./ontologia:/staging/ontologia:ro

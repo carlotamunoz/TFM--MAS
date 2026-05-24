@@ -6,7 +6,7 @@ set -e
 FUSEKI_BASE="${FUSEKI_BASE:-http://fuseki:3030}"
 DATASET="${FUSEKI_DATASET:-dron}"
 NAMED_GRAPH="${FUSEKI_GRAPH:-urn:scenario:static}"
-OWL_FILE="/staging/ontologia.ttl"
+OWL_FILE="/app/ontologia/ontologia.ttl"
 
 # ── 1. Esperar a Fuseki ──────────────────────────────────────────────
 echo "[init] Esperando a Fuseki en ${FUSEKI_BASE}..."
@@ -32,7 +32,7 @@ if [ "$COUNT" = "0" ]; then
     HTTP_CODE=$(curl -s -o /tmp/fuseki_upload.log -w "%{http_code}" \
       -u "admin:${FUSEKI_ADMIN_PASSWORD:-admin}" \
       -X PUT "${FUSEKI_BASE}/${DATASET}/data?graph=${NAMED_GRAPH}" \
-      -H "Content-Type: application/n-triples" \
+      -H "Content-Type: text/turtle" \
       --data-binary "@${OWL_FILE}")
 
     if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "201" ] || [ "$HTTP_CODE" = "204" ]; then
