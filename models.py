@@ -94,6 +94,7 @@ class ToolSchema(BaseModel):
         "impact",
         "ranking",
         "doctrine",
+        "graph",
         "generated",  # raw_sparql: SPARQL pre-generado por el Planner
     ]
 

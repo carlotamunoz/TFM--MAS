@@ -258,9 +258,13 @@ async def replan(request: ReplanRequest) -> ExecutionPlan:
         for sid, r in request.partial_results.items()
     }
 
+    available_tools = get_tools_for_category(request.original_plan.category)
+
     user_msg = (
         f"# Consulta original del usuario\n{request.original_plan.original_query}\n\n"
         f"# Dominio\n{request.original_plan.domain.value}\n\n"
+        f"# Catalogo de tools disponibles\n"
+        f"{_format_tool_catalog(available_tools)}\n\n"
         f"# Plan original\n"
         f"{json.dumps(request.original_plan.model_dump(), indent=2, ensure_ascii=False)}\n\n"
         f"# Resultados parciales disponibles (reutilizables en el nuevo plan)\n"
@@ -271,7 +275,8 @@ async def replan(request: ReplanRequest) -> ExecutionPlan:
         f"# Intento de re-planificacion\n{request.replan_attempt}/2\n\n"
         f"Emite un ExecutionPlan corregido. Reutiliza los resultados de "
         f"partial_results referenciandolos como {{{{E1}}}}, {{{{E2}}}}, etc. "
-        f"No repitas steps ya ejecutados con exito."
+        f"No repitas steps ya ejecutados con exito. "
+        f"Usa SOLO tools del catalogo proporcionado."
     )
 
     last_exc: Exception | None = None

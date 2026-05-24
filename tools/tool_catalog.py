@@ -1,21 +1,18 @@
 """
-Catalogo de tools disponibles para el Planner (v3).
+Catálogo de tools disponibles para el Planner (v4).
 
-Cambios respecto a v2:
-  - Eliminado sparql_from_nl: el Planner lo invoca como @agent.tool propio,
-    no como step del plan. El resultado entra al plan como raw_sparql.
-  - Anadido raw_sparql (family=generated): SPARQL pre-generado por el Planner,
-    el Executor lo ejecuta directamente contra Fuseki.
+Filosofía: el catálogo representa CAPACIDADES GENÉRICAS, no consultas
+frecuentes ni joins hardcodeados. Cada tool es una primitiva que el
+Planner puede combinar para responder cualquier consulta sobre el grafo.
 
 Familias:
-  resolution  -> traduccion nombre->IRI
-  schema      -> introspeccion de la ontologia
-  navigation  -> traversal simple de propiedades y listados por clase
-  data        -> joins multi-hop frecuentes
-  impact      -> analisis de impacto y propagacion
-  ranking     -> rankings parametrizables
-  doctrine    -> recuperacion de doctrina militar (RAG)
-  generated   -> raw_sparql generado por el Planner
+  resolution  → nombre/alias → IRI canónico
+  schema      → introspección de la ontología (clases, propiedades)
+  graph       → traversal, filtrado, agregación sobre el grafo
+  impact      → análisis de impacto y propagación N-hop
+  doctrine    → recuperación de doctrina militar (RAG)
+  data        → resúmenes ejecutivos del escenario
+  generated   → raw_sparql generado por el Planner
 """
 
 from __future__ import annotations
@@ -37,248 +34,390 @@ _OBJECT_PROPERTIES = [
     "provides_visualization", "stores", "uses_model",
 ]
 
+_DATATYPE_PROPERTIES = [
+    "algoritmo", "autonomia_vuelo", "autoridad_legal",
+    "capacidad_almacenamiento", "capacidad_procesamiento",
+    "capacidades_organizacion", "capacitacion", "carga_util",
+    "compatibilidad_sistemas", "direccion_ip", "especializacion",
+    "estado_operativo", "fecha_hora", "funcion_c2", "graficas",
+    "hiperparametros", "historial", "horas_vuelo_acumuladas",
+    "id", "licencia", "metricas", "miembros", "mision",
+    "modelo_global", "nombre", "redundancia", "responsable",
+    "rol_puesto", "superior_directo", "tamanyo_bytes",
+    "tipo", "tipo_organizacion", "ubicacion", "unidad_militar",
+    "velocidad_procesamiento",
+]
+
+_FILTER_OPERATORS = ["=", "!=", ">", "<", ">=", "<=", "contains"]
+
+_AGGREGATION_FUNCTIONS = ["COUNT", "AVG", "SUM", "MIN", "MAX"]
+
 
 TOOL_CATALOG: list[ToolSchema] = [
 
-    # --- Resolution ---
+    # ── Resolution ──────────────────────────────────────────────────────────
     ToolSchema(
         name="resolve_entity",
         family="resolution",
         description=(
-            "Resuelve un nombre, alias o fragmento a su IRI canonico en la ontologia. "
+            "Resuelve un nombre, alias o fragmento a su IRI canónico en la ontología. "
             "Busca en ex:nombre, ex:licencia, ex:unidad_militar, rdfs:label y fragmento del IRI. "
-            "USALO SIEMPRE como primer paso cuando la consulta mencione una entidad por nombre "
-            "(ej. 'Nodo-5', 'OTAN', 'Operador-3', 'LIC-000002') y un tool posterior necesite un IRI."
+            "USAR SIEMPRE como primer paso cuando la consulta mencione una entidad por nombre "
+            "(ej. 'Nodo-5', 'OTAN', 'Operador-3', 'LIC-000002') y un step posterior necesite su IRI."
         ),
         args_schema={
-            "name": {"type": "string", "description": "Nombre, alias o fragmento a resolver."},
+            "name": {
+                "type": "string",
+                "description": "Nombre, alias o fragmento a resolver.",
+            },
             "entity_type": {
                 "type": "string",
                 "enum": _ENTITY_TYPES,
-                "description": "Clase esperada. Opcional pero recomendado.",
+                "description": "Clase esperada. Opcional pero recomendado para reducir ambigüedad.",
                 "nullable": True,
             },
         },
         returns="Lista de {x: IRI, matched_prop, matched_value, type}.",
     ),
 
-    # --- Schema ---
+    # ── Schema ───────────────────────────────────────────────────────────────
     ToolSchema(
         name="describe_ontology_schema",
         family="schema",
         description=(
-            "Devuelve la estructura del esquema: clases, propiedades por clase, "
-            "o relaciones entre clases. Para preguntas sobre que informacion existe "
-            "o que propiedades tiene una clase."
+            "Introspección de la ontología: clases disponibles, propiedades de una clase, "
+            "o relaciones entre clases. "
+            "Usar cuando el Planner necesite conocer nombres exactos de propiedades antes "
+            "de construir un plan con filter_entities o aggregate_entities."
         ),
         args_schema={
-            "scope": {"type": "string", "enum": ["classes", "properties", "relations", "all"]},
+            "scope": {
+                "type": "string",
+                "enum": ["classes", "properties", "relations", "all"],
+                "description": (
+                    "'classes': lista de clases con conteo de individuales. "
+                    "'properties': propiedades datatype y object de una clase concreta. "
+                    "'relations': object properties entre clases (inferido desde ABox). "
+                    "'all': classes + relations."
+                ),
+            },
             "class_name": {
                 "type": "string",
                 "enum": _ENTITY_TYPES,
-                "description": "Solo si scope == 'properties'.",
+                "description": "Requerido si scope == 'properties'.",
                 "nullable": True,
             },
         },
-        returns="Estructura jerarquica de clases/propiedades/relaciones.",
+        returns=(
+            "classes: [{class, numIndividuals}]. "
+            "properties: [{prop, prop_type, sample_value}]. "
+            "relations: [{domain_class, prop, range_class}]."
+        ),
     ),
 
-    # --- Navigation ---
+    # ── Graph ────────────────────────────────────────────────────────────────
     ToolSchema(
         name="entity_describe",
-        family="navigation",
+        family="graph",
         description=(
             "Devuelve todos los atributos y relaciones de una entidad concreta. "
-            "Util cuando el usuario pide 'toda la informacion sobre X'."
+            "Usar cuando el usuario pide 'toda la información sobre X' o "
+            "para inspeccionar los valores de propiedades de una entidad específica."
         ),
         args_schema={
-            "entity_iri": {"type": "string", "description": "IRI de la entidad (ex:...)."},
-        },
-        returns="Lista de {p: propiedad, o: valor}.",
-    ),
-
-    ToolSchema(
-        name="entity_outgoing",
-        family="navigation",
-        description=(
-            "Devuelve los objetos conectados a una entidad por una propiedad concreta "
-            "(traversal directo: sujeto -> objeto). "
-            "Ejemplos: nodos que controla OTAN, modelo que usa Nodo-5, "
-            "backup de Nodo-1, piloto de un dron."
-        ),
-        args_schema={
-            "subject_iri": {"type": "string", "description": "IRI del sujeto."},
-            "property": {
+            "entity": {
                 "type": "string",
-                "enum": _OBJECT_PROPERTIES,
-                "description": "Nombre de la propiedad (sin prefijo).",
+                "description": "IRI canónico de la entidad (ej. ex:Nodo-5).",
             },
         },
-        returns="Lista de IRIs objeto conectados al sujeto por la propiedad.",
+        returns="Lista de {property, value} con todos los pares propiedad-valor.",
     ),
 
     ToolSchema(
-        name="entity_incoming",
-        family="navigation",
+        name="traverse_graph",
+        family="graph",
         description=(
-            "Devuelve los sujetos que apuntan a una entidad por una propiedad concreta "
-            "(traversal inverso). "
-            "Ejemplos: que org controla Nodo-5, que C2 gestiona Nodo-3, "
-            "que drones opera un piloto."
+            "Traversal del grafo desde una entidad semilla siguiendo una secuencia "
+            "ordenada de relaciones. Cubre desde 1 salto (¿qué controla OTAN?) "
+            "hasta cadenas multi-hop (dron → datos → nodo → modelo). "
+            "Usar 'outgoing' para sujeto→objeto y 'incoming' para objeto→sujeto (inverso). "
+            "Con return_mode='count' devuelve el número de entidades alcanzadas."
         ),
         args_schema={
-            "object_iri": {"type": "string", "description": "IRI del objeto destino."},
-            "property": {
+            "start_entity": {
                 "type": "string",
-                "enum": _OBJECT_PROPERTIES,
-                "description": "Nombre de la propiedad (sin prefijo).",
+                "description": "IRI canónico de la entidad de partida.",
+            },
+            "relations": {
+                "type": "array",
+                "description": (
+                    "Secuencia ordenada de saltos a seguir. "
+                    "Cada elemento especifica la propiedad y dirección del salto. "
+                    "Ejemplo 1 salto: [{property: 'controls', direction: 'outgoing'}]. "
+                    "Ejemplo multi-hop: [{property: 'generates'}, {property: 'is_used_by', direction: 'incoming'}, {property: 'uses_model'}]."
+                ),
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "property": {
+                            "type": "string",
+                            "enum": _OBJECT_PROPERTIES,
+                        },
+                        "direction": {
+                            "type": "string",
+                            "enum": ["outgoing", "incoming"],
+                            "default": "outgoing",
+                        },
+                    },
+                    "required": ["property"],
+                },
+            },
+            "target_class": {
+                "type": "string",
+                "enum": _ENTITY_TYPES,
+                "nullable": True,
+                "description": "Filtro opcional sobre la clase de las entidades finales.",
+            },
+            "return_mode": {
+                "type": "string",
+                "enum": ["entities", "count"],
+                "default": "entities",
+                "description": "'entities' devuelve la lista; 'count' devuelve solo el número.",
             },
         },
-        returns="Lista de IRIs sujeto que apuntan al objeto por la propiedad.",
+        returns=(
+            "entities: [{entity, type}] lista de entidades alcanzadas. "
+            "count: [{count}] número de entidades alcanzadas."
+        ),
     ),
 
     ToolSchema(
-        name="list_by_class",
-        family="navigation",
+        name="filter_entities",
+        family="graph",
         description=(
-            "Lista todas las instancias de una clase. Opcionalmente filtra por estado_operativo. "
-            "Para: 'drones en vuelo', 'operadores disponibles', 'todos los nodos', 'C2 activos'."
+            "Lista entidades de una clase que cumplen condiciones sobre sus propiedades. "
+            "Útil para: 'drones en vuelo', 'servidores con más de 2048 MB', "
+            "'operadores disponibles especializados en ciberseguridad'. "
+            "Usar describe_ontology_schema(scope='properties', class_name=X) primero "
+            "si no se conocen los nombres exactos de las propiedades."
         ),
         args_schema={
-            "class_name": {"type": "string", "enum": _ENTITY_TYPES},
-            "status": {
+            "class_name": {
+                "type": "string",
+                "enum": _ENTITY_TYPES,
+                "description": "Clase de entidades a filtrar.",
+            },
+            "filters": {
+                "type": "array",
+                "description": (
+                    "Condiciones de filtrado sobre propiedades datatype. "
+                    "Todas las condiciones se combinan con AND. "
+                    "Propiedades disponibles: " + ", ".join(_DATATYPE_PROPERTIES) + "."
+                ),
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "property": {"type": "string"},
+                        "operator": {
+                            "type": "string",
+                            "enum": _FILTER_OPERATORS,
+                        },
+                        "value": {"type": "string"},
+                    },
+                    "required": ["property", "operator", "value"],
+                },
+            },
+            "return_mode": {
+                "type": "string",
+                "enum": ["entities", "count"],
+                "default": "entities",
+                "description": "'entities' devuelve la lista; 'count' devuelve solo el número.",
+            },
+        },
+        returns=(
+            "entities: [{entity}] lista de IRIs que cumplen los filtros. "
+            "count: [{count}] número de entidades que cumplen los filtros."
+        ),
+    ),
+
+    ToolSchema(
+        name="aggregate_entities",
+        family="graph",
+        description=(
+            "Calcula estadísticas agregadas sobre una propiedad numérica de una clase. "
+            "Útil para: 'autonomía media de los drones', 'capacidad total de almacenamiento', "
+            "'velocidad máxima de procesamiento', 'número de pilotos por estado operativo'. "
+            "Soporta filtros opcionales para acotar la población antes de agregar. "
+            "Con group_by agrupa los resultados por el valor de otra propiedad "
+            "(ej. AVG(autonomia_vuelo) GROUP BY tipo)."
+        ),
+        args_schema={
+            "class_name": {
+                "type": "string",
+                "enum": _ENTITY_TYPES,
+                "description": "Clase sobre la que agregar.",
+            },
+            "property": {
                 "type": "string",
                 "description": (
-                    "Valor de estado_operativo. Opcional. "
-                    "Dron: 'En vuelo'|'En mantenimiento'|'En espera'. "
-                    "Operador/Piloto: 'Disponible'|'En mision'|'En descanso'. "
-                    "C2: 'Activo'|'Mantenimiento'|'Inactivo'."
+                    "Propiedad datatype sobre la que calcular la agregación. "
+                    "Propiedades numéricas disponibles: autonomia_vuelo, capacidad_almacenamiento, "
+                    "capacidad_procesamiento, horas_vuelo_acumuladas, tamanyo_bytes, velocidad_procesamiento. "
+                    "Para COUNT de entidades usar property='*'."
                 ),
+            },
+            "aggregation": {
+                "type": "string",
+                "enum": _AGGREGATION_FUNCTIONS,
+                "description": "Función de agregación a aplicar.",
+            },
+            "filters": {
+                "type": "array",
+                "nullable": True,
+                "description": "Condiciones opcionales para acotar la población (mismo formato que filter_entities).",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "property": {"type": "string"},
+                        "operator": {"type": "string", "enum": _FILTER_OPERATORS},
+                        "value": {"type": "string"},
+                    },
+                    "required": ["property", "operator", "value"],
+                },
+            },
+            "group_by": {
+                "type": "string",
+                "nullable": True,
+                "description": (
+                    "Propiedad datatype por la que agrupar los resultados. "
+                    "Ejemplo: group_by='tipo' para obtener AVG(autonomia_vuelo) por tipo de dron. "
+                    "Si se omite, devuelve un único valor agregado."
+                ),
+            },
+            "order_by": {
+                "type": "string",
+                "enum": ["asc", "desc"],
+                "default": "desc",
+                "description": "Orden del resultado cuando hay group_by.",
                 "nullable": True,
             },
+            "limit": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100,
+                "default": 10,
+                "nullable": True,
+                "description": "Máximo de filas cuando hay group_by.",
+            },
         },
-        returns="Lista de {x: IRI, estado: estado_operativo si aplica}.",
-    ),
-
-    # --- Data ---
-    ToolSchema(
-        name="node_uses_model",
-        family="data",
-        description="Devuelve los modelos usados por un nodo concreto.",
-        args_schema={
-            "node": {"type": "string", "description": "IRI del nodo (ex:...)."},
-        },
-        returns="Lista de {model: IRI del modelo}.",
-    ),
-
-    ToolSchema(
-        name="drone_generates_data",
-        family="data",
-        description="Devuelve los datos generados por un dron concreto.",
-        args_schema={
-            "drone": {"type": "string", "description": "IRI del dron (ex:...)."},
-        },
-        returns="Lista de {data: IRI, tipo, fecha_hora}.",
-    ),
-
-    ToolSchema(
-        name="models_used_by_drone",
-        family="data",
-        description=(
-            "Modelos que usa un dron via cadena dron->datos->nodo->modelo. "
-            "Encapsula un join multi-hop de 3 saltos."
+        returns=(
+            "Sin group_by: [{value}] con el resultado escalar. "
+            "Con group_by: [{group_value, value}] lista ordenada por valor."
         ),
-        args_schema={
-            "drone": {"type": "string", "description": "IRI del dron (ex:...)."},
-        },
-        returns="Lista de {model: IRI del modelo}.",
     ),
 
-    # --- Impact ---
-    ToolSchema(
-        name="impact_direct_node",
-        family="impact",
-        description=(
-            "Impacto directo (1 salto) si falla un nodo: drones, datos y modelos afectados. "
-            "Para cascada usar impact_reachability."
-        ),
-        args_schema={
-            "node": {"type": "string", "description": "IRI del nodo (ex:...)."},
-        },
-        returns="Objeto {drones: [...], data: [...], models: [...]}.",
-    ),
-
+    # ── Impact ───────────────────────────────────────────────────────────────
     ToolSchema(
         name="impact_reachability",
         family="impact",
         description=(
-            "Entidades alcanzables en cascada desde una entidad semilla a N saltos. "
+            "Entidades alcanzables en cascada desde una entidad semilla hasta N saltos. "
             "Usa property paths sobre: generates, is_used_by, uses_model, interacts_with "
-            "y sus inversas."
+            "y sus inversas. Útil para análisis de propagación de fallos o dependencias."
         ),
         args_schema={
-            "seed": {"type": "string", "description": "IRI de la entidad origen."},
-            "max_hops": {"type": "integer", "minimum": 1, "maximum": 10},
+            "seed": {
+                "type": "string",
+                "description": "IRI de la entidad semilla.",
+            },
+            "max_hops": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10,
+                "default": 3,
+            },
         },
-        returns="Lista de {x: IRI alcanzable}.",
+        returns="Lista de {x: IRI} de entidades alcanzables desde seed.",
     ),
 
     ToolSchema(
         name="impact_subgraph",
         family="impact",
         description=(
-            "Subgrafo SPARQL CONSTRUCT de relaciones operacionales dentro del alcance "
-            "N saltos. Para analisis estructural o visualizacion."
+            "Devuelve el subgrafo de relaciones operacionales dentro del alcance N saltos "
+            "desde una entidad semilla. Útil para análisis estructural o visualización "
+            "de dependencias. Devuelve triples CONSTRUCT, más detallado que impact_reachability."
         ),
         args_schema={
-            "seed": {"type": "string", "description": "IRI de la entidad origen."},
-            "max_hops": {"type": "integer", "minimum": 1, "maximum": 10},
+            "seed": {
+                "type": "string",
+                "description": "IRI de la entidad semilla.",
+            },
+            "max_hops": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10,
+                "default": 3,
+            },
         },
-        returns="Grafo Turtle con las relaciones del subgrafo.",
+        returns="Grafo Turtle con los triples del subgrafo operacional.",
     ),
 
-    # --- Ranking ---
-    ToolSchema(
-        name="rank_entities",
-        family="ranking",
-        description=(
-            "Ranking de entidades segun una metrica. Combinaciones validas: "
-            "(node, data_count), (node, model_count), (model, usage_count), "
-            "(drone, data_count)."
-        ),
-        args_schema={
-            "entity_type": {"type": "string", "enum": ["node", "model", "drone"]},
-            "metric": {"type": "string", "enum": ["data_count", "model_count", "usage_count"]},
-            "limit": {"type": "integer", "minimum": 1, "maximum": 100, "default": 10},
-        },
-        returns="Lista ordenada de {entity: IRI, score: int}.",
-    ),
-
-    # --- Doctrine ---
+    # ── Doctrine ─────────────────────────────────────────────────────────────
     ToolSchema(
         name="retrieve_doctrine",
         family="doctrine",
         description=(
-            "Busca chunks relevantes en doctrinas militares: "
-            "AJP-3.1 (maritime), AJP-3.2 (land), AJP-3.3 (air). "
-            "Filtrado automatico por dominio del operador. "
-            "Incluye expansion de acronimos militares."
+            "Busca chunks relevantes en doctrinas militares OTAN: "
+            "AJP-3.1 (marítimo), AJP-3.2 (terrestre), AJP-3.3 (aéreo). "
+            "Filtrado automático por dominio operacional del operador. "
+            "Incluye expansión de acrónimos militares."
         ),
         args_schema={
-            "query": {"type": "string", "description": "Consulta en lenguaje natural."},
-            "domain": {"type": "string", "enum": ["air", "land", "maritime"]},
-            "top_k": {"type": "integer", "minimum": 1, "maximum": 20, "default": 5},
+            "query": {
+                "type": "string",
+                "description": "Consulta en lenguaje natural.",
+            },
+            "domain": {
+                "type": "string",
+                "enum": ["air", "land", "maritime"],
+            },
+            "top_k": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 20,
+                "default": 5,
+            },
         },
         returns="Lista de {text, source_doc, page, score}.",
     ),
 
-    # --- Generated (SPARQL pre-generado por el Planner) ---
+    # ── Data ─────────────────────────────────────────────────────────────────
+    ToolSchema(
+        name="scenario_summary",
+        family="data",
+        description=(
+            "Resumen ejecutivo del escenario completo: totales por clase "
+            "(Dron, Nodo, Servidor, Datos, Modelo, C2, Piloto, Operador, Organizacion) "
+            "y desglose por estado_operativo donde aplique. "
+            "Usar para responder 'estado general de la misión', "
+            "'cuántos drones están activos', 'resumen del sistema'."
+        ),
+        args_schema={},
+        returns=(
+            "Diccionario con métricas: total por clase y breakdown por estado_operativo "
+            "para Dron, Piloto, Operador, C2, Servidor."
+        ),
+    ),
+
+    # ── Generated ────────────────────────────────────────────────────────────
     ToolSchema(
         name="raw_sparql",
         family="generated",
         description=(
-            "Ejecuta SPARQL SELECT pre-generado por el Planner via su tool sparql_from_nl. "
-            "El Executor lo ejecuta directamente contra Fuseki sin transformacion."
+            "Ejecuta SPARQL SELECT pre-generado por el Planner vía su tool sparql_from_nl. "
+            "El Executor lo ejecuta directamente contra Fuseki sin transformación. "
+            "Usar solo cuando ningún otro tool cubra la consulta."
         ),
         args_schema={
             "query": {
@@ -294,15 +433,15 @@ TOOL_REGISTRY: dict[str, ToolSchema] = {t.name: t for t in TOOL_CATALOG}
 
 
 def get_tools_for_category(category: str) -> list[ToolSchema]:
-    """Filtra catalogo segun categoria del Router.
+    """Filtra catálogo según categoría del Router.
 
-    doctrine_question -> solo doctrine.
-    ontology_question -> todos los tools excepto raw_sparql
-                         (raw_sparql lo genera el Planner internamente,
-                          no es un tool que el Planner elige en el plan).
+    doctrine_question → solo doctrine.
+    ontology_question → todos los tools excepto raw_sparql
+                        (raw_sparql lo genera el Planner internamente,
+                         no es un tool que el Planner elige en el plan).
     """
     if category == "doctrine_question":
         return [t for t in TOOL_CATALOG if t.family == "doctrine"]
     if category == "ontology_question":
         return [t for t in TOOL_CATALOG if t.name != "raw_sparql"]
-    raise ValueError(f"Categoria no planificable: {category!r}")
+    raise ValueError(f"Categoría no planificable: {category!r}")
