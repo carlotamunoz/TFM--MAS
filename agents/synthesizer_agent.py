@@ -51,8 +51,17 @@ SYNTHESIZER_HISTORY_TURNS = int(os.getenv("SYNTHESIZER_HISTORY_TURNS", "5"))
 
 # Tools que indican datos / impacto / navegación (ontología pura)
 _ONTOLOGY_DATA_TOOLS = frozenset({
+    # Catálogo v4 — tools activos
     "resolve_entity",
     "entity_describe",
+    "traverse_graph",
+    "filter_entities",
+    "aggregate_entities",
+    "impact_reachability",
+    "impact_subgraph",
+    "scenario_summary",
+    "raw_sparql",
+    # Legacy — por si hay planes antiguos en caché
     "entity_outgoing",
     "entity_incoming",
     "list_by_class",
@@ -60,10 +69,8 @@ _ONTOLOGY_DATA_TOOLS = frozenset({
     "drone_generates_data",
     "models_used_by_drone",
     "impact_direct_node",
-    "impact_reachability",
-    "impact_subgraph",
     "rank_entities",
-    "raw_sparql",
+    "count_related",
 })
 
 # Tools de doctrina
@@ -73,72 +80,64 @@ _DOCTRINE_TOOLS = frozenset({"retrieve_doctrine"})
 _SCHEMA_TOOLS = frozenset({"describe_ontology_schema"})
 
 
-def detect_pattern(input_data: SynthesizerInput) -> ResponsePattern:
-    """Detecta el patrón de respuesta a partir del input.
+def detect_pattern(
+    category: str,
+    execution_result,
+) -> ResponsePattern:
+    """Detecta el patrón de respuesta desde los tools realmente ejecutados.
 
-    Reglas (en este orden, primer match gana):
-      1. category == 'smalltalk' o no hay execution_result → 'smalltalk'
-      2. execution_result.final_status == 'failed' → 'failure'
-      3. Tools con resultado SUCCESS o EMPTY (no bloqueante):
-         - solo doctrine             → 'doctrine_only'
-         - doctrine + ontology_data  → 'ontology_with_context'
-         - solo schema (resolve_entity opcional) → 'schema_only'
-         - solo ontology_data        → 'ontology_only'
-      4. Si nada de lo anterior aplica → 'failure'
+    La categoría del Classifier orienta pero el patrón final se decide
+    desde los resultados reales del Executor.
     """
-    # 1. Smalltalk o sin ejecución
-    if input_data.category == "smalltalk" or input_data.execution_result is None:
+    # Cortocircuito inmediato
+    if category == "smalltalk":
         return "smalltalk"
 
-    er = input_data.execution_result
+    if execution_result is None:
+        return "smalltalk"
 
-    # 2. Failure explícito
-    if er.final_status == "failed":
+    if execution_result.final_status == "failed":
         return "failure"
 
-    # 3. Inspeccionar qué tools tienen resultado utilizable
+    # Recoger tools exitosos
     usable_tools: set[str] = set()
-    for sid, result in er.results.items():
-        if result.status in (StepStatus.SUCCESS, StepStatus.EMPTY):
-            # EMPTY se considera utilizable solo si no fue bloqueante.
-            # Si fue bloqueante, habría provocado failure ya.
-            usable_tools.add(result.tool)
+    for step in execution_result.results.values():
+        if step.status == "success" and step.output:
+            usable_tools.add(step.tool)
 
     has_doctrine = bool(usable_tools & _DOCTRINE_TOOLS)
     has_schema   = bool(usable_tools & _SCHEMA_TOOLS)
+    has_data     = bool(usable_tools & (_ONTOLOGY_DATA_TOOLS - {"resolve_entity"}))
 
-    # resolve_entity es soporte: no determina el patrón por sí solo.
-    has_data = bool(
-        usable_tools & (_ONTOLOGY_DATA_TOOLS - {"resolve_entity"})
-    )
+    # Categorías de entrada como hint adicional
+    if category == "doctrine_only":
+        return "doctrine_only" if has_doctrine else "failure"
+    if category == "ontology_with_context":
+        if has_data and has_doctrine:
+            return "ontology_with_context"
+        if has_data:
+            return "ontology_only"   # degradado: el retrieve_doctrine no dio resultado
+        return "failure"
+    if category in ("ontology_only", "ontology_question"):
+        if has_doctrine and has_data:
+            return "ontology_with_context"
+        if has_schema and not has_data:
+            return "schema_only"
+        if has_data:
+            return "ontology_only"
+        return "failure"
 
+    # Fallback genérico
     if has_doctrine and has_data:
         return "ontology_with_context"
-    if has_doctrine and not has_data and not has_schema:
+    if has_doctrine:
         return "doctrine_only"
-    if has_schema and not has_data and not has_doctrine:
+    if has_schema and not has_data:
         return "schema_only"
     if has_data:
         return "ontology_only"
-
-    # Si llegamos aquí no hay nada utilizable: tratarlo como failure
     return "failure"
 
-
-# ---------------------------------------------------------------------------
-# Agente Pydantic AI
-# ---------------------------------------------------------------------------
-
-synthesizer_agent: Agent[None, SynthesizerOutput] = Agent(
-    model=SYNTHESIZER_MODEL,
-    output_type=SynthesizerOutput,
-    system_prompt=SYNTHESIZER_SYSTEM_PROMPT,
-)
-
-
-# ---------------------------------------------------------------------------
-# Helpers para construir el user message
-# ---------------------------------------------------------------------------
 
 def _format_history(history: list[ConversationTurn], n: int) -> str:
     if not history:
@@ -235,6 +234,19 @@ def _build_user_message(input_data: SynthesizerInput, pattern: ResponsePattern) 
     return base
 
 
+
+# ---------------------------------------------------------------------------
+# Agente Synthesizer
+# ---------------------------------------------------------------------------
+
+synthesizer_agent: Agent[None, SynthesizerOutput] = Agent(
+    model=SYNTHESIZER_MODEL,
+    output_type=SynthesizerOutput,
+    system_prompt=SYNTHESIZER_SYSTEM_PROMPT,
+)
+
+
+
 # ---------------------------------------------------------------------------
 # Fallback de emergencia
 # ---------------------------------------------------------------------------
@@ -289,7 +301,7 @@ async def synthesize(input_data: SynthesizerInput) -> SynthesizerOutput:
       4. Si falla, reintenta una vez.
       5. Si vuelve a fallar, devuelve fallback estático con degraded=true.
     """
-    pattern = detect_pattern(input_data)
+    pattern = detect_pattern(input_data.category, input_data.execution_result)
     logger.info(
         "Synthesizer: pattern=%s domain=%s category=%s",
         pattern, input_data.domain.value, input_data.category,

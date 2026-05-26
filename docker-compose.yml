@@ -40,7 +40,7 @@ services:
       LEXICONS_DIR: /app/rag/data/processed/lexicons
       LOG_LEVEL: INFO
     volumes:
-      - ./rag:/app/rag:ro
+      - ./rag:/app/rag
     ports:
       - "8000:8000"
     depends_on:

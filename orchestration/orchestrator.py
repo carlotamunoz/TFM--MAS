@@ -16,10 +16,11 @@ El orquestador es stateless: toda la memoria vive en Session (pasada como arg).
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from agents.classifier_agent import classify
 from agents.planner_agent import plan
+from agents.retriever_agent import retrieve as retriever_retrieve
 from agents.synthesizer_agent import synthesize
 from agents.execution.executor import Executor
 from models import (
@@ -45,7 +46,6 @@ class OrchestratorResult:
     session_id: str
     clarification_needed: bool = False
     clarification_question: str | None = None
-    pipeline_trace: dict = field(default_factory=dict)
 
 
 async def run_query(user_input: str, session: Session) -> OrchestratorResult:
@@ -62,7 +62,6 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
         "Orchestrator start: session=%s operator=%s domain=%s",
         session.session_id[:8], session.operator_id, session.domain.value,
     )
-    trace: dict = {}
 
     # ------------------------------------------------------------------
     # 1. Classifier / Router
@@ -73,14 +72,6 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
     )
     router_decision = await classify(classifier_input)
     result = router_decision.result
-
-    trace["classifier"] = {
-        "input": {
-            "user_input": classifier_input.user_input,
-            "history_turns": len(classifier_input.conversation_history),
-        },
-        "output": router_decision.model_dump(),
-    }
 
     logger.info(
         "Classifier: category=%s confidence=%.2f fell_back=%s",
@@ -101,39 +92,67 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
         return OrchestratorResult(
             output=SynthesizerOutput(
                 response_text=result.clarification_question or "",
-                pattern="smalltalk",
+                pattern="smalltalk",  # lo más cercano para el frontend
             ),
             session_id=session.session_id,
             clarification_needed=True,
             clarification_question=result.clarification_question,
-            pipeline_trace=trace,
         )
 
     # 2b. Smalltalk → Synthesizer directo (sin Planner ni Executor)
     if result.category == "smalltalk":
         logger.info("Routing: smalltalk → Synthesizer directo")
-        synth_input = SynthesizerInput(
+        synth_output = await synthesize(SynthesizerInput(
             user_input=user_input,
             domain=session.domain,
             category="smalltalk",
             execution_result=None,
             conversation_history=session.last_n_turns(5),
-        )
-        synth_output = await synthesize(synth_input)
-        trace["synthesizer"] = {
-            "input": {"user_input": user_input, "category": "smalltalk"},
-            "output": synth_output.model_dump(),
-        }
+        ))
         session.add_turn(user_input, synth_output.response_text)
-        return OrchestratorResult(
-            output=synth_output,
-            session_id=session.session_id,
-            pipeline_trace=trace,
-        )
+        return OrchestratorResult(output=synth_output, session_id=session.session_id)
 
-    # 2c. doctrine_question u ontology_question → pipeline completo
-    category = result.category  # "doctrine_question" | "ontology_question"
+    # 2c. Ruta al pipeline completo
+    category = result.category
     logger.info("Routing: %s → Planner + Executor + Synthesizer", category)
+
+    # ------------------------------------------------------------------
+    # 2d. Retriever — RAG semántico pre-Planner
+    # Activo para: ontology_with_context, doctrine_only siempre.
+    # Para ontology_only: solo si la query no contiene IRIs reconocibles.
+    # ------------------------------------------------------------------
+    import re as _re
+    _KNOWN_IRI_PATTERN = r'\b(DRON|Nodo|LIC|Servidor|Modelo|C2)-\w+'
+    _has_known_iri = bool(_re.search(_KNOWN_IRI_PATTERN, user_input, _re.IGNORECASE))
+    _needs_retriever = (
+        category in ("ontology_with_context", "doctrine_only")
+        or (category == "ontology_only" and not _has_known_iri)
+    )
+
+    retriever_output = None
+    if _needs_retriever:
+        logger.info(
+            "Retriever activado: category=%s domain=%s",
+            category, session.domain,
+        )
+        try:
+            retriever_output = await retriever_retrieve(
+                query=user_input,
+                domain=session.domain,
+                category=category,
+            )
+            logger.info(
+                "Retriever OK: chunks=%d terms=%s needs_graph=%s needs_doctrine=%s",
+                len(retriever_output.chunks),
+                retriever_output.relevant_terms,
+                retriever_output.needs_graph,
+                retriever_output.needs_doctrine,
+            )
+        except Exception as _ret_err:
+            logger.warning(
+                "Retriever error (continuando sin contexto): %s", _ret_err
+            )
+            retriever_output = None
 
     # ------------------------------------------------------------------
     # 3. Planner
@@ -148,23 +167,13 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
     )
 
     try:
-        execution_plan = await plan(planner_input)
-        trace["planner"] = {
-            "input": {
-                "user_query": planner_input.user_query,
-                "domain": planner_input.domain.value,
-                "category": planner_input.category,
-                "available_tools_count": len(available_tools),
-            },
-            "output": execution_plan.model_dump(exclude={"plan_id"}),
-        }
+        execution_plan = await plan(planner_input, retriever_output=retriever_output)
         logger.info(
             "Planner: plan_id=%s steps=%d",
             execution_plan.plan_id[:8], len(execution_plan.steps),
         )
     except Exception as exc:
         logger.error("Planner falló: %s", exc)
-        trace["planner"] = {"error": str(exc)}
         execution_result = _make_failed_result(
             query=user_input,
             domain=session.domain,
@@ -176,7 +185,6 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
             category=category,
             execution_result=execution_result,
             session=session,
-            trace=trace,
         )
 
     # ------------------------------------------------------------------
@@ -184,14 +192,12 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
     # ------------------------------------------------------------------
     try:
         execution_result = await _executor.run(execution_plan)
-        trace["executor"] = {"output": execution_result.model_dump()}
         logger.info(
             "Executor: status=%s replans=%d",
             execution_result.final_status, execution_result.replan_count,
         )
     except Exception as exc:
         logger.error("Executor falló de forma inesperada: %s", exc)
-        trace["executor"] = {"error": str(exc)}
         execution_result = _make_failed_result(
             query=user_input,
             domain=session.domain,
@@ -207,7 +213,6 @@ async def run_query(user_input: str, session: Session) -> OrchestratorResult:
         category=category,
         execution_result=execution_result,
         session=session,
-        trace=trace,
     )
 
 
@@ -221,12 +226,8 @@ async def _synthesize_and_store(
     category: str,
     execution_result: ExecutionResult,
     session: Session,
-    trace: dict | None = None,
 ) -> OrchestratorResult:
     """Invoca el Synthesizer y persiste el turno en el historial."""
-    if trace is None:
-        trace = {}
-
     synth_input = SynthesizerInput(
         user_input=user_input,
         domain=domain,
@@ -237,26 +238,11 @@ async def _synthesize_and_store(
     synth_output = await synthesize(synth_input)
     session.add_turn(user_input, synth_output.response_text)
 
-    trace["synthesizer"] = {
-        "input": {
-            "user_input": user_input,
-            "domain": domain.value,
-            "category": category,
-            "execution_final_status": execution_result.final_status,
-            "replan_count": execution_result.replan_count,
-        },
-        "output": synth_output.model_dump(),
-    }
-
     logger.info(
         "Synthesizer: pattern=%s degraded=%s",
         synth_output.pattern, synth_output.degraded,
     )
-    return OrchestratorResult(
-        output=synth_output,
-        session_id=session.session_id,
-        pipeline_trace=trace,
-    )
+    return OrchestratorResult(output=synth_output, session_id=session.session_id)
 
 
 def _make_failed_result(

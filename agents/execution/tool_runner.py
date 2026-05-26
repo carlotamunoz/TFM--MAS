@@ -88,7 +88,7 @@ _VALID_CLASSES = {
     "C2", "Operador", "Piloto", "Propietario", "Organizacion", "Persona",
 }
 
-_VALID_FILTER_OPERATORS = {"=", "!=", ">", "<", ">=", "<=", "contains"}
+_VALID_FILTER_OPERATORS = {"=", "!=", ">", "<", ">=", "<=", "contains", "IN"}
 
 
 def _validate_prop(prop: str) -> str:
@@ -271,8 +271,9 @@ def _aggregate_entities(args: dict) -> list[dict]:
     order_by = args.get("order_by", "desc")
     limit    = int(args.get("limit", 10))
 
-    if order_by not in ("asc", "desc"):
-        raise ValueError(f"aggregate_entities: order_by inválido: {order_by!r}")
+    # Normalizar order_by: aceptar None, [], o valores inválidos
+    if not order_by or order_by not in ("asc", "desc"):
+        order_by = "desc"
 
     return _select(N3_aggregate_entities(
         class_iri=class_name,

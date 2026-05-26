@@ -36,7 +36,7 @@ class SparqlExecutor:
 
     def run_any(self, sparql: str):
         # Detecta CONSTRUCT vs SELECT
-        if re.match(r"^\s*construct\b", sparql, flags=re.I):
+        if re.search(r"\\bconstruct\\b", sparql, flags=re.I):
             resp = requests.post(
                 self.endpoint,
                 data={"query": sparql},

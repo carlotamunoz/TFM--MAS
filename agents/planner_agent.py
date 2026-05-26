@@ -32,9 +32,12 @@ from models import (
     ExecutionPlan,
     PlannerInput,
     ToolSchema,
+    RetrieverOutput
 )
 from prompts.planner_prompt import PLANNER_SYSTEM_PROMPT
-from prompts.nl_to_sparql_system_prompt import NL_TO_SPARQL_SYSTEM_PROMPT
+from prompts.retriever_prompt import build_retriever_context_block
+from models import RetrieverOutput
+from prompts.nl_to_sparql_prompt import NL_TO_SPARQL_SYSTEM_PROMPT
 from tools.tool_catalog import get_tools_for_category
 
 logger = logging.getLogger(__name__)
@@ -196,8 +199,7 @@ def _enforce_plan_metadata(plan: ExecutionPlan, input_data: PlannerInput) -> Exe
 # API publica: plan normal
 # ---------------------------------------------------------------------------
 
-async def plan(input_data: PlannerInput) -> ExecutionPlan:
-    """Genera un ExecutionPlan. 1 reintento si la validacion falla."""
+async def plan(input_data: PlannerInput, retriever_output: "RetrieverOutput | None" = None) -> ExecutionPlan:    
     user_msg = _build_user_message(input_data)
     last_exc: Exception | None = None
 
@@ -258,13 +260,9 @@ async def replan(request: ReplanRequest) -> ExecutionPlan:
         for sid, r in request.partial_results.items()
     }
 
-    available_tools = get_tools_for_category(request.original_plan.category)
-
     user_msg = (
         f"# Consulta original del usuario\n{request.original_plan.original_query}\n\n"
         f"# Dominio\n{request.original_plan.domain.value}\n\n"
-        f"# Catalogo de tools disponibles\n"
-        f"{_format_tool_catalog(available_tools)}\n\n"
         f"# Plan original\n"
         f"{json.dumps(request.original_plan.model_dump(), indent=2, ensure_ascii=False)}\n\n"
         f"# Resultados parciales disponibles (reutilizables en el nuevo plan)\n"
@@ -275,8 +273,7 @@ async def replan(request: ReplanRequest) -> ExecutionPlan:
         f"# Intento de re-planificacion\n{request.replan_attempt}/2\n\n"
         f"Emite un ExecutionPlan corregido. Reutiliza los resultados de "
         f"partial_results referenciandolos como {{{{E1}}}}, {{{{E2}}}}, etc. "
-        f"No repitas steps ya ejecutados con exito. "
-        f"Usa SOLO tools del catalogo proporcionado."
+        f"No repitas steps ya ejecutados con exito."
     )
 
     last_exc: Exception | None = None
@@ -310,7 +307,7 @@ def plan_sync(
 ) -> ExecutionPlan:
     """Helper sincrono para tests / CLI."""
     import asyncio
-    if category not in {"doctrine_question", "ontology_question"}:
+    if category not in {"doctrine_only", "ontology_only"}:
         raise ValueError(f"Categoria no planificable: {category!r}")
     available_tools = get_tools_for_category(category)
     input_data = PlannerInput(

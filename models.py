@@ -36,10 +36,11 @@ class ConversationTurn(BaseModel):
 # ---------------------------------------------------------------------------
 
 QueryCategory = Literal[
-    "smalltalk",
-    "doctrine_question",
-    "ontology_question",
-    "unclear",
+    "smalltalk",              # conversacional, sin datos ni doctrina
+    "ontology_only",          # solo grafo C2, sin contexto doctrinal
+    "ontology_with_context",  # grafo C2 enriquecido con doctrina del dominio
+    "doctrine_only",          # solo doctrina AJP, sin grafo
+    "unclear",                # ambigua → pedir clarificación
 ]
 
 
@@ -94,15 +95,38 @@ class ToolSchema(BaseModel):
         "impact",
         "ranking",
         "doctrine",
-        "graph",
-        "generated",  # raw_sparql: SPARQL pre-generado por el Planner
+        "generated",
+        "graph",  # raw_sparql: SPARQL pre-generado por el Planner
     ]
+
+
+
+class RetrieverOutput(BaseModel):
+    """Output del agente Retriever (RAG semántico pre-Planner).
+
+    Se activa para:
+      - category == ontology_with_context  (siempre)
+      - category == doctrine_only          (siempre)
+      - category == ontology_only cuando el Planner no reconoce un término
+
+    El Planner recibe estos chunks como contexto doctrinal para:
+      - Entender la terminología del dominio (UAV → Dron, etc.)
+      - Anclar su plan en los objetivos de la doctrina AJP
+    El Synthesizer los usa directamente como citas.
+    """
+    domain: str
+    query_used: str                        # query expandida enviada a ChromaDB
+    chunks: list[dict]                     # [{text, source_doc, page, score}]
+    relevant_terms: dict[str, str]         # {"UAV": "Dron", "C2 node": "Nodo"}
+    needs_graph: bool                      # el plan debe consultar la ontología
+    needs_doctrine: bool                   # hay chunks útiles para el Synthesizer
 
 
 class PlannerInput(BaseModel):
     user_query: str
+    retriever_output: "RetrieverOutput | None" = None  # contexto doctrinal del Retriever
     domain: Domain
-    category: Literal["doctrine_question", "ontology_question"]
+    category: Literal["ontology_only", "ontology_with_context", "doctrine_only"]
     available_tools: list[ToolSchema]
     conversation_history: list[ConversationTurn] = Field(default_factory=list)
 
@@ -138,7 +162,7 @@ class ExecutionPlan(BaseModel):
     plan_id: str = Field(default_factory=lambda: str(uuid4()))
     original_query: str
     domain: Domain
-    category: Literal["doctrine_question", "ontology_question"]
+    category: Literal["ontology_only", "ontology_with_context", "doctrine_only"]
     steps: list[StepPlan]
     rationale: str
     expected_output_shape: str | None = None
@@ -299,8 +323,11 @@ class SynthesizerInput(BaseModel):
     execution_result:      ExecutionResult | None = None
     conversation_history:  list[ConversationTurn] = Field(default_factory=list)
     # En modo 'unclear' el orquestador ya respondió al usuario; el
-    # Synthesizer no se invoca. Por eso QueryCategory aquí en la práctica
-    # solo será smalltalk, doctrine_question u ontology_question.
+    # Synthesizer no se invoca. En la práctica llega:
+    #   smalltalk, ontology_only, ontology_with_context, doctrine_only.
+    # "failure" solo existe como SynthesizerPattern (Synthesizer lo emite),
+    # nunca como QueryCategory.
+
 
 
 class SynthesizerOutput(BaseModel):
@@ -318,3 +345,21 @@ class SynthesizerOutput(BaseModel):
     pattern:             ResponsePattern
     degraded:            bool = False
     degradation_reason:  str | None = None
+
+
+# ---------------------------------------------------------------------------
+# Pipeline Trace y OrchestratorResult
+
+class PipelineTrace(BaseModel):
+    """Log estructurado de cada agente en el pipeline."""
+    classifier: dict[str, Any] = Field(default_factory=dict)
+    retriever: dict[str, Any] = Field(default_factory=dict)
+    planner: dict[str, Any] = Field(default_factory=dict)
+    executor: dict[str, Any] = Field(default_factory=dict)
+    synthesizer: dict[str, Any] = Field(default_factory=dict)
+
+
+class OrchestratorResult(BaseModel):
+    """Output final del Orchestrator hacia la API."""
+    response: SynthesizerOutput
+    pipeline_trace: PipelineTrace = Field(default_factory=PipelineTrace)

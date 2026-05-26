@@ -926,7 +926,7 @@ def N4_scenario_summary(graph: str = DEFAULT_GRAPH) -> str:
     for cls in all_classes:
         union_parts.append(f"""\
   {{
-    SELECT ({quote_str(cls)} AS ?class) "total" AS ?breakdown
+    SELECT ({quote_str(cls)} AS ?class) ("total" AS ?breakdown)
            (COUNT(DISTINCT ?x) AS ?count)
     WHERE {{
       GRAPH {graph} {{ ?x rdf:type ex:{cls} . }}

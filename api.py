@@ -140,11 +140,11 @@ async def query(
     result = await run_query(user_input=body.query, session=session)
 
     return QueryResponse(
-        session_id=result.session_id,
-        response=result.output,
-        clarification_needed=result.clarification_needed,
-        clarification_question=result.clarification_question,
-        pipeline_trace=result.pipeline_trace,
+        session_id=getattr(result, 'session_id', x_session_id),
+        response=result.output if hasattr(result, 'output') else result.response,
+        clarification_needed=getattr(result, 'clarification_needed', False),
+        clarification_question=getattr(result, 'clarification_question', None),
+        pipeline_trace=getattr(result, 'pipeline_trace', None),
     )
 
 

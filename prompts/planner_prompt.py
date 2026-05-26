@@ -125,7 +125,7 @@ PRINCIPIOS DE PLANIFICACIÓN ReWOO
 
 3. PREFERENCIA DE TOOLS (de más a menos preferido):
    a) Tools específicos (navigation, data, impact, ranking, doctrine).
-   b) sparql_from_nl — SOLO si ningún tool específico aplica.
+   b) raw_sparql — SOLO si ningún tool específico aplica.
    Consulta las QUERY PLANNING NOTES del cheatsheet antes de elegir.
 
 4. NUNCA ALUCINES IRIs: si la query menciona entidades por nombre, tu
@@ -256,13 +256,13 @@ expected_output_shape: "lista de drones actualmente en vuelo"
 
 ---
 
-## Ejemplo 6 — sparql_from_nl como fallback legítimo
+## Ejemplo 6 - raw_sparql como fallback legítimo
 
 Query: "¿Qué pilotos tienen más de 500 horas de vuelo y están disponibles?"
 Domain: maritime
 
 Plan:
-  E1 = sparql_from_nl(
+  E1 = raw_sparql(
          instruction="Lista pilotos (clase Piloto) cuyo horas_vuelo_acumuladas > 500
                       y estado_operativo = 'Disponible'. Devuelve IRI y horas.",
          domain="maritime"
@@ -271,7 +271,7 @@ Plan:
        description="Filtro combinado numérico + estado. Ningún tool específico cubre esto."
 
 rationale: "Filtro con condición numérica sobre horas_vuelo_acumuladas no está cubierto
-            por ningún tool específico. sparql_from_nl es el fallback correcto."
+            por ningún tool específico. raw_sparql es el fallback correcto."
 expected_output_shape: "lista de pilotos disponibles con más de 500h de vuelo"
 
 {"=" * 70}
@@ -280,7 +280,7 @@ REGLAS DURAS
 
 - NUNCA inventes nombres de tools que no estén en el catálogo.
 - NUNCA inventes IRIs. Si necesitas uno, usa resolve_entity.
-- NUNCA escribas SPARQL directamente en args; usa sparql_from_nl con NL.
+- NUNCA escribas SPARQL directamente en args; usa raw_sparql con NL.
 - Toda referencia {{Ek.field}} debe tener Ek en depends_on.
 - Si la query es irresoluble, emite steps=[] y explícalo en rationale.
 - Usa los nombres canónicos de clases y propiedades EXACTAMENTE como están

@@ -54,9 +54,9 @@ BATCH_SIZE = 32          # tamaño de lote para ChromaDB
 
 # ── Corpus ────────────────────────────────────────────────────────────────────
 PDFS: List[Tuple[str, str, Path]] = [
-    ("AJP-3.1", "maritime", RAW_DIR / "AJP_3_1_Maritime_Ops_EdB.pdf"),
-    ("AJP-3.2", "land",     RAW_DIR / "AJP-3.2_EDB_V1_E_2288.pdf"),
-    ("AJP-3.3", "air",      RAW_DIR / "AJP_3_3_EdC_V1.pdf"),
+    ("AJP-3.1", "maritime", RAW_DIR / "AJP-3.1.pdf"),
+    ("AJP-3.2", "land",     RAW_DIR / "AJP-3.2.pdf"),
+    ("AJP-3.3", "air",      RAW_DIR / "AJP-3.3.pdf"),
 ]
 
 # ── Regex ─────────────────────────────────────────────────────────────────────

@@ -433,13 +433,22 @@ TOOL_REGISTRY: dict[str, ToolSchema] = {t.name: t for t in TOOL_CATALOG}
 
 
 def get_tools_for_category(category: str) -> list[ToolSchema]:
-    """Filtra catálogo según categoría del Router.
+    """Filtra catálogo según categoría del Classifier.
 
-    doctrine_question → solo doctrine.
-    ontology_question → todos los tools excepto raw_sparql
-                        (raw_sparql lo genera el Planner internamente,
-                         no es un tool que el Planner elige en el plan).
+    doctrine_only          → solo tools de doctrina.
+    ontology_only          → todos los tools de grafo + impacto (sin raw_sparql).
+    ontology_with_context  → todos los tools: grafo + impacto + doctrina (sin raw_sparql).
+
+    raw_sparql se excluye siempre: lo genera el Planner internamente
+    vía sparql_from_nl, no es un tool que aparezca en el catálogo visible.
     """
+    if category == "doctrine_only":
+        return [t for t in TOOL_CATALOG if t.family == "doctrine"]
+    if category == "ontology_only":
+        return [t for t in TOOL_CATALOG if t.name != "raw_sparql" and t.family != "doctrine"]
+    if category == "ontology_with_context":
+        return [t for t in TOOL_CATALOG if t.name != "raw_sparql"]
+    # Compatibilidad con categorías antiguas por si hay código no actualizado
     if category == "doctrine_question":
         return [t for t in TOOL_CATALOG if t.family == "doctrine"]
     if category == "ontology_question":

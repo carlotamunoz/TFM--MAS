@@ -20,9 +20,9 @@ RAW_DIR = BASE_DIR / "data" / "raw"
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 
 PDFS = [
-    ("AJP-3.1", RAW_DIR / "AJP_3_1_Maritime_Ops_EdB.pdf"),
-    ("AJP-3.2", RAW_DIR / "AJP-3.2_EDB_V1_E_2288.pdf"),
-    ("AJP-3.3", RAW_DIR / "AJP_3_3_EdC_V1.pdf"),
+    ("AJP-3.1", RAW_DIR / "AJP-3.1.pdf"),
+    ("AJP-3.2", RAW_DIR / "AJP-3.2.pdf"),
+    ("AJP-3.3", RAW_DIR / "AJP-3.3.pdf"),
 ]
 
 OUT_PAGES = PROCESSED_DIR / "pages.jsonl"
