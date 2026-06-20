@@ -104,7 +104,7 @@ def _get_retriever():
         chroma_dir=os.getenv("CHROMA_DIR", "rag/data/chroma"),
         collection=os.getenv("CHROMA_COLLECTION", "ajp_doctrine_chunks"),
         lexicons_dir=os.getenv("LEXICONS_DIR", "rag/data/processed/lexicons"),
-        embedding_model=os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2"),
+        embedding_model=os.getenv("EMBED_MODEL", "paraphrase-multilingual-mpnet-base-v2"),
     )
 
 

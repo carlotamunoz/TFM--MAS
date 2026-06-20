@@ -38,7 +38,6 @@ _ONTOLOGY_CHEATSHEET = """\
 | is_owned_by           | C2/Servidor → Propietario/Persona     |
 | is_managed_by         | Dron → Operador                       |
 | is_operated_by        | Dron → Piloto                         |
-| is_operated_in        | Dron → Nodo                           |
 | is_part_of            | Nodo → Organizacion                   |
 | is_backed_up          | Nodo → Nodo (backup redundancy)       |
 | interacts_with        | Nodo/Organizacion → Nodo/Organizacion |
@@ -48,8 +47,9 @@ _ONTOLOGY_CHEATSHEET = """\
 | generates             | Dron/Nodo → Datos                     |
 | provides_data_to      | Nodo/Dron → Nodo/Servidor             |
 | provides_visualization| Servidor → C2                         |
-| uses_model            | Nodo → Modelo                         |
+| uses_model            | Dron/Nodo → Modelo                    |
 | is_used_by            | Datos → Organizacion                  |
+
 
 ## KNOWN INDIVIDUALS
 - Drones: DRON-000 .. DRON-009
@@ -91,7 +91,7 @@ Classes:    Dron, Nodo, Servidor, Modelo, Datos, C2,
 
 ## CANONICAL PROPERTY NAMES (use exactly these in entity_outgoing/entity_incoming)
 Object props: belongs_to, controls, generates, hosts_model, interacts_with,
-              is_backed_up, is_managed_by, is_operated_by, is_operated_in,
+              is_backed_up, is_managed_by, is_operated_by, 
               is_owned_by, is_part_of, is_used_by, manages, provides_data_to,
               provides_visualization, stores, uses_model
 """
@@ -124,10 +124,16 @@ PRINCIPIOS DE PLANIFICACIÓN ReWOO
    No combines tools en un solo paso.
 
 3. PREFERENCIA DE TOOLS (de más a menos preferido):
-   a) Tools específicos (navigation, data, impact, ranking, doctrine).
-   b) raw_sparql — SOLO si ningún tool específico aplica.
+   a) Tools específicos cuando cubren exactamente la query (entity_describe, 
+      filter_entities, impact_reachability, retrieve_doctrine).
+   b) raw_sparql cuando la query requiere transformaciones que los tools no cubren:
+      - Superlativos (mayor, menor, máximo, mínimo) → ORDER BY DESC/ASC LIMIT 1
+      - Agregaciones con GROUP BY y condiciones complejas
+      - Combinaciones de filtros numéricos y estado
+      - Cualquier SPARQL que necesite cláusulas no expresables con tools específicos.
    Consulta las QUERY PLANNING NOTES del cheatsheet antes de elegir.
 
+   
 4. NUNCA ALUCINES IRIs: si la query menciona entidades por nombre, tu
    PRIMER paso es resolve_entity para obtener el IRI canónico. Luego
    referencia el IRI con {{E1.x}} donde x es el campo del resultado.
@@ -141,7 +147,11 @@ PRINCIPIOS DE PLANIFICACIÓN ReWOO
 6. NOMBRES CANÓNICOS: usa siempre los nombres exactos de la tabla
    CANONICAL NAMES. "Drone" → error; "Dron" → correcto.
 
-{"=" * 70}
+7. VALORES DESCONOCIDOS: si la query filtra por un valor de propiedad que
+   no conoces con certeza (estados, tipos, categorías), añade un paso previo
+   con describe_ontology_schema(scope='properties', class_name=X) para
+   descubrir los valores exactos antes de filtrar. Usa el resultado como
+   referencia para construir el filtro correcto.
 CUÁNDO AÑADIR retrieve_doctrine
 {"=" * 70}
 

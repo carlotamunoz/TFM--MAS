@@ -1,0 +1,812 @@
+﻿[
+    {
+        "id":  "Q-DOC-001",
+        "query":  "¿Cuáles son los tres atributos centrales del poder aéreo según la doctrina OTAN?",
+        "domain":  "air",
+        "system_answer":  "No he podido encontrar en los documentos doctrinales disponibles una definiciÃ³n precisa de los tres atributos centrales del poder aÃ©reo segÃºn la doctrina OTAN. Si deseas, puedo ayudarte a buscar esta informaciÃ³n en fuentes o documentos especÃ­ficos que tengas a disposiciÃ³n, o podemos explorar otros aspectos relacionados con el poder aÃ©reo.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  8409,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿CuÃ¡les son los tres atributos centrales del poder aÃ©reo segÃºn la doctrina OTAN?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿CuÃ¡les son los tres atributos centrales del poder aÃ©reo segÃºn la doctrina OTAN?",
+                                                         "domain":  "air",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-aire-atributos-poder-aereo-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "\"atributos centrales\" del poder aÃ©reo OR \"central characteristics\" of air power OR \"three central attributes\" AJP-3.3",
+                                                                                                "domain":  "air",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  181
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontraron datos doctrinales relevantes en la consulta sobre atributos del poder aÃ©reo."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-002",
+        "query":  "¿Cómo clasifica AJP-3.3 los sistemas aéreos no tripulados según su peso?",
+        "domain":  "air",
+        "system_answer":  "No he encontrado informaciÃ³n especÃ­fica en la doctrina AJP-3.3 sobre la clasificaciÃ³n de los sistemas aÃ©reos no tripulados segÃºn su peso. Si necesitas, puedo ayudarte a buscar otros criterios de clasificaciÃ³n o informaciÃ³n relacionada con UAVs en el dominio aÃ©reo.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7933,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿CÃ³mo clasifica AJP-3.3 los sistemas aÃ©reos no tripulados segÃºn su peso?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿CÃ³mo clasifica AJP-3.3 los sistemas aÃ©reos no tripulados segÃºn su peso?",
+                                                         "domain":  "air",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-umap-ajp33-peso",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "clasificaciÃ³n por peso de sistemas aÃ©reos no tripulados (UAS / RPAS) en AJP-3.3; categorÃ­as de peso y rangos en kilogramos",
+                                                                                                "domain":  "air",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  165
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontrÃ³ informaciÃ³n en AJP-3.3 respecto a la clasificaciÃ³n por peso de sistemas aÃ©reos no tripulados."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-003",
+        "query":  "¿Cuáles son los tres niveles de control del aire que distingue la doctrina aérea OTAN?",
+        "domain":  "air",
+        "system_answer":  "No se ha encontrado informaciÃ³n disponible en la doctrina aÃ©rea de la OTAN para detallar los tres niveles de control del aire que distingue dicha doctrina. Si requieres, puedo ayudarte a buscar otros aspectos doctrinales relacionados o informaciÃ³n complementaria dentro del dominio aÃ©reo.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7333,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿CuÃ¡les son los tres niveles de control del aire que distingue la doctrina aÃ©rea OTAN?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿CuÃ¡les son los tres niveles de control del aire que distingue la doctrina aÃ©rea OTAN?",
+                                                         "domain":  "air",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-ctrl-aire-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "niveles de control del aire, niveles de control del espacio aÃ©reo, AJP-3.3, control centralizado, ejecuciÃ³n descentralizada",
+                                                                                                "domain":  "air",
+                                                                                                "top_k":  5
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  112
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se recuperaron datos de la doctrina aÃ©rea OTAN sobre niveles de control del aire."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-004",
+        "query":  "¿En qué se diferencian las operaciones contraaéreas ofensivas y defensivas?",
+        "domain":  "air",
+        "system_answer":  "No he podido recuperar informaciÃ³n doctrinal especÃ­fica sobre las diferencias entre las operaciones contraaÃ©reas ofensivas y defensivas en el Ã¡mbito aÃ©reo. No obstante, puedo indicar que esta distinciÃ³n es fundamental en las operaciones aÃ©reas: normalmente, las operaciones contraaÃ©reas ofensivas buscan destruir o neutralizar las capacidades aÃ©reas enemigas antes de que actÃºen, mientras que las defensivas se centran en proteger fuerzas propias o espacio aÃ©reo contra ataques o incursiones enemigas.\n\nSi necesitas, puedo ayudarte a buscar otras fuentes o aspectos relacionados que puedan estar disponibles.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  8376,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿En quÃ© se diferencian las operaciones contraaÃ©reas ofensivas y defensivas?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿En quÃ© se diferencian las operaciones contraaÃ©reas ofensivas y defensivas?",
+                                                         "domain":  "air",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-ops-contreair-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "diferencias entre operaciones contraaÃ©reas ofensivas y defensivas, definiciones, objetivos y ejemplos segÃºn AJP-3.3",
+                                                                                                "domain":  "air",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  206
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontrÃ³ informaciÃ³n doctrinal disponible sobre el tema consultado."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-005",
+        "query":  "¿Qué establece el ATO y cuál es su período de cobertura habitual?",
+        "domain":  "air",
+        "system_answer":  "No he podido encontrar informaciÃ³n especÃ­fica sobre quÃ© establece el ATO ni su perÃ­odo de cobertura habitual en la doctrina consultada. Si lo deseas, puedo intentar ayudarte con informaciÃ³n general sobre el ATO en el Ã¡mbito aÃ©reo o buscar datos mÃ¡s concretos si proporcionas otra fuente o contexto.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7134,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿QuÃ© establece el ATO y cuÃ¡l es su perÃ­odo de cobertura habitual?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿QuÃ© establece el ATO y cuÃ¡l es su perÃ­odo de cobertura habitual?",
+                                                         "domain":  "air",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-ato-coverage-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "Air Tasking Order ATO definiciÃ³n funciones quÃ© establece contenido estÃ¡ndar periodo de cobertura habitual duraciÃ³n 24 horas ciclo ATO",
+                                                                                                "domain":  "air",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  168
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontrÃ³ informaciÃ³n en la doctrina disponible sobre el ATO y su perÃ­odo de cobertura."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-006",
+        "query":  "¿Cuáles son las fases del ciclo de tareas aéreas y con qué actividad se inicia?",
+        "domain":  "air",
+        "system_answer":  "No se ha podido recuperar informaciÃ³n doctrinal especÃ­fica sobre las fases del ciclo de tareas aÃ©reas ni sobre la actividad con la que se inicia este ciclo en la doctrina disponible para el dominio aÃ©reo (AJP-3.3).",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7657,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿CuÃ¡les son las fases del ciclo de tareas aÃ©reas y con quÃ© actividad se inicia?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿CuÃ¡les son las fases del ciclo de tareas aÃ©reas y con quÃ© actividad se inicia?",
+                                                         "domain":  "air",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-ATA-cycle-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "\"air tasking cycle\" fases del ciclo de tareas aÃ©reas (AOD, TGT development, MAAP, ATO production, ATO dissemination, execution, assessment). Identificar fases y la primera actividad del ciclo segÃºn AJP-3.3 u otras doctrinas OTAN.",
+                                                                                                "domain":  "air",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  176
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontrÃ³ informaciÃ³n doctrinal relevante sobre el ciclo de tareas aÃ©reas en la consulta realizada."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-007",
+        "query":  "¿Qué actividades comprende el concepto de seguridad marítima según AJP-3.1?",
+        "domain":  "maritime",
+        "system_answer":  "No se ha podido recuperar informaciÃ³n especÃ­fica de la doctrina AJP-3.1 sobre las actividades que comprende el concepto de seguridad marÃ­tima en esta consulta. Es posible que los datos no estÃ©n disponibles en la fuente consultada o que haya ocurrido un problema en la recuperaciÃ³n.\n\nTe recomiendo verificar directamente en la Ãºltima versiÃ³n oficial de la AJP-3.1 para obtener un detalle completo y actualizado sobre este concepto.\n\nQuedo a disposiciÃ³n para otras consultas o para ayudarte con informaciÃ³n relacionada cuando estÃ© disponible.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7433,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿QuÃ© actividades comprende el concepto de seguridad marÃ­tima segÃºn AJP-3.1?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿QuÃ© actividades comprende el concepto de seguridad marÃ­tima segÃºn AJP-3.1?",
+                                                         "domain":  "maritime",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "bf4463a9-423c-421b-9788-50f796ed1133",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "actividades que comprende el concepto de \"seguridad marÃ­tima\" segÃºn AJP-3.1, incluyendo listas de tareas, funciones, misiones o lÃ­neas de acciÃ³n asociadas",
+                                                                                                "domain":  "maritime",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  184
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se pudo obtener informaciÃ³n en la doctrina AJP-3.1 para la consulta solicitada."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-008",
+        "query":  "¿En qué consiste el control del mar según la doctrina marítima OTAN?",
+        "domain":  "maritime",
+        "system_answer":  "No se pudo recuperar informaciÃ³n especÃ­fica sobre el control del mar segÃºn la doctrina marÃ­tima de la OTAN. Por el momento, no dispongo de datos doctrinales que expliquen en detalle este concepto en el contexto marÃ­timo.\n\nÂ¿PodrÃ­as intentar especificar algÃºn aspecto particular del control del mar o consultar otra cuestiÃ³n relacionada?",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7449,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿En quÃ© consiste el control del mar segÃºn la doctrina marÃ­tima OTAN?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿En quÃ© consiste el control del mar segÃºn la doctrina marÃ­tima OTAN?",
+                                                         "domain":  "maritime",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-ctrl-mar-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "\"control of the sea\" OR \"control del mar\" definiciÃ³n, finalidad, tipos de control (marÃ­timo, aÃ©reo, subsuperficie), relaciÃ³n con el uso del mar y negaciÃ³n del mar, segÃºn doctrina OTAN AJP-3.1",
+                                                                                                "domain":  "maritime",
+                                                                                                "top_k":  8
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  150
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontrÃ³ informaciÃ³n doctrinal relevante sobre el control del mar en la doctrina OTAN disponible."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-009",
+        "query":  "¿Cuáles son los componentes del fighting power según la doctrina de operaciones terrestres?",
+        "domain":  "land",
+        "system_answer":  "No se ha encontrado informaciÃ³n especÃ­fica sobre los componentes del \"fighting power\" en la doctrina de operaciones terrestres (AJP-3.2) en la base de datos disponible. Esto impide proporcionar una respuesta detallada basada en la doctrina oficial.\n\nSi necesitas, puedo ayudarte con otros aspectos del mando y control terrestre o buscar definiciones generales relacionadas con el poder de combate en operaciones terrestres.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7753,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿CuÃ¡les son los componentes del fighting power segÃºn la doctrina de operaciones terrestres?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿CuÃ¡les son los componentes del fighting power segÃºn la doctrina de operaciones terrestres?",
+                                                         "domain":  "land",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "componentes del fighting power en operaciones terrestres (moral, fÃ­sico, conceptual) segÃºn AJP-3.2 o doctrina OTAN de maniobra terrestre",
+                                                                                                "domain":  "land",
+                                                                                                "top_k":  5
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  157
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se obtuvo informaciÃ³n doctrinal sobre componentes del fighting power en AJP-3.2."
+                                                          }
+                                           }
+                       }
+    },
+    {
+        "id":  "Q-DOC-010",
+        "query":  "¿En qué consiste la filosofía de mission command y de qué tres elementos depende?",
+        "domain":  "land",
+        "system_answer":  "No se ha podido recuperar informaciÃ³n doctrinal especÃ­fica sobre la filosofÃ­a de mission command ni sus elementos dependientes en este momento. Si requiere, puedo ayudarle a buscar en otras fuentes o enfocarnos en otro aspecto del mando terrestre que le interese.",
+        "system_category":  "doctrine_only",
+        "system_degraded":  true,
+        "retriever_chunks":  0,
+        "latency_ms":  7546,
+        "full_trace":  {
+                           "classifier":  {
+                                              "input":  {
+                                                            "query":  "Â¿En quÃ© consiste la filosofÃ­a de mission command y de quÃ© tres elementos depende?"
+                                                        },
+                                              "output":  {
+                                                             "category":  "doctrine_only",
+                                                             "confidence":  0.95,
+                                                             "fell_back":  false
+                                                         }
+                                          },
+                           "retriever":  {
+                                             "output":  {
+                                                            "chunks":  0,
+                                                            "relevant_terms":  {
+
+                                                                               },
+                                                            "needs_graph":  false,
+                                                            "needs_doctrine":  true
+                                                        }
+                                         },
+                           "planner":  {
+                                           "input":  {
+                                                         "query":  "Â¿En quÃ© consiste la filosofÃ­a de mission command y de quÃ© tres elementos depende?",
+                                                         "domain":  "land",
+                                                         "category":  "doctrine_only"
+                                                     },
+                                           "output":  {
+                                                          "plan_id":  "plan-001",
+                                                          "steps":  1,
+                                                          "steps_detail":  [
+                                                                               {
+                                                                                   "step_id":  "E1",
+                                                                                   "tool":  "retrieve_doctrine",
+                                                                                   "args":  {
+                                                                                                "query":  "mission command filosofÃ­a principios elementos de los que depende (autoridad, iniciativa, comprensiÃ³n, confianza, propÃ³sito) segÃºn AJP-3.2 y doctrina OTAN terrestre",
+                                                                                                "domain":  "land",
+                                                                                                "top_k":  5
+                                                                                            }
+                                                                               }
+                                                                           ]
+                                                      }
+                                       },
+                           "executor":  {
+                                            "output":  {
+                                                           "status":  "partial",
+                                                           "replans":  0,
+                                                           "results":  {
+                                                                           "E1":  {
+                                                                                      "step_id":  "E1",
+                                                                                      "tool":  "retrieve_doctrine",
+                                                                                      "status":  "empty",
+                                                                                      "output":  [
+
+                                                                                                 ],
+                                                                                      "error_type":  null,
+                                                                                      "error_msg":  null,
+                                                                                      "attempts":  1,
+                                                                                      "duration_ms":  133
+                                                                                  }
+                                                                       }
+                                                       }
+                                        },
+                           "synthesizer":  {
+                                               "output":  {
+                                                              "pattern":  "failure",
+                                                              "degraded":  true,
+                                                              "degradation_reason":  "No se encontrÃ³ informaciÃ³n doctrinal disponible sobre mission command en la consulta."
+                                                          }
+                                           }
+                       }
+    }
+]

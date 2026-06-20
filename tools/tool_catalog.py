@@ -195,11 +195,11 @@ TOOL_CATALOG: list[ToolSchema] = [
         name="filter_entities",
         family="graph",
         description=(
-            "Lista entidades de una clase que cumplen condiciones sobre sus propiedades. "
-            "Útil para: 'drones en vuelo', 'servidores con más de 2048 MB', "
-            "'operadores disponibles especializados en ciberseguridad'. "
-            "Usar describe_ontology_schema(scope='properties', class_name=X) primero "
-            "si no se conocen los nombres exactos de las propiedades."
+            "Lista o cuenta entidades de una clase que cumplen condiciones sobre sus propiedades. "
+            "Con return_mode='count' devuelve solo el número total: usar para preguntas tipo "
+            "'¿cuántos nodos hay?', '¿cuántos drones operativos?', '¿cuántos servidores activos?'. "
+            "Con return_mode='entities' lista los individuos. "
+            "Sin filtros devuelve todas las entidades de la clase."
         ),
         args_schema={
             "class_name": {
@@ -244,12 +244,11 @@ TOOL_CATALOG: list[ToolSchema] = [
         name="aggregate_entities",
         family="graph",
         description=(
-            "Calcula estadísticas agregadas sobre una propiedad numérica de una clase. "
+            "Calcula estadísticas agregadas (AVG, SUM, MIN, MAX) sobre una propiedad NUMÉRICA. "
+            "NO usar para contar entidades — para eso usar filter_entities con return_mode='count'. "
             "Útil para: 'autonomía media de los drones', 'capacidad total de almacenamiento', "
-            "'velocidad máxima de procesamiento', 'número de pilotos por estado operativo'. "
-            "Soporta filtros opcionales para acotar la población antes de agregar. "
-            "Con group_by agrupa los resultados por el valor de otra propiedad "
-            "(ej. AVG(autonomia_vuelo) GROUP BY tipo)."
+            "'velocidad máxima de procesamiento'. "
+            "Con group_by agrupa los resultados por el valor de otra propiedad."
         ),
         args_schema={
             "class_name": {
@@ -415,9 +414,9 @@ TOOL_CATALOG: list[ToolSchema] = [
         name="raw_sparql",
         family="generated",
         description=(
-            "Ejecuta SPARQL SELECT pre-generado por el Planner vía su tool sparql_from_nl. "
-            "El Executor lo ejecuta directamente contra Fuseki sin transformación. "
-            "Usar solo cuando ningún otro tool cubra la consulta."
+            "Ejecuta una query SPARQL SELECT arbitraria contra el grafo. "
+            "Usar como fallback cuando ningún otro tool estructurado cubra la consulta. "
+            "El campo 'query' debe ser un SPARQL SELECT completo con prefijos."
         ),
         args_schema={
             "query": {
@@ -439,15 +438,15 @@ def get_tools_for_category(category: str) -> list[ToolSchema]:
     ontology_only          → todos los tools de grafo + impacto (sin raw_sparql).
     ontology_with_context  → todos los tools: grafo + impacto + doctrina (sin raw_sparql).
 
-    raw_sparql se excluye siempre: lo genera el Planner internamente
-    vía sparql_from_nl, no es un tool que aparezca en el catálogo visible.
+    raw_sparql se excluye del catálogo visible por defecto pero está disponible
+    como fallback para el re-planner cuando ningún otro tool cubre la consulta.
     """
     if category == "doctrine_only":
         return [t for t in TOOL_CATALOG if t.family == "doctrine"]
     if category == "ontology_only":
-        return [t for t in TOOL_CATALOG if t.name != "raw_sparql" and t.family != "doctrine"]
+        return [t for t in TOOL_CATALOG if t.family != "doctrine"]
     if category == "ontology_with_context":
-        return [t for t in TOOL_CATALOG if t.name != "raw_sparql"]
+        return TOOL_CATALOG
     # Compatibilidad con categorías antiguas por si hay código no actualizado
     if category == "doctrine_question":
         return [t for t in TOOL_CATALOG if t.family == "doctrine"]

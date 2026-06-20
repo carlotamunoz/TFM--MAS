@@ -31,7 +31,7 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 client = chromadb.PersistentClient(path='/app/rag/data/chroma')
 collection = client.get_or_create_collection('ajp_doctrine_chunks')
-embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')
+embeddings = HuggingFaceEmbeddings(model_name='paraphrase-multilingual-mpnet-base-v2')
 splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 
 

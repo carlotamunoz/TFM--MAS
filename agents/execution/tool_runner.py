@@ -63,7 +63,7 @@ def _retriever():
         chroma_dir=os.getenv("CHROMA_DIR", "rag/data/chroma"),
         collection=os.getenv("CHROMA_COLLECTION", "ajp_doctrine_chunks"),
         lexicons_dir=os.getenv("LEXICONS_DIR", "rag/data/processed/lexicons"),
-        embedding_model=os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2"),
+        embedding_model=os.getenv("EMBED_MODEL", "paraphrase-multilingual-mpnet-base-v2"),
     )
 
 
@@ -77,7 +77,7 @@ _DOMAIN_TO_SOURCE_DOC = {
 _VALID_OBJECT_PROPS = {
     "belongs_to", "controls", "generates", "hosts_model",
     "interacts_with", "is_backed_up", "is_managed_by",
-    "is_operated_by", "is_operated_in", "is_owned_by",
+    "is_operated_by", "is_owned_by",
     "is_part_of", "is_used_by", "manages", "provides_data_to",
     "provides_visualization", "stores", "uses_model",
 }
@@ -184,7 +184,7 @@ def _describe_ontology_schema(args: dict) -> Any:
         S1_list_classes, S2_list_properties_of_class,
         S3_list_relations_between_classes,
     )
-    scope      = args["scope"]
+    scope      = args.get("scope", "all")
     class_name = args.get("class_name")
 
     if scope == "classes":
@@ -261,15 +261,15 @@ def _filter_entities(args: dict) -> list[dict]:
 def _aggregate_entities(args: dict) -> list[dict]:
     from sparql_templates import N3_aggregate_entities
     class_name  = _validate_class(args["class_name"])
-    prop        = args["property"]
-    aggregation = args["aggregation"].upper()
+    prop        = args.get("property") or "nombre"
+    aggregation = (args.get("aggregation") or "COUNT").upper()
     if aggregation not in ("COUNT", "AVG", "SUM", "MIN", "MAX"):
         raise ValueError(f"aggregate_entities: agregación inválida: {aggregation!r}")
 
     filters  = _validate_filters(args.get("filters") or [])
     group_by = args.get("group_by")
     order_by = args.get("order_by", "desc")
-    limit    = int(args.get("limit", 10))
+    limit    = int(args.get("limit") or 10)
 
     # Normalizar order_by: aceptar None, [], o valores inválidos
     if not order_by or order_by not in ("asc", "desc"):

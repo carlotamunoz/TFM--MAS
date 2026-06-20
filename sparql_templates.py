@@ -570,7 +570,7 @@ def S2_list_properties_of_class(
     """
     return PREFIXES + f"""
 SELECT DISTINCT ?prop
-  (IF(ISIRI(?sample_val), "ObjectProperty", "DatatypeProperty") AS ?prop_type)
+  (IF(ISIRI(SAMPLE(?sample_val)), "ObjectProperty", "DatatypeProperty") AS ?prop_type)
   (SAMPLE(?sample_val) AS ?sample_value)
 WHERE {{
   GRAPH {graph} {{

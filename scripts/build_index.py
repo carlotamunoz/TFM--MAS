@@ -13,7 +13,7 @@ Estrategia:
   5. Al cambiar de sección, guardar el chunk acumulado.
   6. Si un chunk supera MAX_CHUNK_CHARS, dividir con solapamiento
      (prefijando el heading al inicio de cada parte).
-  7. Embebido con all-MiniLM-L6-v2 e indexado en ChromaDB.
+  7. Embebido con paraphrase-multilingual-mpnet-base-v2 e indexado en ChromaDB.
 
 Uso (desde la raíz del proyecto):
     .venv/Scripts/python rag/src/build_index.py
@@ -33,17 +33,18 @@ except ImportError:
 
 try:
     import chromadb
+    from chromadb.utils import embedding_functions
     from sentence_transformers import SentenceTransformer
 except ImportError:
     sys.exit("Instala: pip install chromadb sentence-transformers")
 
 # ── Rutas ─────────────────────────────────────────────────────────────────────
-BASE_DIR   = Path(__file__).resolve().parents[1]   # rag/
+BASE_DIR   = Path("/app/rag")
 RAW_DIR    = BASE_DIR / "data" / "raw"
 CHROMA_DIR = BASE_DIR / "data" / "chroma"
 
 COLLECTION_NAME  = "ajp_doctrine_chunks"
-EMBED_MODEL_NAME = "all-MiniLM-L6-v2"
+EMBED_MODEL_NAME = "paraphrase-multilingual-mpnet-base-v2"
 
 # ── Parámetros de chunking ────────────────────────────────────────────────────
 MAX_CHUNK_CHARS = 1600   # ~220 tokens → cómodo para MiniLM-L6-v2 (max 256 tok)
@@ -54,9 +55,9 @@ BATCH_SIZE = 32          # tamaño de lote para ChromaDB
 
 # ── Corpus ────────────────────────────────────────────────────────────────────
 PDFS: List[Tuple[str, str, Path]] = [
-    ("AJP-3.1", "maritime", RAW_DIR / "AJP_3_1_Maritime_Ops_EdB.pdf"),
-    ("AJP-3.2", "land",     RAW_DIR / "AJP-3.2_EDB_V1_E_2288.pdf"),
-    ("AJP-3.3", "air",      RAW_DIR / "AJP_3_3_EdC_V1.pdf"),
+    ("AJP-3.1", "maritime", RAW_DIR / "AJP-3.1.pdf"),
+    ("AJP-3.2", "land",     RAW_DIR / "AJP-3.2.pdf"),
+    ("AJP-3.3", "air",      RAW_DIR / "AJP-3.3.pdf"),
 ]
 
 # ── Regex ─────────────────────────────────────────────────────────────────────
@@ -313,7 +314,11 @@ def rebuild_index() -> None:
     print(f"{'='*60}\n")
 
     print("Cargando modelo de embeddings...")
-    model = SentenceTransformer(EMBED_MODEL_NAME)
+    # La embedding function se registra en la coleccion para que ChromaDB
+    # la use de forma coherente tanto al indexar como al consultar.
+    embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+        model_name=EMBED_MODEL_NAME
+    )
     print("  Modelo listo.\n")
 
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
@@ -328,6 +333,7 @@ def rebuild_index() -> None:
     collection = client.create_collection(
         COLLECTION_NAME,
         metadata={"hnsw:space": "cosine"},
+        embedding_function=embed_fn,
     )
     print(f"  Colección '{COLLECTION_NAME}' creada.\n")
 
@@ -358,16 +364,15 @@ def rebuild_index() -> None:
     print(f"Total chunks: {len(all_chunks)}\n")
     print("Embebiendo e indexando...\n")
 
-    # Insertar en ChromaDB por lotes
+    # Insertar en ChromaDB por lotes. ChromaDB calcula los embeddings con la
+    # embedding function registrada en la coleccion (multilingue, 768 dim).
     total = len(all_chunks)
     for i in range(0, total, BATCH_SIZE):
         batch     = all_chunks[i : i + BATCH_SIZE]
         texts     = [c["text"] for c in batch]
-        embeddings = model.encode(texts, show_progress_bar=False).tolist()
 
         collection.add(
             ids       =[str(uuid.uuid4()) for _ in batch],
-            embeddings=embeddings,
             documents =texts,
             metadatas =[
                 {

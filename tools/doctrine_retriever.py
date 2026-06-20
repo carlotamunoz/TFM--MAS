@@ -1,9 +1,18 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
-import json
+import logging
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Any
+
+import chromadb
+from chromadb.utils import embedding_functions
+
+logger = logging.getLogger(__name__)
+
+# Modelo de embeddings. DEBE coincidir con el usado en build_index.py,
+# de lo contrario las dimensiones del vector de consulta no encajan con
+# las de la coleccion (p. ej. 768 de mpnet frente a 384 de MiniLM).
+_DEFAULT_EMBED_MODEL = "paraphrase-multilingual-mpnet-base-v2"
 
 
 @dataclass
@@ -13,16 +22,45 @@ class RetrievedDocument:
 
 
 class DoctrineRetriever:
-    """Local lexical retriever over processed doctrine chunks."""
+    """Retriever semantico sobre chunks de doctrina, usando ChromaDB con
+    embeddings multilingues (paraphrase-multilingual-mpnet-base-v2).
+
+    Sustituye a la version anterior basada en interseccion de tokens lexicos,
+    que fallaba al recibir consultas en espanol sobre un corpus indexado en
+    ingles (ver limitacion documentada en el capitulo de evaluacion).
+
+    La coleccion se abre con la misma embedding function multilingue que se
+    registro en la indexacion. Asi ChromaDB genera el vector de la consulta
+    con el modelo correcto (768 dim) y no con su funcion por defecto (384 dim),
+    evitando el conflicto de dimensiones.
+    """
 
     def __init__(
         self,
         chroma_dir: str = "rag/data/chroma",
         collection: str = "ajp_doctrine_chunks",
-        lexicons_dir: str = "rag/data/processed/lexicons",
-        embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2",
+        embedding_model: str | None = None,
+        **kwargs: Any,
     ) -> None:
-        self.processed_dir = Path(lexicons_dir).resolve().parent
+        """
+        Args:
+            chroma_dir: ruta al directorio persistente de ChromaDB.
+            collection: nombre de la coleccion dentro de ChromaDB.
+            embedding_model: nombre del modelo SentenceTransformer. Debe
+                coincidir con el usado en build_index.py.
+        """
+        self.chroma_dir = chroma_dir
+        self.collection_name = collection
+        self.embedding_model = embedding_model or _DEFAULT_EMBED_MODEL
+
+        self._embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
+            model_name=self.embedding_model
+        )
+        self.client = chromadb.PersistentClient(path=chroma_dir)
+        self.collection = self.client.get_collection(
+            collection,
+            embedding_function=self._embed_fn,
+        )
 
     def retrieve(
         self,
@@ -30,56 +68,53 @@ class DoctrineRetriever:
         k: int = 5,
         filter_meta: dict[str, Any] | None = None,
     ) -> dict[str, list[RetrievedDocument]]:
-        query_terms = _tokenize(query)
-        source_filter = (filter_meta or {}).get("source_doc")
-        scored: list[tuple[int, RetrievedDocument]] = []
+        """
+        Recupera los k chunks mas relevantes mediante similitud semantica.
 
-        for path in self.processed_dir.glob("*.chunks.jsonl"):
-            if source_filter and source_filter not in path.name:
-                continue
-            for item in _read_jsonl(path):
-                text = str(item.get("text") or item.get("page_content") or "")
-                if not text:
-                    continue
-                metadata = dict(item.get("metadata") or {})
-                metadata.setdefault("source_doc", _source_doc_from_name(path.name))
-                metadata.setdefault("page", item.get("page", ""))
-                score = len(query_terms & _tokenize(text))
-                if score > 0:
-                    metadata["score"] = score
-                    scored.append((score, RetrievedDocument(text, metadata)))
+        Args:
+            query: consulta en lenguaje natural, en cualquier idioma soportado
+                por el modelo de embeddings (incluye espanol e ingles).
+            k: numero maximo de chunks a devolver.
+            filter_meta: filtros de metadata. Soporta {"source_doc": "AJP-3.X"}
+                para restringir la busqueda a un documento concreto.
 
-        scored.sort(key=lambda row: row[0], reverse=True)
-        return {"docs_final": [doc for _, doc in scored[:k]]}
+        Returns:
+            {"docs_final": [RetrievedDocument, ...]}
+        """
+        where_filter = None
+        if filter_meta and filter_meta.get("source_doc"):
+            where_filter = {"source_doc": {"$eq": filter_meta["source_doc"]}}
 
+        try:
+            result = self.collection.query(
+                query_texts=[query],
+                n_results=k,
+                where=where_filter,
+                include=["documents", "metadatas", "distances"],
+            )
+        except Exception as e:
+            logger.error("ChromaDB retrieval error: %s", e)
+            return {"docs_final": []}
 
-def _read_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows: list[dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as handle:
-        for line in handle:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                rows.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue
-    return rows
+        docs: list[RetrievedDocument] = []
+        documents = result.get("documents") or [[]]
+        metadatas = result.get("metadatas") or [[]]
+        distances = result.get("distances") or [[]]
 
+        for text, metadata, distance in zip(
+            documents[0], metadatas[0], distances[0]
+        ):
+            metadata = dict(metadata or {})
+            # ChromaDB devuelve distancia coseno (menor = mas similar).
+            # Se convierte a un score de similitud en (0, 1], mayor = mejor.
+            metadata["score"] = 1.0 / (1.0 + distance)
+            docs.append(RetrievedDocument(text, metadata))
 
-def _tokenize(text: str) -> set[str]:
-    return {
-        token
-        for token in "".join(ch.lower() if ch.isalnum() else " " for ch in text).split()
-        if len(token) > 2
-    }
+        logger.info(
+            "Retriever: query=%r source_doc=%s chunks=%d",
+            query[:60],
+            (filter_meta or {}).get("source_doc", "any"),
+            len(docs),
+        )
 
-
-def _source_doc_from_name(name: str) -> str:
-    if "3_1" in name or "3.1" in name:
-        return "AJP-3.1"
-    if "3_2" in name or "3.2" in name:
-        return "AJP-3.2"
-    if "3_3" in name or "3.3" in name:
-        return "AJP-3.3"
-    return name
+        return {"docs_final": docs}

@@ -41,8 +41,7 @@ PRINCIPIOS DE REPARACION
      Intenta con otro termino de busqueda o informa al Synthesizer.
    - "tool args invalidos": ajusta los args al schema correcto.
    - "resultado vacio bloqueante": redisena el step con una estrategia
-     alternativa (otro tool, otra propiedad, sparql_from_nl como fallback).
-
+     alternativa (otro tool, otra propiedad, raw_sparql como fallback).
 4. CONSERVA el objetivo original: el plan reparado debe resolver la misma
    consulta del usuario, no una version simplificada.
 
@@ -56,7 +55,7 @@ TIPOS DE ERROR Y ESTRATEGIAS DE REPARACION
 
 Error: "resolve_entity returned empty for name='X'"
   -> Estrategia: (a) probar con alias conocidos del cheatsheet,
-     (b) usar sparql_from_nl para buscar por otras propiedades,
+     (b) usar raw_sparql para buscar por otras propiedades,
      (c) si el nombre no puede resolverse, steps=[].
 
 Error: "tool 'entity_outgoing' invalid property 'X'"
@@ -66,10 +65,10 @@ Error: "tool 'entity_outgoing' invalid property 'X'"
 Error: "step E2 returned EMPTY and E3 depends on it"
   -> Estrategia: (a) verificar si la relacion existe en la ontologia,
      (b) usar tool alternativo que cubra el mismo caso de uso,
-     (c) usar sparql_from_nl con una instruccion mas amplia.
+     (c) usar raw_sparql con una instruccion mas amplia.
 
 Error: "SPARQL syntax error in raw_sparql"
-  -> Estrategia: usar sparql_from_nl para regenerar el SPARQL con
+  -> Estrategia: usar raw_sparql para regenerar el SPARQL con
      una instruccion mas precisa.
 
 =======================================================================
