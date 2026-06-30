@@ -181,8 +181,7 @@ owl:DatatypeProperty rdf:type owl:AnnotationProperty .
 :id rdf:type owl:DatatypeProperty .
 
 
-###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#interaccion_con
-:interaccion_con rdf:type owl:DatatypeProperty .
+
 
 
 ###  http://www.semanticweb.org/carlo/ontologies/2024/10/untitled-ontology-4#licencia
@@ -413,10 +412,6 @@ owl:DatatypeProperty rdf:type owl:AnnotationProperty .
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :funcion_c2 ;
-                        owl:someValuesFrom xsd:string
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :interaccion_con ;
                         owl:someValuesFrom xsd:string
                       ] ,
                       [ rdf:type owl:Restriction ;

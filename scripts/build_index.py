@@ -13,7 +13,7 @@ Estrategia:
   5. Al cambiar de sección, guardar el chunk acumulado.
   6. Si un chunk supera MAX_CHUNK_CHARS, dividir con solapamiento
      (prefijando el heading al inicio de cada parte).
-  7. Embebido con paraphrase-multilingual-mpnet-base-v2 e indexado en ChromaDB.
+  7. Embebido con all-MiniLM-L6-v2 e indexado en ChromaDB.
 
 Uso (desde la raíz del proyecto):
     .venv/Scripts/python rag/src/build_index.py
@@ -157,35 +157,108 @@ def _find_page_heading(text: str) -> Optional[Tuple[str, str]]:
 
 def _split_into_chunks(text: str, heading_prefix: str = "") -> List[str]:
     """
-    Divide `text` en sub-chunks de ≤ MAX_CHUNK_CHARS con solapamiento.
-    Los sub-chunks de continuación llevan el heading como prefijo para
-    que el embedding tenga contexto de sección.
+    Divide `text` en sub-chunks de <= MAX_CHUNK_CHARS respetando, siempre que
+    sea posible, los limites de los parrafos numerados de los AJP (p. ej. "3.4",
+    "4.15", "1.8"). Cada parrafo doctrinal se mantiene integro dentro de un chunk;
+    los parrafos cortos se agrupan hasta acercarse al tamano objetivo y los
+    parrafos muy largos se subdividen por frase como ultimo recurso.
 
-    Garantiza avance mínimo de 1 carácter por iteración para evitar loops infinitos.
+    Esta estrategia evita partir definiciones doctrinales a mitad de frase, lo
+    que degradaba la recuperacion semantica de definiciones y taxonomias.
+
+    Los sub-chunks de continuacion llevan el heading como prefijo para que el
+    embedding tenga contexto de seccion.
     """
     if not text:
         return []
-    # Protección: si el texto es demasiado grande (> 200 KB), lo truncamos
     if len(text) > 200_000:
         text = text[:200_000]
+    if len(text) <= MAX_CHUNK_CHARS:
+        return [text]
+
+    # Localizar los inicios de parrafo numerado: un numero de capitulo.parrafo
+    # (1-2 digitos . 1-3 digitos) al inicio de linea o tras un espacio, seguido
+    # de un espacio y texto. Captura "3.4 Offensive...", "4.15 The ATO...".
+    para_re = re.compile(r"(?:(?<=\n)|(?<=\s))(\d{1,2}\.\d{1,3})\s+(?=[A-Z\u00c0-\u00dc])")
+
+    # Construir lista de (posicion_inicio) de cada parrafo numerado
+    starts = [m.start() for m in para_re.finditer(text)]
+
+    if len(starts) < 2:
+        # No hay estructura de parrafos numerados detectable: fallback al
+        # troceado por frase con solapamiento (comportamiento anterior).
+        return _split_by_size(text, heading_prefix)
+
+    # Asegurar que el primer segmento empieza en 0 (texto previo al primer numero)
+    if starts[0] != 0:
+        starts = [0] + starts
+    boundaries = starts + [len(text)]
+
+    # Segmentos = trozos entre dos inicios de parrafo consecutivos
+    segments = [text[boundaries[i]:boundaries[i + 1]].strip()
+                for i in range(len(boundaries) - 1)]
+    segments = [s for s in segments if s]
+
+    # Agrupar segmentos consecutivos sin superar MAX_CHUNK_CHARS, sin partir
+    # ningun parrafo. Un parrafo mas largo que el maximo se subdivide por frase.
+    chunks: List[str] = []
+    buffer = ""
+    for seg in segments:
+        if len(seg) > MAX_CHUNK_CHARS:
+            # Volcar lo acumulado y subdividir el parrafo largo por frase
+            if buffer:
+                chunks.append(buffer.strip())
+                buffer = ""
+            chunks.extend(_split_by_size(seg, heading_prefix))
+            continue
+        if not buffer:
+            buffer = seg
+        elif len(buffer) + 1 + len(seg) <= MAX_CHUNK_CHARS:
+            buffer += "\n" + seg
+        else:
+            chunks.append(buffer.strip())
+            buffer = seg
+    if buffer:
+        chunks.append(buffer.strip())
+
+    # Anteponer heading_prefix a los chunks de continuacion y filtrar cortos
+    out: List[str] = []
+    for i, ch in enumerate(chunks):
+        if len(ch) < MIN_CHUNK_CHARS and out:
+            # Fusionar un chunk demasiado corto con el anterior si cabe
+            if len(out[-1]) + 1 + len(ch) <= MAX_CHUNK_CHARS:
+                out[-1] = out[-1] + "\n" + ch
+                continue
+        # Evitar duplicar el heading si el chunk ya empieza por el
+        needs_prefix = (
+            heading_prefix and i > 0 and not ch.startswith(heading_prefix)
+        )
+        prefix = (heading_prefix + "\n") if needs_prefix else ""
+        out.append(prefix + ch)
+    return out
+
+
+def _split_by_size(text: str, heading_prefix: str = "") -> List[str]:
+    """
+    Troceado por tamano con solapamiento, buscando limites de frase. Se usa como
+    fallback cuando no hay estructura de parrafos numerados o para subdividir un
+    parrafo individual mas largo que MAX_CHUNK_CHARS.
+    """
     if len(text) <= MAX_CHUNK_CHARS:
         return [text]
 
     chunks: List[str] = []
     start = 0
     n = len(text)
-    MIN_ADVANCE = max(1, MAX_CHUNK_CHARS - OVERLAP_CHARS)  # avance mínimo garantizado
+    MIN_ADVANCE = max(1, MAX_CHUNK_CHARS - OVERLAP_CHARS)
 
     while start < n:
         end = min(n, start + MAX_CHUNK_CHARS)
         if end < n:
-            # Buscar límite de oración en la segunda mitad del chunk
             mid = start + MAX_CHUNK_CHARS // 2
             bp = text.rfind(". ", mid, end)
             if bp != -1:
                 end = bp + 2
-
-        # Garantizar que end avanza al menos MIN_ADVANCE sobre start
         end = max(end, start + MIN_ADVANCE)
         end = min(end, n)
 
@@ -194,9 +267,8 @@ def _split_into_chunks(text: str, heading_prefix: str = "") -> List[str]:
             prefix = (heading_prefix + "\n") if (heading_prefix and start > 0) else ""
             chunks.append(prefix + chunk)
 
-        # Avanzar; nunca retroceder
         next_start = end - OVERLAP_CHARS
-        start = max(next_start, start + 1)  # garantiza avance mínimo
+        start = max(next_start, start + 1)
 
     return chunks
 

@@ -23,8 +23,11 @@ Reglas de resolucion:
 from __future__ import annotations
 
 import json
+import logging
 import re
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 REF_PATTERN = re.compile(r"\{\{\s*(E\d+)(?:\.([^\s}]+))?\s*\}\}")
 
@@ -115,6 +118,9 @@ def _get_field(output: Any, field: str, step_id: str, original: str) -> Any:
     if isinstance(output, dict):
         if field in output:
             return output[field]
+        alias = _resolve_field_alias(field, output)
+        if alias is not None:
+            return output[alias]
         raise ReferenceResolutionError(
             f"Referencia {original!r}: campo {field!r} no encontrado en "
             f"output de {step_id}. Claves disponibles: {list(output.keys())}"
@@ -128,8 +134,12 @@ def _get_field(output: Any, field: str, step_id: str, original: str) -> Any:
                 f"no se puede extraer campo {field!r}."
             )
         first = output[0]
-        if isinstance(first, dict) and field in first:
-            return first[field]
+        if isinstance(first, dict):
+            if field in first:
+                return first[field]
+            alias = _resolve_field_alias(field, first)
+            if alias is not None:
+                return first[alias]
         raise ReferenceResolutionError(
             f"Referencia {original!r}: campo {field!r} no encontrado en "
             f"primer elemento de {step_id}. "
@@ -141,3 +151,24 @@ def _get_field(output: Any, field: str, step_id: str, original: str) -> Any:
         f"Referencia {original!r}: output de {step_id} es {type(output).__name__}, "
         f"no se puede extraer campo {field!r}."
     )
+
+
+# Nombres que el Planner usa a veces para referirse a la entidad/IRI principal
+# de un resultado, pero que las plantillas SELECT exponen bajo la variable 'x'.
+_ENTITY_FIELD_ALIASES = {"entity", "iri", "node", "subject", "uri", "id", "individual"}
+
+
+def _resolve_field_alias(field: str, row: dict) -> str | None:
+    """
+    Fallback tolerante para desajustes de nombre de campo. Si el Planner pide un
+    campo de entidad (p. ej. 'entity') que no existe pero el resultado expone la
+    variable canonica 'x' (usada por las plantillas SELECT), se resuelve a 'x'.
+    Devuelve la clave real a usar, o None si no aplica.
+    """
+    if field.lower() in _ENTITY_FIELD_ALIASES and "x" in row:
+        logger.warning(
+            "Resolver: campo %r no existe; usando 'x' como alias de entidad.",
+            field,
+        )
+        return "x"
+    return None

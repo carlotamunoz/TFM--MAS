@@ -1,0 +1,134 @@
+[
+  {
+    "id": "Q-DOC-001",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "ref_location": "parr. 1.7",
+    "type": "definicion",
+    "difficulty": "simple",
+    "user_input": "¿Cuáles son los tres atributos centrales del poder aéreo según la doctrina OTAN?",
+    "reference": "Los tres atributos centrales del poder aéreo según AJP-3.3 son velocidad (speed), alcance (reach) y altura (height). La velocidad permite proyectar poder militar de forma rápida y crear tempo. El alcance proporciona acceso a objetivos distantes sin verse impedido por el terreno. La altura ofrece una ventaja de observación y perspectiva.",
+    "reference_contexts": [
+      "These factors result in the three core air power attributes: speed, reach, and height. a. Speed. The speed of air platforms enables military power to be projected rapidly and responsively to complete missions. This creates tempo and the potential to exploit time. b. Reach. About 70% of the Earth’s surface is water. Only 30% is land. Both, land and sea, are covered by air. This provides aircraft with unrivalled reach, normally unimpeded by terrain, and can provide access to an adversary’s resources to attack or influence, however distant or isolated their location. c. Height. The advantage of height is an enduring military reality. Air power offers an elevated vantage point, facilitating observation and thereby supporting activities within the land and maritime environments. 1.7 The three core air power attributes enable and enhance air power’s additional attributes of ubiquity, agility,"
+    ]
+  },
+  {
+    "id": "Q-DOC-002",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "ref_location": "parr. 1.15",
+    "type": "clasificacion",
+    "difficulty": "simple",
+    "user_input": "¿Cómo clasifica AJP-3.3 los sistemas aéreos no tripulados según su peso?",
+    "reference": "AJP-3.3 clasifica los sistemas aéreos no tripulados (UAS) según el peso máximo al despegue (MTOW) del vehículo aéreo asociado en tres clases: Clase I con MTOW inferior a 150 kg, Clase II con MTOW entre 150 kg y 600 kg, y Clase III con MTOW superior a 600 kg.",
+    "reference_contexts": [
+      "are defined as: Class I UAS if the associated UA has a maximum take-off weight (MTOW) below 150 kg; Class II UAS if the associated UA has a MTOW between 150 kg and 600 kg; and Class III UAS if the associated UA has a MTOW above 600 kg. AJP-3.3 1.16 NATO policy is that the operation of weapons with artificial intelligence applications, including UA and associated systems, will be with appropriat"
+    ]
+  },
+  {
+    "id": "Q-DOC-003",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "ref_location": "parr. 3.2",
+    "type": "clasificacion",
+    "difficulty": "media",
+    "user_input": "¿Cuáles son los tres niveles de control del aire que distingue la doctrina aérea OTAN?",
+    "reference": "La doctrina aérea OTAN distingue tres niveles de control del aire. La supremacía aérea (air supremacy) es el grado de superioridad en el que las fuerzas aéreas adversarias son incapaces de interferir de forma efectiva. La superioridad aérea (air superiority) es el grado de dominio que permite conducir operaciones sin interferencia prohibitiva del adversario en un momento y lugar dados. La paridad aérea (air parity) es la situación en la que ningún bando tiene el control del aire.",
+    "reference_contexts": [
+      "There are three levels of control of the air. a. Air supremacy. Air supremacy is defined as: ‘that degree of air superiority wherein the opposing air forces are incapable of effective interference.’ 25 Edition C Version 1 35 Refer to Allied Joint Publication (AJP)-3.3.1, Allied Joint Doctrine for Counter-Air Operations, for details of counter-air operations, including offensive and defensive measures. AJP-3.3 b. Air superiority. Air superiority is defined as that degree of dominance in the air battle of one force over another which permits the conduct of operations by the former and its related land, sea and air forces at a given time and place without prohibitive interference by the opposing force. c. Air parity. Air parity is defined as that degree of control of the air where neither th"
+    ]
+  },
+  {
+    "id": "Q-DOC-004",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "ref_location": "parrs. 3.4-3.5",
+    "type": "comparativa",
+    "difficulty": "media",
+    "user_input": "¿En qué se diferencian las operaciones contraaéreas ofensivas y defensivas?",
+    "reference": "Las operaciones contraaéreas ofensivas (OCA) consisten en operaciones para destruir, interrumpir o degradar las capacidades aéreas y de misiles del adversario lo más cerca posible de su origen, antes o después del lanzamiento, e incluyen ataques de superficie, misiones aire-aire y la supresión de defensas aéreas enemigas (SEAD). Las operaciones contraaéreas defensivas (DCA) protegen a las fuerzas propias y los intereses vitales de ataques aéreos y de misiles, son sinónimo de defensa aérea y de misiles, y pueden ser activas o pasivas. La diferencia esencial es que OCA actúa de forma ofensiva en origen y DCA protege de forma reactiva el espacio propio.",
+    "reference_contexts": [
+      "3.4 Offensive counter-air. Offensive counter-air (OCA) operations consist of offensive operations to destroy, disrupt, or degrade adversary air and missile capabilities as close to their source as possible, both before and after launch. Such operations may be pre-planned or immediate and are conducted across adversary territory at the initiative of friendly forces. OCA is a synchronized effort which includes the capabilities from the joint force. OCA includes surface attack operations, air-to-air missions, and suppression of enemy air defences (SEAD). a. Surface attack operations target aircraft, airfields, cruise and ballistic missile infrastructure, ground/sea/air-based launch platforms, supporting infrastructures and associated command and control (C2). b. Fighter sweep is an offensive mission by fighter aircraft to seek out and destroy enemy aircraft or targets of opportunity in an a",
+      "3.5 Defensive counter-air.37 Defensive counter-air (DCA) operations protect friendly forces and vital interests from air and missile attacks; it is synonymous with air and missile defence (AMD). DCA consists of all active and passive AD operations to detect, identify, intercept, and destroy or make ineffective, adversary air and missile forces attempting to attack or penetrate friendly airspace. The AMD commander integrates forces assigned to them and coordinates all AMD activities regardless of system ownership. AMD can be active or passive. a. Active air and missile defence. Active measures taken against attacking forces to destroy or nullify any form of air or missile threat or to reduce"
+    ]
+  },
+  {
+    "id": "Q-DOC-005",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "ref_location": "parr. 4.15",
+    "type": "definicion",
+    "difficulty": "media",
+    "user_input": "¿Qué establece el ATO y cuál es su período de cobertura habitual?",
+    "reference": "El Air Tasking Order (ATO) articula la asignación de tareas para las operaciones aéreas durante un tiempo específico, normalmente 24 horas. Debido al período finito que cubre, suele haber varios ATO en distintas fases de desarrollo de forma simultánea. El ciclo de tareas aéreas comienza con la guía del comandante conjunto y termina tras el período de evaluación.",
+    "reference_contexts": [
+      "4.15 The ATO articulates tasking for air operations for a specific time, normally 24 hours. Detailed planning takes place within a predetermined and recurring schedule. Because of the finite period covered by an ATO, there are typically several ATOs in various stages of development at any one time. Long-endurance missions should be reflected in sequential ATOs. The air tasking cycle starts with the joint commander’s guidance and ends after the assessment period. Long-range combat air assets or long endurance ISR assets launching from outside the JOA, may be airborne before ATO execution. These assets require the most current ATO (and ACO) information and updates available. The targeting cycl"
+    ]
+  },
+  {
+    "id": "Q-DOC-006",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "ref_location": "parrs. 4.15-4.16",
+    "type": "procedimiento",
+    "difficulty": "dificil",
+    "user_input": "¿Cuáles son las fases del ciclo de tareas aéreas y con qué actividad se inicia?",
+    "reference": "El número de fases del ciclo de tareas aéreas puede variar según el teatro y las necesidades de contingencia, pero habitualmente consta de varias fases que comienzan con la Fase 1 de estrategia y desarrollo del plan. La actividad principal de la Fase 1 es traducir la dirección y guía (D&G) del comandante conjunto en contribuciones del poder aéreo al plan de operaciones. Las fases siguientes incluyen el esquema de maniobra y desarrollo de objetivos, el emparejamiento de armas y asignación, la producción del ATO, la ejecución y, finalmente, la evaluación.",
+    "reference_contexts": [
+      "usually consists of the following phases. 44 Edition C Version 1 AJP-3.3 Phase 1 – Strategy & plan development 4.16 The main activity within phase 1 is translating the joint commander’s direction and guidance (D&G) into related air power contributions to the operation plan. The process includes the development of recommendations for appropriate changes of the air operations directive (AOD), the development of the CFACC’s comments and apportionment recommendations on the draft JCO based on the air strategy concept and the adaptation of the strategy to task (STT)57 matrix. All three products are submitted to the CFACC during the air strategy meetings for the CFACC’s approval and D&G. Phase 2 – Scheme of manoeuvre & target development 4.17 The main activities within phase 2 are the identification of actions to match desired effects based on the JPTL and air prioritized target list (PTL),"
+    ]
+  },
+  {
+    "id": "Q-DOC-007",
+    "domain": "maritime",
+    "source_doc": "AJP-3.1",
+    "ref_location": "parr. 1.8",
+    "type": "enumeracion",
+    "difficulty": "media",
+    "user_input": "¿Qué actividades comprende el concepto de seguridad marítima según AJP-3.1?",
+    "reference": "Según AJP-3.1, la seguridad marítima comprende el mantenimiento de la libertad de navegación mediante vigilancia, patrulla, operaciones especiales y, cuando se autoriza, el uso de la fuerza; la interdicción marítima para hacer cumplir sanciones y embargos; el apoyo a la conciencia situacional marítima compartida; y la conducción de operaciones de interdicción y aplicación de la ley en el ámbito marítimo.",
+    "reference_contexts": [
+      "1.8 Maritime security includes: a. Upholding freedom of navigation. The exercise of freedom of navigation and overflight and other internationally lawful uses of the sea associated with the operation of ships and aircraft that may include military operations in support of law enforcement efforts. Actions to contribute to freedom of navigation include: surveillance, patrol, special operations, deployment of law enforcement detachments, and, when authorised, the use of force. b. Maritime interdiction. The enforcement of sanctions and embargos that is designed to force a nation or party to conform to a resolution or mandate. Sanctions generally concern the denial of supplies; curtailing diplomatic, economic, and other trading privileges; and restricting the freedom of movement of those living in the area of sanctions. Sanctions may be conducted partially against a particular party, or impartially in the context of a peace support operation, over a wide area embracing all parties. The objective is to establish a barrier that is selective, allowing only those persons, goods, or services that are authorised to enter or exit. Depending on geography, sanction enforcement normally involves"
+    ]
+  },
+  {
+    "id": "Q-DOC-008",
+    "domain": "maritime",
+    "source_doc": "AJP-3.1",
+    "ref_location": "parr. 3.22",
+    "type": "definicion",
+    "difficulty": "simple",
+    "user_input": "¿En qué consiste el control del mar (sea control) según la doctrina marítima OTAN?",
+    "reference": "El control del mar (sea control) es la condición en la que se tiene libertad de acción para usar el mar con fines propios en áreas y períodos de tiempo determinados y, cuando es necesario, negar o limitar su uso al enemigo. Incluye el espacio aéreo sobre la superficie y el volumen de agua y lecho marino por debajo. Es la base de la superioridad marítima y un prerrequisito para la proyección de poder.",
+    "reference_contexts": [
+      "3.22 Sea control is the condition in which one has freedom of action to use the sea for one’s own purposes in specified areas and for specified periods of time and, where necessary, to deny or limit its use to the enemy. Sea control includes the airspace above the surface and the water volume and seabed below. In some cases, it may also require the control of key terrain to influence events seaward. 3.23 Key terrain in a maritime context is any land that affords a force controlling it the ability to significantly influence events at sea and is often associated with coastal areas or islands from which operations can be conducted to control or deny the use of adjacent waters, especially at st"
+    ]
+  },
+  {
+    "id": "Q-DOC-009",
+    "domain": "land",
+    "source_doc": "AJP-3.2",
+    "ref_location": "parr. 2.x",
+    "type": "enumeracion",
+    "difficulty": "media",
+    "user_input": "¿Cuáles son los componentes del fighting power según la doctrina de operaciones terrestres?",
+    "reference": "El fighting power (poder de combate) depende de tres componentes interrelacionados: moral, conceptual y físico. El componente moral es la capacidad de lograr que las personas combatan y operen adecuadamente, e incluye la moral, el liderazgo y la conducta ética. El componente conceptual es el conocimiento, comprensión y aplicación de la doctrina. El componente físico es la combinación adecuada de personal, equipamiento, entrenamiento y sostenimiento. Ninguno de los componentes tiene precedencia y cada uno apoya e informa a los demás.",
+    "reference_contexts": [
+      "dependent on three interrelated components: moral, conceptual and physical. None of the components can claim precedence and each mutually supports and informs the other, as illustrated in Figure 2.1. Training is the essential system by which the three components of fighting power are prepared cohered and integrated. a. Moral component. The moral component is the ability to get people to fight and operate and to do so appropriately. It comprises the force’s morale, leadership and ethical conduct, along with the unique culture of that force. b. Conceptual component. The conceptual component is the force’s knowledge, understanding and application of doctrine, and its continuous learning and adaptation. It includes understanding the situation and the operating environment. For a multinational force, this component will also include doctrinal aspects of interoperability. c. Physical component. The physical component consists of the correct mix of personnel, equipment, training, sustainment and readiness. It is very much a quantitative, measurable component. AJP-3.2 18 Edition"
+    ]
+  },
+  {
+    "id": "Q-DOC-010",
+    "domain": "land",
+    "source_doc": "AJP-3.2",
+    "ref_location": "parrs. 3.15-3.16",
+    "type": "definicion",
+    "difficulty": "dificil",
+    "user_input": "¿En qué consiste la filosofía de mission command y de qué tres elementos depende?",
+    "reference": "Mission command es la filosofía de mando de la OTAN para la conducción de operaciones militares, que aboga por una planificación centralizada con guía e intención claras y una ejecución descentralizada basada en órdenes de tipo misión. Depende de tres elementos: el deber de los comandantes de expresar su intención con claridad y asegurarse de que se comprende; el deber de los subordinados de actuar para lograr esa intención; y la libertad de acción de los subordinados para alcanzar la intención dentro de las restricciones impuestas.",
+    "reference_contexts": [
+      "3.15 Mission command is NATO’s command philosophy for the command of military operations. It is more than a leadership technique or command and control procedure. As the basic principle, it has a major bearing both on the attitude and leadership style of commanders and the conduct of their subordinates. The principles of systematically granting, accepting and demanding autonomy and calling for subordinate commanders to display initiative and creativity permeate all echelons in the hierarchy. This is the approach which empowers leaders at every level and promotes initiative as well as fre",
+      ""
+    ]
+  }
+]

@@ -5,6 +5,7 @@ WORKDIR /app
 # Dependencias del sistema
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
+    dos2unix \
     && rm -rf /var/lib/apt/lists/*
 
 # PyTorch CPU-only primero (evita descargar CUDA, ~700 MB menos)
@@ -17,6 +18,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Código fuente
 COPY . .
+
+RUN find . -name "*.sh" -exec dos2unix {} \; \
+    && chmod +x scripts/*.sh
 
 EXPOSE 8000
 

@@ -1,0 +1,204 @@
+[
+  {
+    "id": "Q-HYB-001",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "type": "estado+control_aire",
+    "difficulty": "media",
+    "user_input": "¿Qué drones de la red se encuentran actualmente en vuelo y cómo contribuye la disponibilidad de plataformas aéreas al control del aire según la doctrina?",
+    "graph_component": {
+      "description": "Drones con estado_operativo = 'En vuelo'",
+      "expected_count": 5,
+      "verifiable_fact": "Hay 5 drones en estado 'En vuelo' en la red."
+    },
+    "doctrine_component": {
+      "summary": "El control del aire es el rol primario del poder aéreo; la disponibilidad de plataformas en vuelo permite alcanzar el grado de control requerido mediante operaciones counter-air.",
+      "chunk_markers": [
+        "control of the air is the pr"
+      ]
+    },
+    "reference": "En la red hay 5 drones en estado 'En vuelo'. Según la doctrina aérea (AJP-3.3), el control del aire es el rol primario del poder aéreo y se logra a través de operaciones counter-air; disponer de plataformas aéreas en vuelo es condición para alcanzar y mantener el grado de control del aire requerido que da libertad de acción a las fuerzas propias."
+  },
+  {
+    "id": "Q-HYB-002",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "type": "nodo_funcion+ISR",
+    "difficulty": "media",
+    "user_input": "¿Qué nodo de la red tiene función de reconocimiento y qué papel asigna la doctrina aérea a las misiones de reconocimiento?",
+    "graph_component": {
+      "description": "Nodo con funcion_c2 = 'Reconocimiento'",
+      "expected_count": 1,
+      "verifiable_fact": "Un nodo (ubicacion 37.7749,-122.4194) tiene funcion_c2 'Reconocimiento'."
+    },
+    "doctrine_component": {
+      "summary": "El reconocimiento e ISR proporcionan la conciencia situacional que sustenta la planificacion y ejecucion de operaciones aereas.",
+      "chunk_markers": [
+        "reconnaissance"
+      ]
+    },
+    "reference": "La red cuenta con un nodo cuya función C2 es el reconocimiento. Según la doctrina aérea (AJP-3.3), las misiones de reconocimiento e ISR aportan la conciencia situacional necesaria para la toma de decisiones y la planificación de las operaciones aéreas, alimentando el ciclo de tareas aéreas."
+  },
+  {
+    "id": "Q-HYB-003",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "type": "tipo_dron+UAS",
+    "difficulty": "media",
+    "user_input": "¿Cuántos drones MQ9-Reaper hay en la red y qué consideraciones establece la doctrina sobre el empleo de sistemas aéreos no tripulados?",
+    "graph_component": {
+      "description": "Drones con tipo = 'MQ9-REAPER'",
+      "expected_count": 3,
+      "verifiable_fact": "Hay 3 drones de tipo MQ9-REAPER en la red."
+    },
+    "doctrine_component": {
+      "summary": "Los UAS se integran en las operaciones aereas y se clasifican por peso; su empleo requiere coordinacion con el control del espacio aereo.",
+      "chunk_markers": [
+        "unmanned aircraft systems planning"
+      ]
+    },
+    "reference": "La red dispone de 3 drones de tipo MQ9-Reaper. Según la doctrina aérea (AJP-3.3), los sistemas aéreos no tripulados se integran en las operaciones aéreas con consideraciones específicas de planificación, requieren coordinación con el control del espacio aéreo y se incorporan a la orden de tareas aéreas como el resto de plataformas."
+  },
+  {
+    "id": "Q-HYB-004",
+    "domain": "air",
+    "source_doc": "AJP-3.3",
+    "type": "nodo_funcion+C2",
+    "difficulty": "dificil",
+    "user_input": "¿Qué nodo se encarga de la gestión de drones y cómo enmarca la doctrina aérea el mando y control de las operaciones aéreas?",
+    "graph_component": {
+      "description": "Nodo con funcion_c2 = 'Gestión de drones'",
+      "expected_count": 1,
+      "verifiable_fact": "Un nodo (ubicacion 45.4215,-75.6972) tiene funcion_c2 'Gestion de drones'."
+    },
+    "doctrine_component": {
+      "summary": "El mando y control aereo busca aumentar la efectividad del combate mediante el uso seguro, eficiente y flexible del espacio aereo.",
+      "chunk_markers": [
+        "command and control",
+        "combat effectiveness"
+      ]
+    },
+    "reference": "En la red, un nodo se encarga de la gestión de drones. Según la doctrina aérea (AJP-3.3), el mando y control de las operaciones aéreas tiene como fin aumentar la efectividad del combate mediante el uso seguro, eficiente y flexible del espacio aéreo, coordinando el empleo de las plataformas, incluidas las no tripuladas, bajo una autoridad de control del espacio aéreo."
+  },
+  {
+    "id": "Q-HYB-005",
+    "domain": "land",
+    "source_doc": "AJP-3.2",
+    "type": "operador_esp+fighting_power",
+    "difficulty": "dificil",
+    "user_input": "¿Qué operadores tienen especialización en ciberseguridad y cómo se relaciona esta capacidad con los componentes del poder de combate según la doctrina terrestre?",
+    "graph_component": {
+      "description": "Operadores con especializacion = 'Ciberseguridad'",
+      "expected_count": 1,
+      "verifiable_fact": "Un operador (capacitacion Nivel-4) tiene especializacion en Ciberseguridad."
+    },
+    "doctrine_component": {
+      "summary": "El poder de combate depende de tres componentes (moral, conceptual, fisico); las capacidades tecnicas como ciberseguridad se enmarcan en el componente fisico.",
+      "chunk_markers": [
+        "moral, conceptual and physical"
+      ]
+    },
+    "reference": "La red cuenta con un operador especializado en ciberseguridad (capacitación Nivel-4). Según la doctrina terrestre (AJP-3.2), el poder de combate depende de tres componentes interrelacionados (moral, conceptual y físico); las capacidades técnicas y el equipamiento, como la ciberseguridad, se integran en el componente físico, que combina personal, equipamiento, entrenamiento y sostenimiento."
+  },
+  {
+    "id": "Q-HYB-006",
+    "domain": "land",
+    "source_doc": "AJP-3.2",
+    "type": "nodo_funcion+mission_command",
+    "difficulty": "dificil",
+    "user_input": "¿Qué nodo desempeña funciones de seguridad y cómo encaja la delegación de funciones en la filosofía de mando tipo misión de la doctrina terrestre?",
+    "graph_component": {
+      "description": "Nodo con funcion_c2 = 'Seguridad'",
+      "expected_count": 1,
+      "verifiable_fact": "Un nodo (ubicacion 51.5074,-0.1278) tiene funcion_c2 'Seguridad'."
+    },
+    "doctrine_component": {
+      "summary": "Mission command es la filosofia de mando que aboga por ejecucion descentralizada e iniciativa de los subordinados.",
+      "chunk_markers": [
+        "mission command is nato"
+      ]
+    },
+    "reference": "En la red, un nodo desempeña funciones de seguridad. Según la doctrina terrestre (AJP-3.2), la filosofía de mando tipo misión aboga por una planificación centralizada con ejecución descentralizada; la asignación de funciones específicas a nodos concretos refleja esa delegación de responsabilidades que permite la iniciativa disciplinada dentro de la intención del mando."
+  },
+  {
+    "id": "Q-HYB-007",
+    "domain": "land",
+    "source_doc": "AJP-3.2",
+    "type": "operador_cap+preparacion",
+    "difficulty": "media",
+    "user_input": "¿Qué operadores alcanzan el nivel máximo de capacitación y qué importancia atribuye la doctrina terrestre a la preparación y el entrenamiento de la fuerza?",
+    "graph_component": {
+      "description": "Operadores con capacitacion = 'Nivel-5'",
+      "expected_count": 1,
+      "verifiable_fact": "Un operador (especializacion Operaciones criticas) tiene capacitacion Nivel-5."
+    },
+    "doctrine_component": {
+      "summary": "El entrenamiento prepara, cohesiona e integra los componentes del poder de combate.",
+      "chunk_markers": [
+        "moral, conceptual and physical"
+      ]
+    },
+    "reference": "La red cuenta con un operador que alcanza el nivel máximo de capacitación (Nivel-5), especializado en operaciones críticas. Según la doctrina terrestre (AJP-3.2), el entrenamiento es esencial para preparar, cohesionar e integrar los componentes del poder de combate, y el nivel de preparación del personal forma parte del componente físico que determina la efectividad operativa."
+  },
+  {
+    "id": "Q-HYB-008",
+    "domain": "maritime",
+    "source_doc": "AJP-3.1",
+    "type": "nodo_funcion+comunicaciones",
+    "difficulty": "media",
+    "user_input": "¿Qué nodo tiene función de comunicación y qué papel juegan las comunicaciones en las operaciones marítimas según la doctrina?",
+    "graph_component": {
+      "description": "Nodo con funcion_c2 = 'Comunicación'",
+      "expected_count": 1,
+      "verifiable_fact": "Un nodo (ubicacion 48.2082,16.3738) tiene funcion_c2 'Comunicacion'."
+    },
+    "doctrine_component": {
+      "summary": "Las comunicaciones sostienen el mando y control y la interoperabilidad de la fuerza maritima.",
+      "chunk_markers": [
+        "communication"
+      ]
+    },
+    "reference": "En la red, un nodo tiene función de comunicación. Según la doctrina marítima (AJP-3.1), las comunicaciones son esenciales para el mando y control de la fuerza marítima y para la interoperabilidad entre componentes, sosteniendo el intercambio de información que permite la conciencia situacional y la coordinación de las operaciones."
+  },
+  {
+    "id": "Q-HYB-009",
+    "domain": "maritime",
+    "source_doc": "AJP-3.1",
+    "type": "organizacion_mision+defensa",
+    "difficulty": "media",
+    "user_input": "¿Qué organizaciones tienen una misión de defensa y cómo aborda la doctrina marítima las operaciones de defensa?",
+    "graph_component": {
+      "description": "Organizaciones con mision = 'Defensa'",
+      "expected_count": 4,
+      "verifiable_fact": "Tres organizaciones (Alemania, Francia, Reino Unido) tienen mision 'Defensa'; OTAN tiene 'Defensa mutua'. Un filtro CONTAINS 'defensa' recupera las cuatro, lo cual es aceptable."
+    },
+    "doctrine_component": {
+      "summary": "Las operaciones de defensa maritima protegen fuerzas e intereses propios y contribuyen a la disuasion y la seguridad colectiva.",
+      "chunk_markers": [
+        "defence"
+      ]
+    },
+    "reference": "Las organizaciones con misión de defensa son Alemania, Francia y Reino Unido; OTAN figura con misión de defensa mutua. Según la doctrina marítima (AJP-3.1), la defensa y la disuasión son responsabilidades primarias de la Alianza, y las fuerzas marítimas contribuyen mediante presencia avanzada, libertad de maniobra y proyección de poder, integrándose en la defensa aérea y antimisiles aliada."
+  },
+  {
+    "id": "Q-HYB-010",
+    "domain": "maritime",
+    "source_doc": "AJP-3.1",
+    "type": "nodo_funcion+conciencia_situacional",
+    "difficulty": "dificil",
+    "user_input": "¿Qué nodo realiza funciones de monitoreo y cómo contribuye la vigilancia a la conciencia situacional marítima según la doctrina?",
+    "graph_component": {
+      "description": "Nodo con funcion_c2 = 'Monitoreo'",
+      "expected_count": 1,
+      "verifiable_fact": "Un nodo (ubicacion 48.8566,2.3522) tiene funcion_c2 'Monitoreo'."
+    },
+    "doctrine_component": {
+      "summary": "La vigilancia y el seguimiento alimentan la conciencia situacional maritima reconocida, base para la toma de decisiones.",
+      "chunk_markers": [
+        "maritime",
+        "situational awareness"
+      ]
+    },
+    "reference": "En la red, un nodo realiza funciones de monitoreo. Según la doctrina marítima (AJP-3.1), la vigilancia y el seguimiento continuo del entorno alimentan la conciencia situacional marítima reconocida, que constituye la base para la toma de decisiones y para anticipar amenazas en el dominio marítimo."
+  }
+]

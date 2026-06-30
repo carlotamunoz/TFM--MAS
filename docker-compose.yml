@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
 
-  # ── Fuseki (ontología) ────────────────────────────────────────────────
+  # ── Fuseki (almacén de tripletas / ontología) ─────────────────────────
   fuseki:
     image: stain/jena-fuseki:latest
     container_name: sa_fuseki
@@ -13,12 +13,10 @@ services:
       FUSEKI_DATASET: dron
     volumes:
       - fuseki_data:/fuseki
-      - ./ontologia:/staging/ontologia:ro
-      - ./scripts/entrypoint.sh:/docker-entrypoint-initdb.d/load_ontology.sh:ro
     ports:
       - "3030:3030"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3030/$/ping"]
+      test: ["CMD", "curl", "-f", "http://localhost:3030/$$/ping"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -31,16 +29,23 @@ services:
       context: .
       dockerfile: Dockerfile.api
     container_name: sa_api
+    # El entrypoint espera a Fuseki, crea el dataset, carga la ontología
+    # y arranca uvicorn. Esto sustituye al CMD del Dockerfile.
+    command: ["bash", "scripts/entrypoint.sh"]
     env_file: .env
     environment:
+      FUSEKI_BASE: http://fuseki:3030
+      FUSEKI_DATASET: dron
+      FUSEKI_ADMIN_PASSWORD: admin
       FUSEKI_ENDPOINT: http://fuseki:3030/dron/query
-      FUSEKI_GRAPH: "<urn:scenario:static>"
+      FUSEKI_GRAPH: "urn:scenario:static"
       CHROMA_DIR: /app/rag/data/chroma
       CHROMA_COLLECTION: ajp_doctrine_chunks
       LEXICONS_DIR: /app/rag/data/processed/lexicons
       LOG_LEVEL: INFO
     volumes:
       - ./rag:/app/rag
+      - ./ontologia:/app/ontologia:ro
     ports:
       - "8000:8000"
     depends_on:

@@ -24,8 +24,14 @@ env/
 .env/
 ENV/
 
-# --- ChromaDB vector store (generated, rebuildable) ---
-rag/data/chroma/
+# --- ChromaDB vector store ---
+# NO se excluye: rag/data/chroma/ contiene el índice ya construido
+# (fragmentos AJP + embeddings). Debe ir versionado para que el sistema
+# sea plug-and-play; sin él, habría que reconstruirlo con
+# rag/src/build_index.py (PyMuPDF + descarga del modelo de embeddings)
+# antes de poder arrancar.
+#
+
 
 # --- IDE & OS ---
 .vscode/
@@ -62,6 +68,6 @@ models/
 *.bin
 *.safetensors
 
-# --- Fuseki data (generated at runtime) ---
+# --- Fuseki data (generated at runtime, recreado por el entrypoint) ---
 fuseki-data/
 run/
