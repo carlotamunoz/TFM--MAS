@@ -37,6 +37,14 @@ POST /query
 
 
 ```
+En la siguiente imagen se puede ver una visión general de la arquitectura propuesta:
+
+<p align="center">
+  <img src="img/caso_uso.png" width="700">
+</p>
+
+
+
 
 **Caminos cortos:**
 
